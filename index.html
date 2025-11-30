@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- <link href="../../styles/pages/menu/index.css" rel="stylesheet" />  -->
+
+    <!-- STYLES -->
+    <link href="./styles/utilis/loading.css" rel="stylesheet" />
+    <link href="./styles/utilis/navbar.css" rel="stylesheet" />
+    <link href="./styles/utilis/mobile-header.css" rel="stylesheet" />
+    <link href="./styles/utilis/server-status.css" rel="stylesheet" />
+    <link href="./styles/main.css" rel="stylesheet" />
+    <link href="./styles/index.css" rel="stylesheet" />
+
+    <!-- FONT: Rubik (supports both English & Arabic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ICONS: Bootstrap Icons 1.13.1 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <h2 class="loading-title">Loading Dashboard</h2>
+        <p class="loading-message">Please wait...</p>
+      </div>
+    </div>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+      <div class="mobile-header-left">
+        <button class="mobile-menu-toggle" aria-label="Open menu">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+      <div class="mobile-header-center">
+        <div class="mobile-logo">
+          <img
+            src="./media/imgs/logo-short.png"
+            width="32"
+            alt="yourself-logo"
+          />
+        </div>
+      </div>
+      <div class="mobile-header-right">
+        <!-- <button class="mobile-notification-btn" aria-label="Notifications">
+          <i class="bi bi-bell"></i>
+          <span class="mobile-notification-badge"></span>
+        </button> -->
+        <img
+          src="./media/imgs/profile-icon.png"
+          class="mobile-profile-img"
+          alt="Profile"
+        />
+      </div>
+    </header>
+
+    <!-- Mobile Sidebar Navigation -->
+    <div class="mobile-sidebar-overlay"></div>
+    <nav class="mobile-sidebar">
+      <div class="mobile-sidebar-header">
+        <h3>Menu</h3>
+        <button class="mobile-sidebar-close" aria-label="Close menu">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+      <div class="mobile-sidebar-content">
+        <!-- Main Navigation -->
+        <div class="mobile-nav-section">
+          <ul class="mobile-nav-links">
+            <li>
+              <a href="index.html">
+                <i class="bi bi-house"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <button class="mobile-dropdown-toggle">
+                <div class="mobile-dropdown-toggle-left">
+                  <i class="bi bi-pencil-square"></i>
+                  <span>Manage</span>
+                </div>
+                <i class="bi bi-chevron-down mobile-dropdown-icon"></i>
+              </button>
+              <ul class="mobile-dropdown-menu">
+                <li>
+                  <a href="products.html">
+                    <i class="bi bi-bag"></i>
+                    <span>Manage Products</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="schools.html">
+                    <i class="bi bi-buildings"></i>
+                    <span>Manage Schools</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="students.html">
+                    <i class="bi bi-person"></i>
+                    <span>Manage Students</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mobile-nav-divider"></div>
+
+        <!-- App Section -->
+        <div class="mobile-nav-section">
+          <div class="mobile-nav-section-title">App</div>
+          <ul class="mobile-nav-links">
+            <li>
+              <a href="portfolio.html">
+                <i class="bi bi-card-heading"></i>
+                <span>Portfolio</span>
+              </a>
+            </li>
+            <li>
+              <a href="design.html">
+                <i class="bi bi-vector-pen"></i>
+                <span>Design</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mobile-nav-divider"></div>
+
+        <!-- Other Section -->
+        <div class="mobile-nav-section">
+          <div class="mobile-nav-section-title">Other</div>
+          <ul class="mobile-nav-links">
+            <li>
+              <a href="settings.html">
+                <i class="bi bi-gear"></i>
+                <span>Settings</span>
+              </a>
+            </li>
+            <!-- <li>
+              <a href="account.html">
+                <i class="bi bi-person-gear"></i>
+                <span>Account</span>
+              </a>
+            </li>
+            <li>
+              <a href="help.html">
+                <i class="bi bi-info-circle"></i>
+                <span>Help</span>
+              </a>
+            </li> -->
+          </ul>
+        </div>
+
+        <div class="mobile-nav-divider"></div>
+
+        <!-- Logout -->
+        <div class="mobile-nav-section">
+          <ul class="mobile-nav-links">
+            <li>
+              <a href="#" class="js-logout-button">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="navbar js-navbar">
+      <div class="navbar-header">
+        <span>
+          <img
+            src="./media/imgs/logo-short.png"
+            width="35px"
+            alt="yourself-logo-short"
+          />
+        </span>
+        <button class="js-navbar-toggle js-click-on">
+          <i class="bi bi-box-arrow-in-left"></i>
+        </button>
+      </div>
+      <div class="navbar-links">
+        <div class="links-group">
+          <ul>
+            <a href="index.html">
+              <li class="active">
+                <i class="bi bi-house"></i>
+                <span> Dashboard </span>
+              </li>
+            </a>
+            <div class="dropdown">
+              <li class="js-dropdown">
+                <i class="bi bi-pencil-square"></i>
+                <span>
+                  Manage
+                  <i
+                    class="bi bi-caret-down js-manage-icon"
+                    style="margin-left: 5px; font-size: 15px"
+                  ></i>
+                </span>
+              </li>
+              <ul class="dropdown-menu js-dropdown-menu">
+                <a href="products.html">
+                  <li>
+                    <i class="bi bi-bag"></i>
+                    <span> Manage Products </span>
+                  </li>
+                </a>
+                <a href="schools.html">
+                  <li>
+                    <i class="bi bi-buildings"></i>
+                    <span> Manage Schools </span>
+                  </li>
+                </a>
+                <a href="students.html">
+                  <li>
+                    <i class="bi bi-person"></i>
+                    <span> Manage Students </span>
+                  </li>
+                </a>
+              </ul>
+            </div>
+          </ul>
+        </div>
+        <hr />
+        <div class="links-group">
+          <ul>
+            <a href="portfolio.html">
+              <li>
+                <i class="bi bi-card-heading"></i>
+                <span> Portfolio </span>
+              </li>
+            </a>
+            <a href="design.html">
+              <li>
+                <i class="bi bi-vector-pen"></i>
+                <span> Design </span>
+              </li>
+            </a>
+          </ul>
+        </div>
+        <hr />
+        <div class="links-group">
+          <ul>
+            <a href="settings.html">
+              <li>
+                <i class="bi bi-gear"></i>
+                <span> Settings </span>
+              </li>
+            </a>
+            <!-- <a href="account.html">
+              <li>
+                <i class="bi bi-person-gear"></i>
+                <span> Account </span>
+              </li>
+            </a>
+            <a href="help.html">
+              <li>
+                <i class="bi bi-info-circle"></i>
+                <span> Help </span>
+              </li>
+            </a> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <div class="page-header">
+        <div class="page-header-title">
+          <i class="bi bi-house"></i>
+          <p>Dashboard</p>
+        </div>
+        <div class="page-header-profile">
+          <!-- <i class="bi bi-bell"></i> -->
+          <img
+            src="./media/imgs/profile-icon.png"
+            width="35px"
+            alt="profile-icon"
+          />
+        </div>
+      </div>
+
+      <div class="page-main-data">
+        <!-- Stats Cards Row -->
+        <div class="stats-cards">
+          <div class="card">
+            <p class="stat-label">Total Products</p>
+            <h2 class="stat-value js-total-products">0</h2>
+          </div>
+          <div class="card">
+            <p class="stat-label">Total Schools</p>
+            <h2 class="stat-value js-total-schools">0</h2>
+          </div>
+          <div class="card">
+            <p class="stat-label">Total Students</p>
+            <h2 class="stat-value js-total-students">0</h2>
+          </div>
+          <div class="card">
+            <p class="stat-label">Total Packs</p>
+            <h2 class="stat-value js-total-packs">0</h2>
+          </div>
+        </div>
+
+        <!-- Revenue Chart Row -->
+        <div class="row">
+          <div class="card">
+            <div class="chart-header">
+              <div>
+                <h3>Revenue</h3>
+                <p class="revenue-value">
+                  EGP <span class="js-revenue-value">0</span>
+                </p>
+                <p class="revenue-change">
+                  <i class="bi bi-arrow-up"></i>
+                  <span>0% vs last month</span>
+                </p>
+              </div>
+              <div class="date-filters">
+                <select class="js-revenue-month">
+                  <option value="0">January</option>
+                  <option value="1">February</option>
+                  <option value="2">March</option>
+                  <option value="3">April</option>
+                  <option value="4">May</option>
+                  <option value="5">June</option>
+                  <option value="6">July</option>
+                  <option value="7">August</option>
+                  <option value="8">September</option>
+                  <option value="9">October</option>
+                  <option value="10" selected>November</option>
+                  <option value="11">December</option>
+                </select>
+                <select class="js-revenue-year">
+                  <option value="2024">2024</option>
+                  <option value="2025" selected>2025</option>
+                  <option value="2026">2026</option>
+                </select>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas id="revenueChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calendar Row -->
+        <div class="row">
+          <div class="card">
+            <div class="calendar-header">
+              <h3>Pickup Date</h3>
+              <div class="date-filters">
+                <select class="js-calendar-month">
+                  <option value="0">January</option>
+                  <option value="1">February</option>
+                  <option value="2">March</option>
+                  <option value="3">April</option>
+                  <option value="4">May</option>
+                  <option value="5">June</option>
+                  <option value="6">July</option>
+                  <option value="7">August</option>
+                  <option value="8">September</option>
+                  <option value="9">October</option>
+                  <option value="10" selected>November</option>
+                  <option value="11">December</option>
+                </select>
+                <select class="js-calendar-year">
+                  <option value="2024">2024</option>
+                  <option value="2025" selected>2025</option>
+                  <option value="2026">2026</option>
+                </select>
+              </div>
+            </div>
+            <div class="calendar-weekdays">
+              <div class="calendar-weekday">SUN</div>
+              <div class="calendar-weekday">MON</div>
+              <div class="calendar-weekday">TUE</div>
+              <div class="calendar-weekday">WED</div>
+              <div class="calendar-weekday">THU</div>
+              <div class="calendar-weekday">FRI</div>
+              <div class="calendar-weekday">SAT</div>
+            </div>
+            <div class="calendar-grid js-calendar-grid"></div>
+          </div>
+        </div>
+
+        <div class="half-row">
+          <!-- Top Schools Table -->
+          <div class="card">
+            <h3>Top Schools</h3>
+            <table class="top-schools-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>School Name</th>
+                  <th>Total Packs</th>
+                  <th>Total Users</th>
+                </tr>
+              </thead>
+              <tbody class="js-schools-tbody">
+                <tr>
+                  <td>1</td>
+                  <td>MCS</td>
+                  <td>2</td>
+                  <td>325</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>DIS</td>
+                  <td>1</td>
+                  <td>250</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Clary SC</td>
+                  <td>2</td>
+                  <td>180</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Clary SC</td>
+                  <td>2</td>
+                  <td>180</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Clary SC</td>
+                  <td>2</td>
+                  <td>180</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Pack Distribution -->
+          <div class="card">
+            <h3>Pack Distribution</h3>
+            <div class="pack-chart-container">
+              <canvas id="packChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./scripts/auth.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
+    <script src="./scripts/utilis/mobile-nav.js"></script>
+    <script src="./scripts/utilis/navbar.js"></script>
+  </body>
+</html>

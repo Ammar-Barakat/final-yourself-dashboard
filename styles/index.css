@@ -1,0 +1,438 @@
+/* Dashboard Specific Styles */
+
+.page-main-operations {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg-24px) var(--space-xl-32px);
+}
+
+.card {
+  padding: var(--space-md-16px) var(--space-lg-24px);
+  border: 1px solid var(--secondary-shadow-color);
+  border-radius: var(--radius-md-6px);
+  box-shadow: 0px 2px 10px 0px var(--secondary-shadow-color);
+}
+
+.card h3 {
+  margin-top: 0;
+  font-size: var(--font-md-16px);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.page-main-data {
+  padding: var(--space-md-16px) var(--space-xl-32px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg-24px);
+  height: auto;
+}
+
+/* Stats Cards */
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg-24px);
+}
+
+.stat-label {
+  font-size: var(--font-sm-14px);
+  color: #6b7280;
+  margin-bottom: var(--space-xs-8px);
+}
+
+.stat-value {
+  font-size: var(--font-xl-24px);
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+/* Revenue Row */
+.revenue-row {
+  width: 100%;
+}
+
+/* Calendar Row */
+.calendar-row {
+  width: 100%;
+}
+
+/* Charts Row */
+.charts-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-lg-24px);
+}
+
+.chart-card {
+  background-color: var(--secondary-color);
+  padding: var(--space-lg-24px);
+  border-radius: var(--radius-lg-12px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-md-16px);
+}
+
+.chart-header h3 {
+  font-size: var(--font-md-16px);
+  color: var(--primary-color);
+  margin: 0 0 var(--space-xs-8px) 0;
+  font-weight: 500;
+}
+
+.date-filters {
+  display: flex;
+  gap: var(--space-xs-8px);
+}
+
+.date-filters select {
+  padding: var(--space-xs-8px) var(--space-sm-12px);
+  border: 1px solid var(--secondary-shadow-color);
+  border-radius: var(--radius-sm-4px);
+  font-size: var(--font-sm-14px);
+  color: var(--primary-color);
+  font-family: "Poppins", sans-serif;
+  background-color: var(--secondary-color);
+  cursor: pointer;
+}
+
+.revenue-value {
+  font-size: calc(var(--font-xl-24px) + var(--space-xs-8px));
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.revenue-change {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xxs-4px);
+  font-size: var(--font-sm-14px);
+  color: #f59e0b;
+  margin: var(--space-xxs-4px) 0;
+}
+
+.chart-subtitle {
+  font-size: var(--font-xs-12px);
+  color: #9ca3af;
+  margin: var(--space-xs-8px) 0 0 0;
+}
+
+.view-report-btn {
+  padding: var(--space-xs-8px) var(--space-md-16px);
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-shadow-color);
+  border-radius: var(--radius-sm-4px);
+  font-size: var(--font-sm-14px);
+  color: var(--primary-color);
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+}
+
+.chart-container {
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+
+.chart-container canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Pack Distribution Chart */
+.pack-chart-container {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.pack-chart-container canvas {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+/* Calendar Card */
+.calendar-card {
+  background-color: var(--secondary-color);
+  padding: var(--space-lg-24px);
+  border-radius: var(--radius-lg-12px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg-24px);
+}
+
+.calendar-header h3 {
+  font-size: var(--font-md-16px);
+  color: var(--primary-color);
+  margin: 0;
+  font-weight: 600;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-xs-8px);
+  margin-bottom: var(--space-sm-12px);
+  padding-bottom: var(--space-sm-12px);
+  border-bottom: 1px solid var(--secondary-shadow-color);
+}
+
+.calendar-weekday {
+  text-align: center;
+  font-size: var(--font-xs-12px);
+  font-weight: 600;
+  color: #6b7280;
+  padding: var(--space-xs-8px) 0;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-xs-8px);
+  align-items: center;
+}
+
+.calendar-day {
+  aspect-ratio: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-sm-14px);
+  color: var(--primary-color);
+  position: relative;
+  cursor: pointer;
+  border-radius: var(--radius-sm-4px);
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.calendar-day:hover {
+  background-color: var(--third-shadow-color);
+}
+
+.calendar-day.other-month {
+  color: #9ca3af;
+}
+
+.calendar-day.today {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.calendar-day.has-pickup {
+  background-color: rgba(48, 93, 98, 0.1);
+  color: var(--primary-color);
+  font-weight: 700;
+  border: 2px solid var(--primary-color);
+}
+
+.calendar-day.has-pickup.today {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.calendar-day .pickup-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-size: var(--font-sm-14px);
+  padding: 2px 4px;
+  border-radius: var(--radius-sm-4px);
+  line-height: 1;
+}
+
+/* Bottom Row */
+.half-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg-24px);
+}
+
+.schools-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.schools-table thead {
+  background-color: var(--darker-secondary-color);
+}
+
+.schools-table th {
+  padding: var(--space-sm-12px);
+  text-align: left;
+  font-size: var(--font-sm-14px);
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.schools-table td {
+  padding: var(--space-sm-12px);
+  font-size: var(--font-sm-14px);
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--darker-secondary-color);
+}
+
+.schools-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Performance Card */
+.performance-card .chart-header {
+  margin-bottom: var(--space-md-16px);
+}
+
+.performance-card .chart-header h3 {
+  font-size: var(--font-md-16px);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.performance-card .chart-header select {
+  padding: var(--space-xs-8px) var(--space-sm-12px);
+  border: 1px solid var(--secondary-shadow-color);
+  border-radius: var(--radius-sm-4px);
+  font-size: var(--font-sm-14px);
+  color: var(--primary-color);
+  font-family: "Poppins", sans-serif;
+  background-color: var(--secondary-color);
+  cursor: pointer;
+}
+
+/* Mobile Responsive Styles for Dashboard */
+@media (max-width: 768px) {
+  /* Stats cards - 2 columns grid */
+  .stats-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm-12px);
+  }
+
+  .calendar-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm-12px);
+  }
+
+  /* Calendar optimizations - 4 column grid */
+  .calendar-card {
+    padding: var(--space-sm-12px);
+  }
+
+  .calendar-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    justify-items: center;
+  }
+
+  .calendar-weekdays {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+  }
+
+  .calendar-day {
+    aspect-ratio: 0.8;
+    font-size: 11px;
+    padding: 2px;
+    min-height: 30px;
+    height: 30px;
+  }
+
+  .calendar-weekday {
+    font-size: 9px;
+    padding: 2px 0;
+  }
+
+  .calendar-day .pickup-badge {
+    font-size: 8px;
+    padding: 1px 2px;
+    top: 1px;
+    right: 1px;
+  }
+
+  /* Revenue chart header - column layout */
+  .chart-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm-12px);
+  }
+
+  .date-filters {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--space-xs-8px);
+  }
+
+  .date-filters select {
+    width: 100%;
+  }
+
+  /* Reduce chart heights and remove overflow */
+  .chart-container {
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .pack-chart-container {
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .chart-card {
+    padding: var(--space-sm-12px);
+    overflow: hidden;
+  }
+
+  .revenue-row {
+    overflow: hidden;
+  }
+
+  .revenue-row .chart-card {
+    overflow: hidden;
+  }
+
+  /* Dashboard specific grid system */
+  /* Stats cards - 2 column grid on mobile */
+  .stats-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm-12px);
+  }
+
+  /* All other rows - single column */
+  .row,
+  .revenue-row,
+  .half-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md-16px);
+  }
+}
+
+/* Extra small mobile - all cards single column */
+/* @media (max-width: 480px) {
+  .stats-cards {
+    grid-template-columns: 1fr;
+  }
+} */

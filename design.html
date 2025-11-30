@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design</title>
+
+    <!-- STYLES -->
+    <link href="./styles/utilis/navbar.css" rel="stylesheet" />
+    <link href="./styles/utilis/mobile-header.css" rel="stylesheet" />
+    <link href="./styles/utilis/pop-ups.css" rel="stylesheet" />
+    <link href="./styles/utilis/loading.css" rel="stylesheet" />
+    <link href="./styles/main.css" rel="stylesheet" />
+    <link href="./styles/design.css" rel="stylesheet" />
+
+    <!-- FONT: Rubik (supports both English & Arabic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ICONS: Bootstrap Icons 1.13.1 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <h2 class="loading-title">Loading Dashboard</h2>
+        <p class="loading-message">Please wait...</p>
+      </div>
+    </div>
+
+    <div class="navbar js-navbar">
+      <div class="navbar-header">
+        <span>
+          <img
+            src="./media/imgs/logo-short.png"
+            width="35px"
+            alt="yourself-logo-short"
+          />
+        </span>
+        <button class="js-navbar-toggle js-click-on">
+          <i class="bi bi-box-arrow-in-left"></i>
+        </button>
+      </div>
+      <div class="navbar-links">
+        <div class="links-group">
+          <ul>
+            <a href="index.html">
+              <li>
+                <i class="bi bi-house"></i>
+                <span> Dashboard </span>
+              </li>
+            </a>
+            <div class="dropdown">
+              <li class="js-dropdown">
+                <i class="bi bi-pencil-square"></i>
+                <span>
+                  Manage
+                  <i
+                    class="bi bi-caret-down js-manage-icon"
+                    style="margin-left: 5px; font-size: 15px"
+                  ></i>
+                </span>
+              </li>
+              <ul class="dropdown-menu js-dropdown-menu">
+                <a href="products.html">
+                  <li>
+                    <i class="bi bi-bag"></i>
+                    <span> Manage Products </span>
+                  </li>
+                </a>
+                <a href="schools.html">
+                  <li>
+                    <i class="bi bi-buildings"></i>
+                    <span> Manage Schools </span>
+                  </li>
+                </a>
+                <a href="students.html">
+                  <li>
+                    <i class="bi bi-person"></i>
+                    <span> Manage Students </span>
+                  </li>
+                </a>
+              </ul>
+            </div>
+          </ul>
+        </div>
+        <hr />
+        <div class="links-group">
+          <ul>
+            <a href="portfolio.html">
+              <li>
+                <i class="bi bi-card-heading"></i>
+                <span> Portfolio </span>
+              </li>
+            </a>
+            <a href="design.html">
+              <li class="active">
+                <i class="bi bi-vector-pen"></i>
+                <span> Design </span>
+              </li>
+            </a>
+          </ul>
+        </div>
+        <hr />
+        <div class="links-group">
+          <ul>
+            <a href="settings.html">
+              <li>
+                <i class="bi bi-gear"></i>
+                <span> Settings </span>
+              </li>
+            </a>
+            <!-- <a href="account.html">
+              <li>
+                <i class="bi bi-person-gear"></i>
+                <span> Account </span>
+              </li>
+            </a>
+            <a href="help.html">
+              <li>
+                <i class="bi bi-info-circle"></i>
+                <span> Help </span>
+              </li>
+            </a> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <div class="page-header">
+        <div class="page-header-title">
+          <p>
+            <i class="bi bi-vector-pen"></i>
+            Design
+          </p>
+        </div>
+        <div class="page-header-profile">
+          <!-- <i class="bi bi-bell"></i> -->
+          <img
+            src="./media/imgs/profile-icon.png"
+            width="35px"
+            alt="profile-icon"
+          />
+        </div>
+      </div>
+
+      <div class="page-main-operations">
+        <div class="main-info">
+          <h2>Upload Designs</h2>
+          <p>Upload designs for hoodies, jackets, and other apparel items</p>
+        </div>
+        <div class="card">
+          <div class="filter-options">
+            <div>
+              <label for="school-dropdown">School</label>
+              <select name="school-dropdown" class="js-schools-dropdown">
+                <option selected disabled>Choose a school</option>
+              </select>
+            </div>
+            <div class="js-packs-dropdown-container">
+              <label for="packs-dropdown">Pack</label>
+              <select name="packs-dropdown"></select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-main-data js-page-main-data">
+        <div class="card choose js-choose">
+          <div class="choose">
+            <i class="bi bi-buildings"></i>
+            <p>Choose school to get started</p>
+          </div>
+        </div>
+        <div class="card upload js-upload"></div>
+      </div>
+    </div>
+
+    <script type="module" src="./scripts/auth.js"></script>
+    <script type="module" src="./scripts/design.js"></script>
+    <script src="./scripts/utilis/mobile-nav-inject.js"></script>
+    <script src="./scripts/utilis/mobile-nav.js"></script>
+    <script src="./scripts/utilis/navbar.js"></script>
+  </body>
+</html>

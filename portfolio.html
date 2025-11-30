@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <!-- <link href="../../styles/utils/main.css" rel="stylesheet" />
+    <link href="../../styles/utils/navbar.css" rel="stylesheet" />
+    <link
+      href="../../styles//pages/mobile-app/portfolio.css"
+      rel="stylesheet"
+    /> -->
+    <!-- <link href="../../styles/utils/popup.css" rel="stylesheet" /> -->
+
+    <!-- STYLES -->
+    <link href="./styles/main.css" rel="stylesheet" />
+    <link href="./styles/utilis/navbar.css" rel="stylesheet" />
+    <link href="./styles/utilis/mobile-header.css" rel="stylesheet" />
+    <link href="./styles/utilis/pop-ups.css" rel="stylesheet" />
+    <link href="./styles/utilis/toast.css" rel="stylesheet" />
+    <link href="./styles/utilis/loading.css" rel="stylesheet" />
+    <link href="./styles/portfolio.css" rel="stylesheet" />
+
+    <!-- FONT: Rubik (supports both English & Arabic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ICONS: Bootstrap Icons 1.13.1 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <h2 class="loading-title">Loading Dashboard</h2>
+        <p class="loading-message">Please wait...</p>
+      </div>
+    </div>
+
+    <div class="navbar js-navbar">
+      <div class="navbar-header">
+        <span>
+          <img
+            src="./media/imgs/logo-short.png"
+            width="35px"
+            alt="yourself-logo-short"
+          />
+        </span>
+        <button class="js-navbar-toggle js-click-on">
+          <i class="bi bi-box-arrow-in-left"></i>
+        </button>
+      </div>
+      <div class="navbar-links">
+        <div class="links-group">
+          <ul>
+            <a href="index.html">
+              <li>
+                <i class="bi bi-house"></i>
+                <span> Dashboard </span>
+              </li>
+            </a>
+            <div class="dropdown">
+              <li class="js-dropdown">
+                <i class="bi bi-pencil-square"></i>
+                <span>
+                  Manage
+                  <i
+                    class="bi bi-caret-down js-manage-icon"
+                    style="margin-left: 5px; font-size: 15px"
+                  ></i>
+                </span>
+              </li>
+              <ul class="dropdown-menu js-dropdown-menu">
+                <a href="products.html">
+                  <li>
+                    <i class="bi bi-bag"></i>
+                    <span> Manage Products </span>
+                  </li>
+                </a>
+                <a href="schools.html">
+                  <li>
+                    <i class="bi bi-buildings"></i>
+                    <span> Manage Schools </span>
+                  </li>
+                </a>
+                <a href="students.html">
+                  <li>
+                    <i class="bi bi-person"></i>
+                    <span> Manage Students </span>
+                  </li>
+                </a>
+              </ul>
+            </div>
+          </ul>
+        </div>
+        <hr />
+        <div class="links-group">
+          <ul>
+            <a href="portfolio.html">
+              <li class="active">
+                <i class="bi bi-card-heading"></i>
+                <span> Portfolio </span>
+              </li>
+            </a>
+            <a href="design.html">
+              <li>
+                <i class="bi bi-vector-pen"></i>
+                <span> Design </span>
+              </li>
+            </a>
+          </ul>
+        </div>
+        <hr />
+        <div class="links-group">
+          <ul>
+            <a href="settings.html">
+              <li>
+                <i class="bi bi-gear"></i>
+                <span> Settings </span>
+              </li>
+            </a>
+            <!-- <a href="account.html">
+              <li>
+                <i class="bi bi-person-gear"></i>
+                <span> Account </span>
+              </li>
+            </a>
+            <a href="help.html">
+              <li>
+                <i class="bi bi-info-circle"></i>
+                <span> Help </span>
+              </li>
+            </a> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <div class="page-header">
+        <div class="page-header-title">
+          <i class="bi bi-card-heading"></i>
+          <p>Portfolio</p>
+        </div>
+        <div class="page-header-profile">
+          <!-- <i class="bi bi-bell"></i> -->
+          <img
+            src="./media/imgs/profile-icon.png"
+            width="35px"
+            alt="profile-icon"
+          />
+        </div>
+      </div>
+
+      <div class="page-main-operations">
+        <div class="main-info">
+          <h2>Content Editor</h2>
+          <p>Edit text content and images for each section of every page</p>
+        </div>
+      </div>
+
+      <div class="page-main-data js-page-main-data">
+        <div class="section-card js-section-card js-notifications-section-card">
+          <div class="section-card-header js-section-card-header">
+            <i
+              class="bi bi-chevron-right section-card-toggle js-section-card-toggle"
+            ></i>
+            <div class="section-card-icon">
+              <i class="bi bi-bell"></i>
+            </div>
+            <div class="section-card-info">
+              <h3 class="section-card-title">Notifications</h3>
+              <p class="section-card-subtitle">4 notification templates</p>
+            </div>
+            <button class="primary-button js-send-new-notification-button">
+              Send New
+            </button>
+          </div>
+          <div class="section-card-content js-section-card-content">
+            <div class="sub-section-sub-card">
+              <div class="sub-section-sub-card-header">
+                <div class="sub-section-sub-card-icon">
+                  <i class="bi bi-bell-fill"></i>
+                </div>
+                <div class="sub-section-sub-card-info">
+                  <h4 class="sub-section-sub-card-title">
+                    Reminder: Pay Your First Deposit to Proceed!
+                  </h4>
+                  <!-- <p style="font-size: 13px; color: #6c757d; margin: 4px 0 0 0">
+                    Target: All Users
+                  </p> -->
+                </div>
+                <a
+                  class="icon-button js-send-notification-button"
+                  style="color: var(--primary-color)"
+                  data-notification-type="welcome"
+                >
+                  <i class="bi bi-send"></i>
+                </a>
+                <a
+                  class="icon-button js-delete-notification-button"
+                  style="color: #dd0000ff"
+                  data-notification-type="welcome"
+                >
+                  <i class="bi bi-trash"></i>
+                </a>
+              </div>
+            </div>
+            <div class="sub-section-sub-card">
+              <div class="sub-section-sub-card-header">
+                <div class="sub-section-sub-card-icon">
+                  <i class="bi bi-bell-fill"></i>
+                </div>
+                <div class="sub-section-sub-card-info">
+                  <h4 class="sub-section-sub-card-title">
+                    Design Process: Order Entered Design Phase, Keep an Eye out!
+                  </h4>
+                  <!-- <p style="font-size: 13px; color: #6c757d; margin: 4px 0 0 0">
+                    Target: All Users
+                  </p> -->
+                </div>
+                <a
+                  class="icon-button js-send-notification-button"
+                  style="color: var(--primary-color)"
+                  data-notification-type="product"
+                >
+                  <i class="bi bi-send"></i>
+                </a>
+                <a
+                  class="icon-button js-delete-notification-button"
+                  style="color: #dd0000ff"
+                  data-notification-type="product"
+                >
+                  <i class="bi bi-trash"></i>
+                </a>
+              </div>
+            </div>
+            <div class="sub-section-sub-card">
+              <div class="sub-section-sub-card-header">
+                <div class="sub-section-sub-card-icon">
+                  <i class="bi bi-bell-fill"></i>
+                </div>
+                <div class="sub-section-sub-card-info">
+                  <h4 class="sub-section-sub-card-title">
+                    Reminder: Confirm your Order Sizes & Options Now!
+                  </h4>
+                  <!-- <p style="font-size: 13px; color: #6c757d; margin: 4px 0 0 0">
+                    Target: Specific School
+                  </p> -->
+                </div>
+                <a
+                  class="icon-button js-send-notification-button"
+                  style="color: var(--primary-color)"
+                  data-notification-type="order"
+                >
+                  <i class="bi bi-send"></i>
+                </a>
+                <a
+                  class="icon-button js-delete-notification-button"
+                  style="color: #dd0000ff"
+                  data-notification-type="order"
+                >
+                  <i class="bi bi-trash"></i>
+                </a>
+              </div>
+            </div>
+            <div class="sub-section-sub-card">
+              <div class="sub-section-sub-card-header">
+                <div class="sub-section-sub-card-icon">
+                  <i class="bi bi-bell-fill"></i>
+                </div>
+                <div class="sub-section-sub-card-info">
+                  <h4 class="sub-section-sub-card-title">
+                    Reminder: Finalize your Payment to Complete the Order!
+                  </h4>
+                  <!-- <p style="font-size: 13px; color: #6c757d; margin: 4px 0 0 0">
+                    Target: All Users
+                  </p> -->
+                </div>
+                <a
+                  class="icon-button js-send-notification-button"
+                  style="color: var(--primary-color)"
+                  data-notification-type="announcement"
+                >
+                  <i class="bi bi-send"></i>
+                </a>
+                <a
+                  class="icon-button js-delete-notification-button"
+                  style="color: #dd0000ff"
+                  data-notification-type="announcement"
+                >
+                  <i class="bi bi-trash"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr
+          style="
+            border: none;
+            border-top: 2px solid #e5e7eb;
+            margin: var(--space-lg-24px) 0;
+          "
+        />
+        <div class="section-card js-section-card">
+          <div class="section-card-header js-section-card-header">
+            <i
+              class="bi bi-chevron-right section-card-toggle js-section-card-toggle"
+            ></i>
+            <div class="section-card-icon">
+              <i class="bi bi-house"></i>
+            </div>
+            <div class="section-card-info">
+              <h3 class="section-card-title">Home Page</h3>
+              <p class="section-card-subtitle">4 editable sections</p>
+            </div>
+          </div>
+          <div class="section-card-content js-section-card-content">
+            <div
+              class="section-sub-card js-section-card js-banner-section-card"
+            >
+              <div class="section-sub-card-header js-section-card-header">
+                <i
+                  class="bi bi-chevron-right section-sub-card-toggle js-section-card-toggle"
+                ></i>
+                <div class="section-sub-card-icon">
+                  <i class="bi bi-menu-button"></i>
+                </div>
+                <div class="section-sub-card-info">
+                  <h3 class="section-sub-card-title">Banner Section</h3>
+                  <p class="section-sub-card-subtitle js-count"></p>
+                </div>
+                <button class="primary-button js-add-content-slide-button">
+                  Add
+                </button>
+              </div>
+              <div
+                class="section-sub-card-content js-section-card-content"
+              ></div>
+            </div>
+            <div class="section-sub-card js-section-card js-ads-section-card">
+              <div class="section-sub-card-header js-section-card-header">
+                <i
+                  class="bi bi-chevron-right section-sub-card-toggle js-section-card-toggle"
+                ></i>
+                <div class="section-sub-card-icon">
+                  <i class="bi bi-menu-button"></i>
+                </div>
+                <div class="section-sub-card-info">
+                  <h3 class="section-sub-card-title">Ads Section</h3>
+                  <p class="section-sub-card-subtitle js-count"></p>
+                </div>
+                <button class="primary-button js-add-ad-slide-button">
+                  Add
+                </button>
+              </div>
+              <div
+                class="section-sub-card-content js-section-card-content"
+              ></div>
+            </div>
+            <div
+              class="section-sub-card js-section-card js-collections-section-card"
+            >
+              <div class="section-sub-card-header js-section-card-header">
+                <i
+                  class="bi bi-chevron-right section-sub-card-toggle js-section-card-toggle"
+                ></i>
+                <div class="section-sub-card-icon">
+                  <i class="bi bi-image"></i>
+                </div>
+                <div class="section-sub-card-info">
+                  <h3 class="section-sub-card-title">Your Memories Section</h3>
+                  <p class="section-sub-card-subtitle js-count"></p>
+                </div>
+                <button class="primary-button js-add-collection-button">
+                  Add
+                </button>
+              </div>
+              <div
+                class="section-sub-card-content js-section-card-content"
+              ></div>
+            </div>
+            <div
+              class="section-sub-card js-section-card js-category-section-card"
+            >
+              <div class="section-sub-card-header js-section-card-header">
+                <i
+                  class="bi bi-chevron-right section-sub-card-toggle js-section-card-toggle"
+                ></i>
+                <div class="section-sub-card-icon">
+                  <i class="bi bi-list-stars"></i>
+                </div>
+                <div class="section-sub-card-info">
+                  <h3 class="section-sub-card-title">Categories Section</h3>
+                  <p class="section-sub-card-subtitle js-count"></p>
+                </div>
+              </div>
+              <div class="section-sub-card-content js-section-card-content">
+                <!-- <div class="sub-section-sub-card">
+                  <div class="sub-section-sub-card-header">
+                    <div class="sub-section-sub-card-info">
+                      <h4 class="sub-section-sub-card-title">First Slide</h4>
+                    </div>
+                    <a class="icon-button js-view-button" style="color: gray"
+                      ><i class="bi bi-eye"></i
+                    ></a>
+                    <a
+                      class="icon-button js-edit-button"
+                      style="color: var(--primary-color)"
+                      ><i class="bi bi-pencil"></i
+                    ></a>
+                    <a
+                      class="icon-button js-delete-button"
+                      style="color: #dd0000ff"
+                      ><i class="bi bi-trash"></i
+                    ></a>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-card js-section-card">
+          <div class="section-card-header js-section-card-header">
+            <i
+              class="bi bi-chevron-right section-card-toggle js-section-card-toggle"
+            ></i>
+            <div class="section-card-icon">
+              <i class="bi bi-info-circle"></i>
+            </div>
+            <div class="section-card-info">
+              <h3 class="section-card-title">Info Page</h3>
+              <p class="section-card-subtitle">2 editable sections</p>
+            </div>
+          </div>
+          <div class="section-card-content js-section-card-content">
+            <div class="sub-section-sub-card js-about-us-section-card">
+              <div class="sub-section-sub-card-header">
+                <div class="sub-section-sub-card-info">
+                  <h4 class="sub-section-sub-card-title">About Us</h4>
+                </div>
+                <a
+                  class="icon-button js-view-about-us-button"
+                  style="color: gray"
+                  ><i class="bi bi-eye"></i
+                ></a>
+                <a
+                  class="icon-button js-edit-about-us-button"
+                  style="color: var(--primary-color)"
+                  ><i class="bi bi-pencil"></i
+                ></a>
+              </div>
+            </div>
+            <div
+              class="section-sub-card js-section-card js-contact-us-section-card"
+            >
+              <div class="section-sub-card-header js-section-card-header">
+                <i
+                  class="bi bi-chevron-right section-sub-card-toggle js-section-card-toggle"
+                ></i>
+                <div class="section-sub-card-icon">
+                  <i class="bi bi-telephone"></i>
+                </div>
+                <div class="section-sub-card-info">
+                  <h3 class="section-sub-card-title">Contact Us Section</h3>
+                  <p class="section-sub-card-subtitle js-count"></p>
+                </div>
+                <button class="primary-button js-add-contact-us-button">
+                  Add
+                </button>
+              </div>
+              <div
+                class="section-sub-card-content js-section-card-content"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pop-ups js-pop-ups">
+      <!-- CONTENT SLIDE POPUPS -->
+      <div class="pop-up js-add-content-slide-pop-up">
+        <div class="header">
+          <h1>Add New Slide</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="card">
+            <h3>Basic Information</h3>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="content-slide-title">Title</label>
+                <input
+                  type="text"
+                  name="content-slide-title"
+                  id="content-slide-title"
+                  placeholder="Add Slide Title"
+                  required
+                />
+              </div>
+              <div class="row-cell">
+                <label for="content-slide-title-ar" class="arabic-label"
+                  >العنوان</label
+                >
+                <input
+                  type="text"
+                  name="content-slide-title-ar"
+                  id="content-slide-title-ar"
+                  placeholder="أضف عنوان الشريحة"
+                  dir="rtl"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Upload Slide Image</h3>
+            <div class="upload-area js-upload-area">
+              <div class="upload-icon">
+                <i class="bi bi-upload"></i>
+              </div>
+              <div class="upload-title">Upload Image</div>
+              <div class="upload-subtitle">
+                Click to browse & select your image
+              </div>
+              <button type="button" class="primary-button js-upload-button">
+                <i class="bi bi-upload"></i>
+                Choose File
+              </button>
+              <input type="file" name="filesInput" accept="image/*" />
+            </div>
+            <div class="images-preview-grid js-images-preview"></div>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="secondary-button js-cancel-button">Cancel</button>
+          <button class="primary-button js-submit-button">Submit</button>
+        </div>
+      </div>
+      <div class="pop-up js-view-content-slide-pop-up">
+        <div class="header">
+          <h1>Content Slide Details</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="card">
+            <h3>Basic Information</h3>
+            <div class="arabic-row">
+              <div class="row-view-cell">
+                <label for="content-slide-title">Title</label>
+                <input
+                  type="text"
+                  name="content-slide-title"
+                  id="content-slide-title"
+                  disabled
+                />
+              </div>
+              <div class="row-view-cell">
+                <label for="content-slide-title-ar" class="arabic-label"
+                  >العنوان</label
+                >
+                <input
+                  type="text"
+                  name="content-slide-title-ar"
+                  id="content-slide-title-ar"
+                  disabled
+                  dir="rtl"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Content Slide Image</h3>
+            <div class="images-preview-grid js-images-preview"></div>
+          </div>
+        </div>
+        <div class="footer"></div>
+      </div>
+      <div class="pop-up js-edit-content-slide-pop-up">
+        <div class="header">
+          <h1>Edit Content Slide</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="card">
+            <h3>Basic Information</h3>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="content-slide-title">Title</label>
+                <input
+                  type="text"
+                  name="content-slide-title"
+                  id="content-slide-title"
+                  placeholder="Add Slide Title"
+                  required
+                />
+              </div>
+              <div class="row-cell">
+                <label for="content-slide-title-ar" class="arabic-label"
+                  >العنوان</label
+                >
+                <input
+                  type="text"
+                  name="content-slide-title-ar"
+                  id="content-slide-title-ar"
+                  placeholder="أضف عنوان الشريحة"
+                  dir="rtl"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Upload Slide Image</h3>
+            <div class="upload-area js-upload-area">
+              <div class="upload-icon">
+                <i class="bi bi-upload"></i>
+              </div>
+              <div class="upload-title">Upload Image</div>
+              <div class="upload-subtitle">
+                Click to browse & select your image
+              </div>
+              <button type="button" class="primary-button js-upload-button">
+                <i class="bi bi-upload"></i>
+                Choose File
+              </button>
+              <input type="file" name="filesInput" accept="image/*" />
+            </div>
+            <div class="images-preview-grid js-images-preview"></div>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="secondary-button js-cancel-button">Cancel</button>
+          <button class="primary-button js-submit-button">Submit</button>
+        </div>
+      </div>
+      <!-- AD SLIDE POPUPS -->
+      <div class="pop-up js-add-ad-slide-pop-up">
+        <div class="header">
+          <h1>Add New Ad Slide</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="card">
+            <h3>Basic Information</h3>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="ad-slide-title">Title</label>
+                <input
+                  type="text"
+                  name="ad-slide-title"
+                  id="ad-slide-title"
+                  placeholder="Add Slide Title"
+                  required
+                />
+              </div>
+              <div class="row-cell">
+                <label for="ad-slide-title-ar" class="arabic-label"
+                  >العنوان</label
+                >
+                <input
+                  type="text"
+                  name="ad-slide-title-ar"
+                  id="ad-slide-title-ar"
+                  placeholder="أضف عنوان شريحة الاعلان"
+                  dir="rtl"
+                />
+              </div>
+            </div>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="ad-slide-description">Description</label>
+                <textarea
+                  id="ad-slide-description"
+                  name="ad-slide-description"
+                  placeholder="Add Description"
+                  required
+                ></textarea>
+              </div>
+              <div class="row-cell">
+                <label for="ad-slide-description-ar" class="arabic-label"
+                  >الوصف</label
+                >
+                <textarea
+                  id="ad-slide-description-ar"
+                  name="ad-slide-description-ar"
+                  placeholder="اضف وصف شريحة العنوان"
+                  required
+                ></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <label for="ad-slide-promo-code">Promo Code</label>
+              <input
+                type="text"
+                id="ad-slide-promo-code"
+                name="ad-slide-promo-code"
+                placeholder="Add Promo Code"
+              />
+            </div>
+            <div class="row">
+              <label for="ad-slide-link-url">Link URL</label>
+              <input
+                type="url"
+                id="ad-slide-link-url"
+                name="ad-slide-link-url"
+                placeholder="Add Link URL"
+              />
+            </div>
+          </div>
+          <div class="card">
+            <h3>Upload Ad Slide Image</h3>
+            <div class="upload-area js-upload-area-slide">
+              <div class="upload-icon">
+                <i class="bi bi-upload"></i>
+              </div>
+              <div class="upload-title">Upload Slide Image</div>
+              <div class="upload-subtitle">
+                Click to browse & select your slide image
+              </div>
+              <button
+                type="button"
+                class="primary-button js-upload-button-slide"
+              >
+                <i class="bi bi-upload"></i>
+                Choose File
+              </button>
+              <input type="file" name="filesInput-slide" accept="image/*" />
+            </div>
+            <div class="images-preview-grid js-images-preview-slide"></div>
+          </div>
+          <div class="card">
+            <h3>Upload Logo Image</h3>
+            <div class="upload-area js-upload-area-logo">
+              <div class="upload-icon">
+                <i class="bi bi-upload"></i>
+              </div>
+              <div class="upload-title">Upload Logo Image</div>
+              <div class="upload-subtitle">
+                Click to browse & select your logo image
+              </div>
+              <button
+                type="button"
+                class="primary-button js-upload-button-logo"
+              >
+                <i class="bi bi-upload"></i>
+                Choose File
+              </button>
+              <input type="file" name="filesInput-logo" accept="image/*" />
+            </div>
+            <div class="images-preview-grid js-images-preview-logo"></div>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="secondary-button js-cancel-button">Cancel</button>
+          <button class="primary-button js-submit-button">Submit</button>
+        </div>
+      </div>
+      <div class="pop-up js-view-ad-slide-pop-up">
+        <div class="header">
+          <h1>Ad Slide Details</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="card">
+            <h3>Basic Information</h3>
+            <div class="arabic-row">
+              <div class="row-view-cell">
+                <label for="ad-slide-title">Title</label>
+                <input
+                  type="text"
+                  name="ad-slide-title"
+                  id="ad-slide-title"
+                  disabled
+                />
+              </div>
+              <div class="row-view-cell">
+                <label for="ad-slide-title-ar" class="arabic-label"
+                  >العنوان</label
+                >
+                <input
+                  type="text"
+                  name="ad-slide-title-ar"
+                  id="ad-slide-title-ar"
+                  disabled
+                  dir="rtl"
+                />
+              </div>
+            </div>
+            <div class="arabic-row">
+              <div class="row-view-cell">
+                <label for="ad-slide-description">Description</label>
+                <textarea
+                  id="ad-slide-description"
+                  name="ad-slide-description"
+                  disabled
+                ></textarea>
+              </div>
+              <div class="row-view-cell">
+                <label for="ad-slide-description-ar" class="arabic-label"
+                  >الوصف</label
+                >
+                <textarea
+                  id="ad-slide-description-ar"
+                  name="ad-slide-description-ar"
+                  disabled
+                  dir="rtl"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Ad Slide Image</h3>
+            <div class="images-preview-grid js-images-preview-slide"></div>
+          </div>
+          <div class="card">
+            <h3>Logo Image</h3>
+            <div class="images-preview-grid js-images-preview-logo"></div>
+          </div>
+        </div>
+        <div class="footer"></div>
+      </div>
+      <div class="pop-up js-edit-ad-slide-pop-up">
+        <div class="header">
+          <h1>Edit Ad Slide</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="card">
+            <h3>Basic Information</h3>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="ad-slide-title">Title</label>
+                <input
+                  type="text"
+                  name="ad-slide-title"
+                  id="ad-slide-title"
+                  placeholder="Add Slide Title"
+                  required
+                />
+              </div>
+              <div class="row-cell">
+                <label for="ad-slide-title-ar" class="arabic-label"
+                  >العنوان</label
+                >
+                <input
+                  type="text"
+                  name="ad-slide-title-ar"
+                  id="ad-slide-title-ar"
+                  placeholder="أضف عنوان الشريحة"
+                  dir="rtl"
+                />
+              </div>
+            </div>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="ad-slide-description">Description</label>
+                <textarea
+                  id="ad-slide-description"
+                  name="ad-slide-description"
+                  placeholder="Add Description"
+                  required
+                ></textarea>
+              </div>
+              <div class="row-cell">
+                <label for="ad-slide-description-ar" class="arabic-label"
+                  >الوصف</label
+                >
+                <textarea
+                  id="ad-slide-description-ar"
+                  name="ad-slide-description-ar"
+                  placeholder="أضف وصف"
+                  dir="rtl"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Upload Ad Slide Image</h3>
+            <div class="upload-area js-upload-area-slide">
+              <div class="upload-icon">
+                <i class="bi bi-upload"></i>
+              </div>
+              <div class="upload-title">Upload Slide Image</div>
+              <div class="upload-subtitle">
+                Click to browse & select your slide image
+              </div>
+              <button
+                type="button"
+                class="primary-button js-upload-button-slide"
+              >
+                <i class="bi bi-upload"></i>
+                Choose File
+              </button>
+              <input type="file" name="filesInput-slide" accept="image/*" />
+            </div>
+            <div class="images-preview-grid js-images-preview-slide"></div>
+          </div>
+          <div class="card">
+            <h3>Upload Logo Image</h3>
+            <div class="upload-area js-upload-area-logo">
+              <div class="upload-icon">
+                <i class="bi bi-upload"></i>
+              </div>
+              <div class="upload-title">Upload Logo Image</div>
+              <div class="upload-subtitle">
+                Click to browse & select your logo image
+              </div>
+              <button
+                type="button"
+                class="primary-button js-upload-button-logo"
+              >
+                <i class="bi bi-upload"></i>
+                Choose File
+              </button>
+              <input type="file" name="filesInput-logo" accept="image/*" />
+            </div>
+            <div class="images-preview-grid js-images-preview-logo"></div>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="secondary-button js-cancel-button">Cancel</button>
+          <button class="primary-button js-submit-button">Submit</button>
+        </div>
+      </div>
+      <!-- COLLECTIONS POPUPS -->
+      <div class="pop-up js-add-collection-pop-up">
+        <div class="header">
+          <h1>Add New Collection</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="card">
+            <h3>Basic Information</h3>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="collection-title">Headline</label>
+                <input
+                  type="text"
+                  id="collection-title"
+                  name="collection-title"
+                  placeholder="Add Headline"
+                />
+              </div>
+              <div class="row-cell">
+                <label for="collection-title-ar" class="arabic-label"
+                  >العنوان الرئيسي</label
+                >
+                <input
+                  type="text"
+                  id="collection-title-ar"
+                  name="collection-title-ar"
+                  placeholder="أضف عنوان رئيسي"
+                  dir="rtl"
+                />
+              </div>
+            </div>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="collection-description">Description</label>
+                <textarea
+                  id="collection-description"
+                  name="collection-description"
+                  placeholder="Add Description"
+                ></textarea>
+              </div>
+              <div class="row-cell">
+                <label for="collection-description-ar" class="arabic-label"
+                  >الوصف</label
+                >
+                <textarea
+                  id="collection-description-ar"
+                  name="collection-description-ar"
+                  placeholder="أضف وصف"
+                  dir="rtl"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Upload Image/s</h3>
+            <div class="upload-area js-upload-area">
+              <div class="upload-icon">
+                <i class="bi bi-upload"></i>
+              </div>
+              <div class="upload-title">Upload Image/s</div>
+              <div class="upload-subtitle">
+                Click to browse & select your images
+              </div>
+              <button type="button" class="primary-button js-upload-button">
+                <i class="bi bi-upload"></i>
+                Choose Files
+              </button>
+              <input type="file" name="filesInput" accept="image/*" multiple />
+            </div>
+            <div class="images-count js-images-count"></div>
+            <div class="images-preview-grid js-images-preview"></div>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="secondary-button js-cancel-button">Cancel</button>
+          <button class="primary-button js-submit-button">Submit</button>
+        </div>
+      </div>
+      <div class="pop-up js-view-collection-pop-up">
+        <div class="header">
+          <h1>Collection Details</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="card">
+            <h3>Basic Information</h3>
+            <div class="arabic-row">
+              <div class="row-view-cell">
+                <label for="collection-title">Headline</label>
+                <input
+                  type="text"
+                  id="collection-title"
+                  name="collection-title"
+                  disabled
+                />
+              </div>
+              <div class="row-view-cell">
+                <label for="collection-title-ar" class="arabic-label"
+                  >العنوان الرئيسي</label
+                >
+                <input
+                  type="text"
+                  id="collection-title-ar"
+                  name="collection-title-ar"
+                  disabled
+                  dir="rtl"
+                />
+              </div>
+            </div>
+            <div class="arabic-row">
+              <div class="row-view-cell">
+                <label for="collection-description">Description</label>
+                <textarea
+                  id="collection-description"
+                  name="collection-description"
+                  disabled
+                ></textarea>
+              </div>
+              <div class="row-view-cell">
+                <label for="collection-description-ar" class="arabic-label"
+                  >الوصف</label
+                >
+                <textarea
+                  id="collection-description-ar"
+                  name="collection-description-ar"
+                  disabled
+                  dir="rtl"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Collection Image/s</h3>
+            <div class="images-count js-images-count"></div>
+            <div class="images-preview-grid js-images-preview"></div>
+          </div>
+        </div>
+        <div class="footer"></div>
+      </div>
+      <div class="pop-up js-edit-collection-pop-up">
+        <div class="header">
+          <h1>Edit Collection</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="card">
+            <h3>Basic Information</h3>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="collection-title">Headline</label>
+                <input
+                  type="text"
+                  id="collection-title"
+                  name="collection-title"
+                  placeholder="Add Headline"
+                />
+              </div>
+              <div class="row-cell">
+                <label for="collection-title-ar" class="arabic-label"
+                  >العنوان الرئيسي</label
+                >
+                <input
+                  type="text"
+                  id="collection-title-ar"
+                  name="collection-title-ar"
+                  placeholder="أضف عنوان رئيسي"
+                  dir="rtl"
+                />
+              </div>
+            </div>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="collection-description">Description</label>
+                <textarea
+                  id="collection-description"
+                  name="collection-description"
+                  placeholder="Add Description"
+                ></textarea>
+              </div>
+              <div class="row-cell">
+                <label for="collection-description-ar" class="arabic-label"
+                  >الوصف</label
+                >
+                <textarea
+                  id="collection-description-ar"
+                  name="collection-description-ar"
+                  placeholder="أضف وصف"
+                  dir="rtl"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Upload Image/s</h3>
+            <div class="upload-area js-upload-area">
+              <div class="upload-icon">
+                <i class="bi bi-upload"></i>
+              </div>
+              <div class="upload-title">Upload Image/s</div>
+              <div class="upload-subtitle">
+                Click to browse & select your images
+              </div>
+              <button type="button" class="primary-button js-upload-button">
+                <i class="bi bi-upload"></i>
+                Choose Files
+              </button>
+              <input type="file" name="filesInput" accept="image/*" multiple />
+            </div>
+            <div class="images-count js-images-count"></div>
+            <div class="images-preview-grid js-images-preview"></div>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="secondary-button js-cancel-button">Cancel</button>
+          <button class="primary-button js-submit-button">Submit</button>
+        </div>
+      </div>
+      <!-- CATEGORY ITEM POPUPS -->
+      <div class="pop-up js-add-category-item-pop-up">
+        <div class="header">
+          <h1>Add New Item</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="card">
+            <h3>Basic Information</h3>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="category-item-title">Title</label>
+                <input
+                  type="text"
+                  id="category-item-title"
+                  name="category-item-title"
+                  placeholder="Add Title"
+                />
+              </div>
+              <div class="row-cell">
+                <label for="category-item-title-ar" class="arabic-label"
+                  >العنوان</label
+                >
+                <input
+                  type="text"
+                  id="category-item-title-ar"
+                  name="category-item-title-ar"
+                  placeholder="أضف عنوان"
+                  dir="rtl"
+                />
+              </div>
+            </div>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="category-item-description">Description</label>
+                <textarea
+                  id="category-item-description"
+                  name="category-item-description"
+                  placeholder="Add Description"
+                ></textarea>
+              </div>
+              <div class="row-cell">
+                <label for="category-item-description-ar" class="arabic-label"
+                  >الوصف</label
+                >
+                <textarea
+                  id="category-item-description-ar"
+                  name="category-item-description-ar"
+                  placeholder="أضف وصف"
+                  dir="rtl"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Upload Image/s</h3>
+            <div class="upload-area js-upload-area">
+              <div class="upload-icon">
+                <i class="bi bi-upload"></i>
+              </div>
+              <div class="upload-title">Upload Image/s</div>
+              <div class="upload-subtitle">
+                Click to browse & select your images
+              </div>
+              <button type="button" class="primary-button js-upload-button">
+                <i class="bi bi-upload"></i>
+                Choose Files
+              </button>
+              <input type="file" name="filesInput" accept="image/*" multiple />
+            </div>
+            <div class="images-count js-images-count"></div>
+            <div class="images-preview-grid js-images-preview"></div>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="secondary-button js-cancel-button">Cancel</button>
+          <button class="primary-button js-submit-button">Submit</button>
+        </div>
+      </div>
+      <div class="pop-up js-view-category-item-pop-up">
+        <div class="header">
+          <h1>Item Details</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="card">
+            <h3>Basic Information</h3>
+            <div class="arabic-row">
+              <div class="row-view-cell">
+                <label for="category-item-title">Title</label>
+                <input
+                  type="text"
+                  id="category-item-title"
+                  name="category-item-title"
+                  disabled
+                />
+              </div>
+              <div class="row-view-cell">
+                <label for="category-item-title-ar" class="arabic-label"
+                  >العنوان</label
+                >
+                <input
+                  type="text"
+                  id="category-item-title-ar"
+                  name="category-item-title-ar"
+                  disabled
+                  dir="rtl"
+                />
+              </div>
+            </div>
+            <div class="arabic-row">
+              <div class="row-view-cell">
+                <label for="category-item-description">Description</label>
+                <textarea
+                  id="category-item-description"
+                  name="category-item-description"
+                  disabled
+                ></textarea>
+              </div>
+              <div class="row-view-cell">
+                <label for="category-item-description-ar" class="arabic-label"
+                  >الوصف</label
+                >
+                <textarea
+                  id="category-item-description-ar"
+                  name="category-item-description-ar"
+                  disabled
+                  dir="rtl"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Item Image/s</h3>
+            <div class="images-count js-images-count"></div>
+            <div class="images-preview-grid js-images-preview"></div>
+          </div>
+        </div>
+        <div class="footer"></div>
+      </div>
+      <div class="pop-up js-edit-category-item-pop-up">
+        <div class="header">
+          <h1>Edit Item</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="card">
+            <h3>Basic Information</h3>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="category-item-title">Title</label>
+                <input
+                  type="text"
+                  id="category-item-title"
+                  name="category-item-title"
+                  placeholder="Add Title"
+                />
+              </div>
+              <div class="row-cell">
+                <label for="category-item-title-ar" class="arabic-label"
+                  >العنوان</label
+                >
+                <input
+                  type="text"
+                  id="category-item-title-ar"
+                  name="category-item-title-ar"
+                  placeholder="أضف عنوان"
+                  dir="rtl"
+                />
+              </div>
+            </div>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="category-item-description">Description</label>
+                <textarea
+                  id="category-item-description"
+                  name="category-item-description"
+                  placeholder="Add Description"
+                ></textarea>
+              </div>
+              <div class="row-cell">
+                <label for="category-item-description-ar" class="arabic-label"
+                  >الوصف</label
+                >
+                <textarea
+                  id="category-item-description-ar"
+                  name="category-item-description-ar"
+                  placeholder="أضف وصف"
+                  dir="rtl"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Upload Image/s</h3>
+            <div class="upload-area js-upload-area">
+              <div class="upload-icon">
+                <i class="bi bi-upload"></i>
+              </div>
+              <div class="upload-title">Upload Image/s</div>
+              <div class="upload-subtitle">
+                Click to browse & select your images
+              </div>
+              <button type="button" class="primary-button js-upload-button">
+                <i class="bi bi-upload"></i>
+                Choose Files
+              </button>
+              <input type="file" name="filesInput" accept="image/*" multiple />
+            </div>
+            <div class="images-count js-images-count"></div>
+            <div class="images-preview-grid js-images-preview"></div>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="secondary-button js-cancel-button">Cancel</button>
+          <button class="primary-button js-submit-button">Submit</button>
+        </div>
+      </div>
+
+      <!-- ABOUT US POPUPS -->
+      <div class="pop-up js-view-about-us-pop-up">
+        <div class="header">
+          <h1>About Us Details</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="card">
+            <h3>About Us Content</h3>
+            <div class="arabic-row">
+              <div class="row-view-cell">
+                <label for="about-us-text">About Us Text</label>
+                <textarea
+                  id="about-us-text"
+                  name="about-us-text"
+                  rows="10"
+                  disabled
+                  placeholder="About Us content"
+                ></textarea>
+              </div>
+              <div class="row-view-cell">
+                <label for="about-us-text-ar" class="arabic-label"
+                  >نص عنا</label
+                >
+                <textarea
+                  id="about-us-text-ar"
+                  name="about-us-text-ar"
+                  rows="10"
+                  disabled
+                  placeholder="محتوى عنا"
+                  dir="rtl"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer"></div>
+      </div>
+
+      <div class="pop-up js-edit-about-us-pop-up">
+        <div class="header">
+          <h1>Edit About Us</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="card">
+            <h3>About Us Content</h3>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="about-us-text">About Us Text</label>
+                <textarea
+                  id="about-us-text"
+                  name="about-us-text"
+                  rows="10"
+                  placeholder="Enter About Us content"
+                  required
+                ></textarea>
+              </div>
+              <div class="row-cell">
+                <label for="about-us-text-ar" class="arabic-label"
+                  >نص عنا</label
+                >
+                <textarea
+                  id="about-us-text-ar"
+                  name="about-us-text-ar"
+                  rows="10"
+                  placeholder="أدخل محتوى عنا"
+                  dir="rtl"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="secondary-button js-cancel-button">Cancel</button>
+          <button class="primary-button js-submit-button">Submit</button>
+        </div>
+      </div>
+
+      <!-- CONTACT US POPUPS -->
+      <div class="pop-up js-add-contact-us-pop-up">
+        <div class="header">
+          <h1>Add Contact Us Entry</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="card">
+            <h3>Contact Information</h3>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="contact-us-key">Contact Key</label>
+                <input
+                  type="text"
+                  id="contact-us-key"
+                  name="contact-us-key"
+                  placeholder="e.g., Phone, Email, Address"
+                  required
+                />
+              </div>
+              <div class="row-cell">
+                <label for="contact-us-key-ar" class="arabic-label"
+                  >مفتاح الاتصال</label
+                >
+                <input
+                  type="text"
+                  id="contact-us-key-ar"
+                  name="contact-us-key-ar"
+                  placeholder="مثل: هاتف، بريد إلكتروني، عنوان"
+                  dir="rtl"
+                />
+              </div>
+            </div>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="contact-us-value">Contact Value</label>
+                <input
+                  type="text"
+                  id="contact-us-value"
+                  name="contact-us-value"
+                  placeholder="Enter contact information"
+                  required
+                />
+              </div>
+              <div class="row-cell">
+                <label for="contact-us-value-ar" class="arabic-label"
+                  >قيمة الاتصال</label
+                >
+                <input
+                  type="text"
+                  id="contact-us-value-ar"
+                  name="contact-us-value-ar"
+                  placeholder="أدخل معلومات الاتصال"
+                  dir="rtl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="secondary-button js-cancel-button">Cancel</button>
+          <button class="primary-button js-submit-button">Submit</button>
+        </div>
+      </div>
+
+      <div class="pop-up js-view-contact-us-pop-up">
+        <div class="header">
+          <h1>Contact Us Details</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="card">
+            <h3>Contact Information</h3>
+            <div class="arabic-row">
+              <div class="row-view-cell">
+                <label for="contact-us-key">Contact Key</label>
+                <input
+                  type="text"
+                  id="contact-us-key"
+                  name="contact-us-key"
+                  disabled
+                />
+              </div>
+              <div class="row-view-cell">
+                <label for="contact-us-key-ar" class="arabic-label"
+                  >مفتاح الاتصال</label
+                >
+                <input
+                  type="text"
+                  id="contact-us-key-ar"
+                  name="contact-us-key-ar"
+                  disabled
+                  dir="rtl"
+                />
+              </div>
+            </div>
+            <div class="arabic-row">
+              <div class="row-view-cell">
+                <label for="contact-us-value">Contact Value</label>
+                <input
+                  type="text"
+                  id="contact-us-value"
+                  name="contact-us-value"
+                  disabled
+                />
+              </div>
+              <div class="row-view-cell">
+                <label for="contact-us-value-ar" class="arabic-label"
+                  >قيمة الاتصال</label
+                >
+                <input
+                  type="text"
+                  id="contact-us-value-ar"
+                  name="contact-us-value-ar"
+                  disabled
+                  dir="rtl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer"></div>
+      </div>
+
+      <div class="pop-up js-edit-contact-us-pop-up">
+        <div class="header">
+          <h1>Edit Contact Us Entry</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="card">
+            <h3>Contact Information</h3>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="contact-us-key">Contact Key</label>
+                <input
+                  type="text"
+                  id="contact-us-key"
+                  name="contact-us-key"
+                  disabled
+                />
+              </div>
+              <div class="row-cell">
+                <label for="contact-us-key-ar" class="arabic-label"
+                  >مفتاح الاتصال</label
+                >
+                <input
+                  type="text"
+                  id="contact-us-key-ar"
+                  name="contact-us-key-ar"
+                  disabled
+                  dir="rtl"
+                />
+              </div>
+            </div>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="contact-us-value">Contact Value</label>
+                <input
+                  type="text"
+                  id="contact-us-value"
+                  name="contact-us-value"
+                  placeholder="Enter new contact information"
+                  required
+                />
+              </div>
+              <div class="row-cell">
+                <label for="contact-us-value-ar" class="arabic-label"
+                  >قيمة الاتصال</label
+                >
+                <input
+                  type="text"
+                  id="contact-us-value-ar"
+                  name="contact-us-value-ar"
+                  placeholder="أدخل معلومات الاتصال الجديدة"
+                  dir="rtl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="secondary-button js-cancel-button">Cancel</button>
+          <button class="primary-button js-submit-button">Submit</button>
+        </div>
+      </div>
+
+      <!-- SEND NOTIFICATION POPUP -->
+      <div class="pop-up js-send-notification-pop-up">
+        <div class="header">
+          <h1>Send Notification</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="card">
+            <h3>Notification Details</h3>
+            <div class="row">
+              <label for="notification-type">Type</label>
+              <select id="notification-type" name="notification-type" required>
+                <option value="" disabled selected>Select Type</option>
+                <option value="notification">Notification</option>
+                <option value="confirmation">Confirmation</option>
+                <option value="design">Design</option>
+              </select>
+            </div>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="send-notification-title">Notification Title</label>
+                <input
+                  type="text"
+                  id="send-notification-title"
+                  name="notification-title"
+                  placeholder="Enter Notification Title"
+                  required
+                />
+              </div>
+              <div class="row-cell">
+                <label for="send-notification-title-ar" class="arabic-label"
+                  >عنوان الإشعار</label
+                >
+                <input
+                  type="text"
+                  id="send-notification-title-ar"
+                  name="notification-title-ar"
+                  placeholder="أدخل عنوان الإشعار"
+                  dir="rtl"
+                  required
+                />
+              </div>
+            </div>
+            <div class="arabic-row">
+              <div class="row-cell">
+                <label for="send-notification-message">Message</label>
+                <textarea
+                  id="send-notification-message"
+                  name="notification-message"
+                  placeholder="Enter the notification message"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+              <div class="row-cell">
+                <label for="send-notification-message-ar" class="arabic-label"
+                  >الرسالة</label
+                >
+                <textarea
+                  id="send-notification-message-ar"
+                  name="notification-message-ar"
+                  placeholder="أدخل رسالة الإشعار"
+                  rows="5"
+                  dir="rtl"
+                  required
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Target Audience</h3>
+            <div class="row">
+              <div style="display: flex; gap: 24px; align-items: center">
+                <label
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    cursor: pointer;
+                  "
+                >
+                  <input
+                    type="radio"
+                    name="send-target-audience"
+                    value="all"
+                    class="js-send-target-audience-radio"
+                    checked
+                  />
+                  <span>All Users</span>
+                </label>
+                <label
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    cursor: pointer;
+                  "
+                >
+                  <input
+                    type="radio"
+                    name="send-target-audience"
+                    value="school"
+                    class="js-send-target-audience-radio"
+                  />
+                  <span>Specific School</span>
+                </label>
+              </div>
+            </div>
+            <div class="row js-send-school-selector" style="display: none">
+              <label for="send-notification-school">Select School Name</label>
+              <select
+                id="send-notification-school"
+                name="notification-school"
+                class="js-school-dropdown"
+              >
+                <option value="" disabled selected>Select School Name</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="secondary-button js-cancel-button">Cancel</button>
+          <button class="primary-button js-submit-notification-button">
+            Send Notification
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script src="../../scripts/utils/navbar.js"></script>  -->
+    <script type="module" src="./scripts/auth.js"></script>
+    <script type="module" src="./scripts/utilis/pop-ups.js"></script>
+    <script type="module" src="./scripts/portfolio.js"></script>
+    <script src="./scripts/utilis/mobile-nav-inject.js"></script>
+    <script src="./scripts/utilis/mobile-nav.js"></script>
+    <script src="./scripts/utilis/navbar.js"></script>
+  </body>
+</html>

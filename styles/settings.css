@@ -1,0 +1,736 @@
+/* Settings Page Styles */
+
+.page-main-data {
+  padding: var(--space-md-16px) var(--space-xl-32px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg-24px);
+}
+
+/* Hide System Users tab by default - shown via JS for Super Admin */
+.tab-btn[data-tab="add-system-user"] {
+  display: none;
+}
+
+#add-system-user-tab {
+  display: none !important;
+}
+
+/* When explicitly shown by JS */
+.tab-btn[data-tab="add-system-user"].visible {
+  display: block;
+}
+
+#add-system-user-tab.visible.active {
+  display: flex !important;
+  flex-direction: column;
+  gap: var(--space-lg-24px);
+}
+
+/* Tabs Navigation */
+.settings-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg-24px);
+  border-bottom: 2px solid var(--secondary-shadow-color);
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  font-size: var(--font-md-16px);
+  font-family: "Rubik", sans-serif;
+  color: var(--primary-color);
+  padding: var(--space-sm-12px) var(--space-md-16px);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: 500;
+  flex: 1;
+}
+
+.tab-btn:hover {
+  color: var(--shadow-color);
+}
+
+.tab-btn.active {
+  color: var(--shadow-color);
+  font-weight: 600;
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg-24px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section Card Styles (Matching Portfolio Structure) */
+.section-card {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-shadow-color);
+  border-radius: var(--radius-md-6px);
+  box-shadow: 0px 2px 10px 0px var(--secondary-shadow-color);
+}
+
+.section-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md-16px);
+  padding: var(--space-lg-24px) var(--space-xl-32px);
+  border-bottom: 1px solid var(--secondary-shadow-color);
+}
+
+.section-card-icon {
+  font-size: var(--font-xl-24px);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-card-info {
+  flex: 1;
+}
+
+.section-card-title {
+  font-size: var(--font-lg-18px);
+  color: var(--primary-color);
+  margin: 0 0 var(--space-xxs-4px) 0;
+  font-weight: 600;
+}
+
+.section-card-subtitle {
+  font-size: var(--font-sm-14px);
+  color: #6b7280;
+  margin: 0;
+}
+
+.section-card-content {
+  padding: var(--space-xl-32px);
+}
+
+/* Account Section */
+.account-section-card {
+  margin-bottom: var(--space-lg-24px);
+}
+
+.account-section-card .account-profile {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-xl-32px);
+  position: relative;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary-color);
+}
+
+.btn-upload-photo {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  width: 36px;
+  height: 36px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: 3px solid var(--secondary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: var(--font-md-16px);
+  transition: opacity 0.3s ease;
+}
+
+.btn-upload-photo:hover {
+  opacity: 0.9;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: var(--space-lg-24px);
+}
+
+.form-group label {
+  display: block;
+  font-size: var(--font-sm-14px);
+  color: var(--primary-color);
+  margin-bottom: var(--space-xs-8px);
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: var(--space-sm-12px) var(--space-md-16px);
+  border: 1px solid var(--secondary-shadow-color);
+  border-radius: var(--radius-sm-4px);
+  font-size: var(--font-sm-14px);
+  font-family: "Rubik", sans-serif;
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.form-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Password Input Wrapper */
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs-8px);
+  width: 100%;
+}
+
+.password-input-wrapper .form-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.security-section-card .password-input-wrapper .form-input {
+  padding-right: 50px;
+}
+
+.add-admin-section-card .password-input-wrapper .form-input,
+.add-admin-section-card .password-input-wrapper .form-input {
+  padding-right: 140px;
+}
+
+.add-system-user-section-card .password-input-wrapper .form-input {
+  padding-right: 140px;
+}
+
+.toggle-password-btn {
+  position: absolute;
+  right: var(--space-sm-12px);
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: var(--font-md-16px);
+  padding: var(--space-xs-8px);
+  transition: color 0.3s ease;
+}
+
+.toggle-password-btn:hover {
+  color: var(--darker-primary-color);
+}
+
+.add-admin-section-card .toggle-password-btn,
+.add-system-user-section-card .toggle-password-btn {
+  right: 100px;
+}
+
+.btn-generate {
+  position: absolute;
+  right: var(--space-sm-12px);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  padding: var(--space-xs-8px) var(--space-md-16px);
+  border-radius: var(--radius-sm-4px);
+  font-size: var(--font-xs-12px);
+  font-family: "Rubik", sans-serif;
+  cursor: pointer;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.btn-generate:hover {
+  opacity: 0.9;
+}
+
+/* Button Styles */
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--space-md-16px);
+}
+
+/* System Logs Section */
+.logs-section-card {
+  margin-bottom: var(--space-lg-24px);
+}
+
+.logs-section-card .section-card-content {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.coming-soon {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md-16px);
+  color: #9ca3af;
+}
+
+.coming-soon i {
+  font-size: 48px;
+}
+
+.coming-soon p {
+  font-size: var(--font-md-16px);
+  margin: 0;
+}
+
+/* Add Admin Section */
+
+.admin-form {
+  width: 100%;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg-24px);
+}
+
+.form-row .form-group {
+  width: 100%;
+}
+
+.form-row .form-input,
+.form-row select {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.role-select-wrapper {
+  display: flex;
+  gap: var(--space-xs-8px);
+  width: 100%;
+}
+
+.role-select-wrapper .form-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.role-select-wrapper select {
+  box-sizing: border-box;
+}
+
+.btn-add-role {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  width: 50px;
+  border-radius: var(--radius-sm-4px);
+  font-size: var(--font-md-16px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.btn-add-role:hover {
+  opacity: 0.9;
+}
+
+/* Existing Admins Section */
+.existing-admins-section-card {
+  margin-bottom: var(--space-lg-24px);
+}
+
+.system-users-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm-12px);
+}
+
+.system-user-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md-16px) var(--space-lg-24px);
+  border: 1px solid var(--secondary-shadow-color);
+  border-radius: var(--radius-md-6px);
+  background-color: var(--secondary-color);
+  transition: all 0.2s ease;
+}
+
+.system-user-item:hover {
+  background-color: var(--darker-secondary-color);
+  box-shadow: 0px 2px 8px 0px var(--secondary-shadow-color);
+}
+
+.system-user-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md-16px);
+  flex: 1;
+}
+
+.system-user-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid var(--secondary-shadow-color);
+}
+
+.system-user-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.system-user-icon i {
+  color: var(--primary-color);
+  font-size: var(--font-lg-18px);
+}
+
+.system-user-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs-4px);
+  flex: 1;
+}
+
+.system-user-details h4 {
+  font-size: var(--font-md-16px);
+  color: var(--primary-color);
+  margin: 0;
+  font-weight: 600;
+}
+
+.system-user-details p {
+  font-size: var(--font-sm-14px);
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.system-user-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md-16px);
+}
+
+.system-user-role-select {
+  background-color: var(--secondary-color);
+  border: 1.5px solid var(--secondary-shadow-color);
+  border-radius: var(--radius-sm-4px);
+  padding: var(--space-xxs-4px) var(--space-sm-12px);
+  font-size: var(--font-sm-14px);
+  font-weight: 500;
+  font-family: "Rubik", sans-serif;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  min-width: 120px;
+}
+
+.system-user-role-select:hover {
+  border-color: var(--shadow-color);
+  background-color: #f9fafb;
+}
+
+.system-user-role-select:focus {
+  border-color: var(--shadow-color);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.system-user-role-select option {
+  padding: var(--space-xs-8px);
+  font-family: "Rubik", sans-serif;
+}
+
+.system-user-date {
+  font-size: var(--font-xs-12px);
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
+.system-user-buttons {
+  display: flex;
+  gap: var(--space-xs-8px);
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: var(--font-md-16px);
+  cursor: pointer;
+  padding: var(--space-xs-8px);
+  transition: color 0.3s ease;
+}
+
+.btn-icon:hover {
+  color: var(--primary-color);
+}
+
+.btn-icon.delete:hover {
+  color: #ef4444;
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl-32px);
+  color: #9ca3af;
+}
+
+.empty-state i {
+  font-size: 48px;
+  margin-bottom: var(--space-md-16px);
+}
+
+.empty-state p {
+  font-size: var(--font-sm-14px);
+  margin: 0;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  /* Page main data */
+  .page-main-data {
+    padding: var(--space-md-16px);
+    gap: var(--space-md-16px);
+    overflow: unset;
+  }
+
+  /* Tabs navigation */
+  .settings-tabs {
+    gap: var(--space-xs-8px);
+  }
+
+  .tab-btn {
+    white-space: nowrap;
+    font-size: var(--font-sm-14px);
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+    flex: 1;
+  }
+
+  /* Section cards */
+  .section-card-header {
+    padding: var(--space-md-16px);
+    gap: var(--space-sm-12px);
+  }
+
+  .section-card-icon {
+    font-size: var(--font-lg-18px);
+  }
+
+  .section-card-title {
+    font-size: var(--font-md-16px);
+  }
+
+  .section-card-subtitle {
+    font-size: var(--font-xs-12px);
+  }
+
+  .section-card-content {
+    padding: var(--space-md-16px);
+  }
+
+  /* Profile image */
+  .profile-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .btn-upload-photo {
+    bottom: 10px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    font-size: var(--font-sm-14px);
+  }
+
+  /* Form rows - stack vertically */
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-md-16px);
+  }
+
+  .form-group {
+    margin-bottom: var(--space-md-16px);
+  }
+
+  /* Password input wrapper adjustments */
+  .add-admin-section-card .password-input-wrapper .form-input {
+    padding-right: 130px;
+  }
+
+  .add-system-user-section-card .password-input-wrapper .form-input {
+    padding-right: 130px;
+  }
+
+  .add-admin-section-card .toggle-password-btn {
+    right: 90px;
+  }
+
+  .add-system-user-section-card .toggle-password-btn {
+    right: 90px;
+  }
+
+  .btn-generate {
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+    font-size: 10px;
+  }
+
+  /* Role select wrapper */
+  .role-select-wrapper {
+    flex-direction: column;
+    gap: var(--space-xs-8px);
+  }
+
+  .btn-add-role {
+    width: 100%;
+    padding: var(--space-sm-12px);
+  }
+
+  /* Button group */
+  .button-group {
+    justify-content: stretch;
+  }
+
+  .button-group button {
+    width: 100%;
+  }
+
+  /* Admin item */
+  .admin-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm-12px);
+  }
+
+  .admin-info {
+    width: 100%;
+  }
+
+  .admin-actions {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .admin-buttons {
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  /* Pop-ups */
+  .pop-ups .pop-up:first-child,
+  .pop-ups .pop-up:last-child {
+    width: 95% !important;
+    height: auto !important;
+    max-height: 90vh !important;
+  }
+
+  .pop-up .row {
+    flex-direction: column;
+  }
+
+  .pop-up .footer {
+    flex-direction: column-reverse;
+    gap: var(--space-xs-8px);
+  }
+
+  .pop-up .footer button {
+    width: 100%;
+  }
+}
+
+/* @media (max-width: 480px) {
+  .profile-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .admin-icon {
+    width: 32px;
+    height: 32px;
+    font-size: var(--font-md-16px);
+  }
+
+  .admin-details h4 {
+    font-size: var(--font-xs-12px);
+  }
+
+  .admin-details p {
+    font-size: 10px;
+  }
+
+  .settings-tabs {
+    gap: var(--space-xxs-4px);
+  }
+
+  .tab-btn {
+    font-size: var(--font-xs-12px);
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+  }
+}
+
+.pop-ups .pop-up:first-child {
+  width: 25%;
+  height: 25%;
+}
+
+.pop-ups .pop-up:last-child {
+  width: 50%;
+  height: 50%;
+}
+
+.pop-up .row {
+  flex-direction: column;
+  margin-bottom: 0;
+}
+
+.pop-up .row label {
+  margin-bottom: 0;
+}
+
+.pop-up .card {
+  margin-bottom: 0;
+} */

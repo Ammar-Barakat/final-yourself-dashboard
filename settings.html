@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings</title>
+
+    <!-- STYLES -->
+    <link href="./styles/utilis/navbar.css" rel="stylesheet" />
+    <link href="./styles/utilis/mobile-header.css" rel="stylesheet" />
+    <link href="./styles/utilis/pop-ups.css" rel="stylesheet" />
+    <link href="./styles/utilis/toast.css" rel="stylesheet" />
+    <link href="./styles/utilis/loading.css" rel="stylesheet" />
+    <link href="./styles/main.css" rel="stylesheet" />
+    <link href="./styles/settings.css" rel="stylesheet" />
+
+    <!-- FONT: Rubik (supports both English & Arabic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ICONS: Bootstrap Icons 1.13.1 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <h2 class="loading-title">Loading Settings</h2>
+        <p class="loading-message">Please wait...</p>
+      </div>
+    </div>
+
+    <div class="navbar js-navbar">
+      <div class="navbar-header">
+        <span>
+          <img
+            src="./media/imgs/logo-short.png"
+            width="35px"
+            alt="yourself-logo-short"
+          />
+        </span>
+        <button class="js-navbar-toggle js-click-on">
+          <i class="bi bi-box-arrow-in-left"></i>
+        </button>
+      </div>
+      <div class="navbar-links">
+        <div class="links-group">
+          <ul>
+            <a href="index.html">
+              <li>
+                <i class="bi bi-house"></i>
+                <span> Dashboard </span>
+              </li>
+            </a>
+            <div class="dropdown">
+              <li class="js-dropdown">
+                <i class="bi bi-pencil-square"></i>
+                <span>
+                  Manage
+                  <i
+                    class="bi bi-caret-down js-manage-icon"
+                    style="margin-left: 5px; font-size: 15px"
+                  ></i>
+                </span>
+              </li>
+              <ul class="dropdown-menu js-dropdown-menu">
+                <a href="products.html">
+                  <li>
+                    <i class="bi bi-bag"></i>
+                    <span> Manage Products </span>
+                  </li>
+                </a>
+                <a href="schools.html">
+                  <li>
+                    <i class="bi bi-buildings"></i>
+                    <span> Manage Schools </span>
+                  </li>
+                </a>
+                <a href="students.html">
+                  <li>
+                    <i class="bi bi-person"></i>
+                    <span> Manage Students </span>
+                  </li>
+                </a>
+              </ul>
+            </div>
+          </ul>
+        </div>
+        <hr />
+        <div class="links-group">
+          <ul>
+            <a href="portfolio.html">
+              <li>
+                <i class="bi bi-card-heading"></i>
+                <span> Portfolio </span>
+              </li>
+            </a>
+            <a href="design.html">
+              <li>
+                <i class="bi bi-vector-pen"></i>
+                <span> Design </span>
+              </li>
+            </a>
+          </ul>
+        </div>
+        <hr />
+        <div class="links-group">
+          <ul>
+            <a href="settings.html">
+              <li class="active">
+                <i class="bi bi-gear"></i>
+                <span> Settings </span>
+              </li>
+            </a>
+            <!-- <a href="account.html">
+              <li>
+                <i class="bi bi-person-gear"></i>
+                <span> Account </span>
+              </li>
+            </a>
+            <a href="help.html">
+              <li>
+                <i class="bi bi-info-circle"></i>
+                <span> Help </span>
+              </li>
+            </a> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <div class="page-header">
+        <div class="page-header-title">
+          <i class="bi bi-gear"></i>
+          <p>Settings</p>
+        </div>
+        <div class="page-header-profile">
+          <!-- <i class="bi bi-bell"></i> -->
+          <img
+            src="./media/imgs/profile-icon.png"
+            width="35px"
+            alt="profile-icon"
+            class="js-header-profile-img"
+          />
+        </div>
+      </div>
+
+      <div class="page-main-data">
+        <!-- Tabs Navigation -->
+        <div class="settings-tabs">
+          <button class="tab-btn active" data-tab="account">Account</button>
+          <button class="tab-btn" data-tab="add-system-user">
+            System Users
+          </button>
+        </div>
+
+        <!-- Account Tab -->
+        <div class="tab-content active" id="account-tab">
+          <div class="section-card account-section-card">
+            <div class="section-card-header">
+              <div class="section-card-icon">
+                <i class="bi bi-person-circle"></i>
+              </div>
+              <div class="section-card-info">
+                <h3 class="section-card-title">Main Information</h3>
+                <p class="section-card-subtitle">Update your profile details</p>
+              </div>
+            </div>
+            <div class="section-card-content">
+              <div class="account-profile">
+                <img
+                  alt="Profile"
+                  class="profile-image js-account-profile-img"
+                />
+                <button class="btn-upload-photo js-upload-photo">
+                  <i class="bi bi-camera"></i>
+                </button>
+                <input
+                  type="file"
+                  class="js-photo-input"
+                  accept="image/*"
+                  style="display: none"
+                />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label>First Name</label>
+                  <input
+                    type="text"
+                    class="form-input js-firstname"
+                    placeholder="Enter First Name"
+                    value=""
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>Last Name</label>
+                  <input
+                    type="text"
+                    class="form-input js-lastname"
+                    placeholder="Enter Last Name"
+                    value=""
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Email</label>
+                <input
+                  type="email"
+                  class="form-input js-email"
+                  placeholder="Enter Email"
+                  value=""
+                />
+              </div>
+
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input
+                  type="tel"
+                  class="form-input js-phone"
+                  placeholder="Enter Phone Number"
+                  value=""
+                />
+              </div>
+
+              <div class="button-group">
+                <button class="primary-button js-edit-account">
+                  Save Changes
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-card security-section-card">
+            <div class="section-card-header">
+              <div class="section-card-icon">
+                <i class="bi bi-shield-lock"></i>
+              </div>
+              <div class="section-card-info">
+                <h3 class="section-card-title">Password Management</h3>
+                <p class="section-card-subtitle">
+                  Update your security credentials
+                </p>
+              </div>
+            </div>
+            <div class="section-card-content">
+              <div class="form-group">
+                <label>Current Password</label>
+                <div class="password-input-wrapper">
+                  <input
+                    type="password"
+                    class="form-input js-current-password"
+                    placeholder="Enter your current password"
+                  />
+                  <button class="toggle-password-btn js-toggle-password">
+                    <i class="bi bi-eye"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>New Password</label>
+                <div class="password-input-wrapper">
+                  <input
+                    type="password"
+                    class="form-input js-new-password"
+                    placeholder="Enter your new password"
+                  />
+                  <button class="toggle-password-btn js-toggle-password">
+                    <i class="bi bi-eye"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Confirm New Password</label>
+                <div class="password-input-wrapper">
+                  <input
+                    type="password"
+                    class="form-input js-confirm-password"
+                    placeholder="Confirm new password"
+                  />
+                  <button class="toggle-password-btn js-toggle-password">
+                    <i class="bi bi-eye"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="button-group">
+                <button class="primary-button js-update-password">
+                  Update Password
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Security Tab -->
+        <!-- <div class="tab-content" id="security-tab">
+        </div> -->
+
+        <!-- System Users Tab -->
+        <div class="tab-content" id="add-system-user-tab">
+          <div class="section-card add-system-user-section-card">
+            <div class="section-card-header">
+              <div class="section-card-icon">
+                <i class="bi bi-person-plus"></i>
+              </div>
+              <div class="section-card-info">
+                <h3 class="section-card-title">Add New System User</h3>
+                <p class="section-card-subtitle">
+                  Create a new system user account
+                </p>
+              </div>
+            </div>
+            <div class="section-card-content">
+              <div class="system-user-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>First Name</label>
+                    <input
+                      type="text"
+                      class="form-input js-system-user-firstname"
+                      placeholder="Enter first name"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Last Name</label>
+                    <input
+                      type="text"
+                      class="form-input js-system-user-lastname"
+                      placeholder="Enter last name"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Email</label>
+                    <input
+                      type="email"
+                      class="form-input js-system-user-email"
+                      placeholder="Enter email"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Phone Number</label>
+                    <input
+                      type="tel"
+                      class="form-input js-system-user-phone"
+                      placeholder="Enter phone number"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>System Role</label>
+                  <div class="role-select-wrapper">
+                    <select class="form-input js-system-user-role">
+                      <option disabled selected>Select Role</option>
+                      <option value="SuperAdmin">Super Admin</option>
+                      <option value="Admin">Admin</option>
+                      <option value="Designer">Designer</option>
+                    </select>
+                    <!-- <button class="btn-add-role js-add-role">
+                        <i class="bi bi-plus"></i>
+                      </button> -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Password</label>
+                <div class="password-input-wrapper">
+                  <input
+                    type="password"
+                    class="form-input js-system-user-password"
+                    placeholder="Enter password (min. 4 characters)"
+                  />
+                  <button
+                    class="toggle-password-btn js-toggle-system-user-password"
+                  >
+                    <i class="bi bi-eye"></i>
+                  </button>
+                  <button class="btn-generate js-generate-password">
+                    Generate
+                  </button>
+                </div>
+              </div>
+
+              <div class="button-group">
+                <button class="primary-button js-create-system-user">
+                  Create System User
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-card existing-system-users-section-card">
+            <div class="section-card-header">
+              <div class="section-card-icon">
+                <i class="bi bi-people"></i>
+              </div>
+              <div class="section-card-info">
+                <h3 class="section-card-title">Existing System Users</h3>
+                <p class="section-card-subtitle">
+                  Manage existing system user accounts and their roles
+                </p>
+              </div>
+            </div>
+            <div class="section-card-content">
+              <div class="system-users-list js-system-users-list">
+                <div class="empty-state">
+                  <i class="bi bi-person-x"></i>
+                  <p>No system users added yet</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-card logs-section-card">
+            <div class="section-card-header">
+              <div class="section-card-icon">
+                <i class="bi bi-file-text"></i>
+              </div>
+              <div class="section-card-info">
+                <h3 class="section-card-title">System Logs</h3>
+                <p class="section-card-subtitle">View system activity logs</p>
+              </div>
+            </div>
+            <div class="section-card-content">
+              <div class="coming-soon">
+                <i class="bi bi-hourglass-split"></i>
+                <p>Coming Soon</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pop-ups js-pop-ups">
+      <!-- Add Role Pop Up -->
+      <!-- <div class="pop-up js-add-role-pop-up">
+          <div class="header">
+            <h1>Add New Role</h1>
+            <button class="js-close-button">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+          <div class="body">
+            <div class="card">
+              <div class="row">
+                <label>Role Name</label>
+                <input
+                  type="text"
+                  class="js-role-name"
+                  placeholder="Enter a role name"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <button class="secondary-button js-cancel-button">Cancel</button>
+            <button class="primary-button js-confirm-add-role">Add</button>
+          </div>
+        </div> -->
+
+      <!-- Edit System User Pop Up -->
+      <div class="pop-up js-edit-system-user-pop-up">
+        <div class="header">
+          <h1>Edit System User</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="card">
+            <div class="row">
+              <label>Full Name</label>
+              <input
+                type="text"
+                class="js-edit-fullname"
+                placeholder="Enter Full Name"
+              />
+            </div>
+            <div class="row">
+              <label>Email</label>
+              <input
+                type="email"
+                class="js-edit-email"
+                placeholder="Enter Email"
+              />
+            </div>
+            <div class="row">
+              <label>Phone Number</label>
+              <input
+                type="tel"
+                class="js-edit-phone"
+                placeholder="Enter Phone Number"
+              />
+            </div>
+            <div class="row">
+              <label>System Role</label>
+              <select class="js-edit-role">
+                <option value="SuperAdmin">Super Admin</option>
+                <option value="Admin">Admin</option>
+                <option value="Designer">Designer</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="secondary-button js-cancel-button">Cancel</button>
+          <button class="primary-button js-confirm-edit-system-user">
+            Update
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./scripts/auth.js"></script>
+    <script type="module" src="./scripts/utilis/pop-ups.js"></script>
+    <script type="module" src="./scripts/settings.js"></script>
+    <script src="./scripts/utilis/mobile-nav-inject.js"></script>
+    <script src="./scripts/utilis/mobile-nav.js"></script>
+    <script src="./scripts/utilis/navbar.js"></script>
+  </body>
+</html>

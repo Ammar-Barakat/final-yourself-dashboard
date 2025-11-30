@@ -1,0 +1,64 @@
+/* Quick Test Styles - View Responsive Breakpoints */
+
+/* 
+  Add this temporarily to any page to see responsive breakpoints 
+  Remove after testing
+*/
+
+body::before {
+  content: "Desktop: 1024px+";
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: var(--primary-color);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 9999;
+  font-weight: 600;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  body::before {
+    content: "Tablet: 768-1024px";
+    background: #ff6b35;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+  body::before {
+    content: "Mobile: 481-768px";
+    background: #f7931e;
+  }
+}
+
+@media (max-width: 480px) and (min-width: 361px) {
+  body::before {
+    content: "Small Mobile: 361-480px";
+    background: #fbb03b;
+  }
+}
+
+@media (max-width: 360px) {
+  body::before {
+    content: "Extra Small: <360px";
+    background: #d32f2f;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 768px) {
+  body::after {
+    content: "Landscape Mode";
+    position: fixed;
+    bottom: 40px;
+    right: 10px;
+    background: #4caf50;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    z-index: 9999;
+    font-weight: 600;
+  }
+}

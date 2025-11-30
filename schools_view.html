@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View School Info</title>
+
+    <!-- STYLES -->
+    <link href="./styles/utilis/navbar.css" rel="stylesheet" />
+    <link href="./styles/utilis/mobile-header.css" rel="stylesheet" />
+    <link href="./styles/utilis/pop-ups.css" rel="stylesheet" />
+    <link href="./styles/utilis/toast.css" rel="stylesheet" />
+    <link href="./styles/utilis/loading.css" rel="stylesheet" />
+    <link href="./styles/main.css" rel="stylesheet" />
+    <link href="./styles/schools.css" rel="stylesheet" />
+    <link href="./styles/schools_view.css" rel="stylesheet" />
+
+    <!-- FONT: Rubik (supports both English & Arabic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ICONS: Bootstrap Icons 1.13.1 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <h2 class="loading-title">Loading Dashboard</h2>
+        <p class="loading-message">Please wait...</p>
+      </div>
+    </div>
+
+    <div class="sub-page-header">
+      <div class="sub-page-header-title">
+        <div class="title">
+          <a href="./schools.html">
+            <i class="bi bi-arrow-left"></i> Back To Dashboard</a
+          >
+          <div class="title-content js-title-content"></div>
+        </div>
+        <div class="header-operations">
+          <button class="primary-button js-edit-school">Edit</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-page-body js-page-body">
+      <div class="sub-page-main-data">
+        <div class="data-column">
+          <div class="card data-card js-card">
+            <h3><i class="bi bi-buildings"></i> Basic cardrmation</h3>
+            <div class="js-school-data">
+              <div class="row">
+                <div class="row-view-cell">
+                  <i class="bi bi-buildings"></i>
+                  <div class="content">
+                    <p>School Name</p>
+                    <p class="js-school-name"></p>
+                  </div>
+                </div>
+                <div class="row-view-cell">
+                  <i class="bi bi-geo-alt"></i>
+                  <div class="content">
+                    <p>School Location</p>
+                    <p class="js-school-location"></p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="row-view-cell">
+                  <i class="bi bi-people"></i>
+                  <div class="content">
+                    <p>Total Students</p>
+                    <p class="js-total-students"></p>
+                  </div>
+                </div>
+                <div class="row-view-cell">
+                  <i class="bi bi-check-square"></i>
+                  <div class="content">
+                    <p>Status</p>
+                    <p class="status js-status"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card data-card js-card">
+            <h3><i class="bi bi-person"></i> Leader cardrmation</h3>
+            <div class="js-leader-data">
+              <div class="row">
+                <div class="row-view-cell">
+                  <i class="bi bi-person"></i>
+                  <div class="content">
+                    <p>Leader Name</p>
+                    <p class="js-leader-name"></p>
+                  </div>
+                </div>
+                <div class="row-view-cell">
+                  <i class="bi bi-telephone"></i>
+                  <div class="content">
+                    <p>Phone Number</p>
+                    <p class="js-phone-number"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card packs-card data-card js-card">
+            <div class="card-title">
+              <h3><i class="bi bi-box-seam"></i> Pack Details</h3>
+            </div>
+            <div class="card-content js-packs-content"></div>
+          </div>
+          <div class="card extras-card data-card js-card">
+            <div class="card-title">
+              <h3><i class="bi bi-bag-plus"></i> Extras Details</h3>
+            </div>
+            <div class="card-content js-extras-content">
+              <div class="card">
+                <div class="card-title">
+                  <span class="special">Basic</span>
+                  <p>2450 EGP per student</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-title">
+                  <span class="special">Basic</span>
+                  <p>2450 EGP per student</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-title">
+                  <span class="special">Basic</span>
+                  <p>2450 EGP per student</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="overview-column">
+          <div class="card overview-card js-quick-state">
+            <h3>Quick State</h3>
+            <div class="row total-info">
+              <div class="overview-card">
+                <p class="js-total-students"></p>
+                <p>Total Students</p>
+              </div>
+              <div class="overview-card">
+                <p class="js-total-packs"></p>
+                <p>Total Packs</p>
+              </div>
+            </div>
+            <div class="row total-money">
+              <div class="overview-card">
+                <p class="js-total-recieved"></p>
+                <p>Total Recieved</p>
+              </div>
+            </div>
+          </div>
+          <div class="card overview-card js-school-status">
+            <h3>School Status</h3>
+            <div class="row status">
+              <p>Current Status</p>
+              <span class="js-status">Pending</span>
+            </div>
+            <div class="row">
+              <p>School Code</p>
+              <span class="js-school-code"></span>
+            </div>
+            <div class="row">
+              <p>Add Date</p>
+              <span class="js-school-addDate"></span>
+            </div>
+            <div class="row">
+              <p>Delivery Date</p>
+              <span class="js-school-deliveryDate"></span>
+            </div>
+            <div class="row">
+              <p>Deposit Amount</p>
+              <span class="js-school-depositAmount"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script type="module" src="./scripts/auth.js"></script>
+    <script type="module" src="./scripts/schools_view.js"></script>
+    <script src="./scripts/utilis/mobile-nav-inject.js"></script>
+    <script src="./scripts/utilis/mobile-nav.js"></script>
+    <script src="./scripts/utilis/navbar.js"></script>
+  </body>
+</html>

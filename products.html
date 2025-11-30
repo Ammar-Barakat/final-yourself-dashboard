@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Products</title>
+    <!-- <link href="../../styles/utils/main.css" rel="stylesheet" />
+    <link href="../../styles/utils/navbar.css" rel="stylesheet" />
+    <link href="../../styles/utils/popup.css" rel="stylesheet" />
+    <link href="../../styles/pages/menu/products.css" rel="stylesheet" /> -->
+
+    <!-- STYLES -->
+    <link href="./styles/utilis/navbar.css" rel="stylesheet" />
+    <link href="./styles/utilis/mobile-header.css" rel="stylesheet" />
+    <link href="./styles/utilis/pop-ups.css" rel="stylesheet" />
+    <link href="./styles/utilis/toast.css" rel="stylesheet" />
+    <link href="./styles/utilis/loading.css" rel="stylesheet" />
+    <link href="./styles/main.css" rel="stylesheet" />
+    <link href="./styles/products.css" rel="stylesheet" />
+
+    <!-- FONT: Rubik (supports both English & Arabic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ICONS: Bootstrap Icons 1.13.1 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <h2 class="loading-title">Loading Dashboard</h2>
+        <p class="loading-message">Please wait...</p>
+      </div>
+    </div>
+
+    <div class="navbar js-navbar">
+      <div class="navbar-header">
+        <span>
+          <img
+            src="./media/imgs/logo-short.png"
+            width="35px"
+            alt="yourself-logo-short"
+          />
+        </span>
+        <button class="js-navbar-toggle js-click-on">
+          <i class="bi bi-box-arrow-in-left"></i>
+        </button>
+      </div>
+      <div class="navbar-links">
+        <div class="links-group">
+          <ul>
+            <a href="index.html">
+              <li>
+                <i class="bi bi-house"></i>
+                <span> Dashboard </span>
+              </li>
+            </a>
+            <div class="dropdown">
+              <li class="js-dropdown">
+                <i class="bi bi-pencil-square"></i>
+                <span>
+                  Manage
+                  <i
+                    class="bi bi-caret-down js-manage-icon"
+                    style="margin-left: 5px; font-size: 15px"
+                  ></i>
+                </span>
+              </li>
+              <ul class="dropdown-menu dropdown-menu-active js-dropdown-menu">
+                <a href="products.html">
+                  <li class="active">
+                    <i class="bi bi-bag"></i>
+                    <span> Manage Products </span>
+                  </li>
+                </a>
+                <a href="schools.html">
+                  <li>
+                    <i class="bi bi-buildings"></i>
+                    <span> Manage Schools </span>
+                  </li>
+                </a>
+                <a href="students.html">
+                  <li>
+                    <i class="bi bi-person"></i>
+                    <span> Manage Students </span>
+                  </li>
+                </a>
+              </ul>
+            </div>
+          </ul>
+        </div>
+        <hr />
+        <div class="links-group">
+          <ul>
+            <a href="portfolio.html">
+              <li>
+                <i class="bi bi-card-heading"></i>
+                <span> Portfolio </span>
+              </li>
+            </a>
+            <a href="design.html">
+              <li>
+                <i class="bi bi-vector-pen"></i>
+                <span> Design </span>
+              </li>
+            </a>
+          </ul>
+        </div>
+        <hr />
+        <div class="links-group">
+          <ul>
+            <a href="settings.html">
+              <li>
+                <i class="bi bi-gear"></i>
+                <span> Settings </span>
+              </li>
+            </a>
+            <!-- <a href="account.html">
+              <li>
+                <i class="bi bi-person-gear"></i>
+                <span> Account </span>
+              </li>
+            </a>
+            <a href="help.html">
+              <li>
+                <i class="bi bi-info-circle"></i>
+                <span> Help </span>
+              </li>
+            </a> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <div class="page-header">
+        <div class="page-header-title">
+          <i class="bi bi-bag"></i>
+          <p>Manage Products</p>
+        </div>
+        <div class="page-header-profile">
+          <!-- <i class="bi bi-bell"></i> -->
+          <img
+            src="./media/imgs/profile-icon.png"
+            width="35px"
+            alt="profile-icon"
+          />
+        </div>
+      </div>
+
+      <div class="page-main-operations">
+        <div class="main-info">
+          <div class="search-box">
+            <i class="bi bi-search"></i>
+            <input type="text" placeholder="Search" />
+          </div>
+        </div>
+        <div class="main-operations">
+          <!-- <button class="secondary-button">
+            <i class="bi bi-download"></i> Export
+          </button> -->
+          <button class="primary-button js-add-button">Add</button>
+        </div>
+      </div>
+
+      <div class="page-main-data">
+        <table class="js-products-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Product</th>
+              <th>Sizes</th>
+              <th>Price</th>
+              <th>Options</th>
+              <th>Customization</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="pop-ups js-pop-ups">
+      <div class="pop-up js-add-pop-up">
+        <div class="header">
+          <h1>Add New Product</h1>
+          <button class="js-close-add-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="product-data js-product-data">
+            <div class="data-column">
+              <div class="card">
+                <h3>Basic Information</h3>
+                <div class="arabic-row">
+                  <div class="row-cell">
+                    <label for="product-name">Name</label>
+                    <input
+                      type="text"
+                      name="product-name"
+                      placeholder="Enter product name"
+                      required
+                    />
+                  </div>
+                  <div class="row-cell">
+                    <label for="product-name-ar" class="arabic-label"
+                      >اسم المنتج</label
+                    >
+                    <input
+                      type="text"
+                      name="product-name-ar"
+                      placeholder="أدخل اسم المنتج"
+                      dir="rtl"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="row-cell">
+                    <label for="product-price">Price</label>
+                    <input
+                      type="number"
+                      name="product-price"
+                      placeholder="Enter product price"
+                      min="0"
+                      step="0.01"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-title">
+                  <h3>Options</h3>
+                  <div>
+                    <button class="secondary-button js-delete-option">
+                      Delete
+                    </button>
+                    <button class="primary-button js-add-option">Add</button>
+                  </div>
+                </div>
+                <div class="js-options"></div>
+              </div>
+              <div class="card">
+                <div class="card-title">
+                  <h3>Sizes</h3>
+                  <div>
+                    <button class="secondary-button js-delete-size">
+                      Delete
+                    </button>
+                    <button class="primary-button js-add-size">Add</button>
+                  </div>
+                </div>
+                <div class="js-sizes"></div>
+              </div>
+              <div class="card">
+                <div class="card-title">
+                  <h3>Customizations</h3>
+                  <div>
+                    <button class="secondary-button js-delete-custom">
+                      Delete
+                    </button>
+                    <button class="primary-button js-add-custom">Add</button>
+                  </div>
+                </div>
+                <div class="js-customs"></div>
+              </div>
+            </div>
+            <div class="overview-column">
+              <div class="card">
+                <h3>Icon</h3>
+                <div class="icon">
+                  <div class="preview js-preview-icon">
+                    <i class="bi bi-upload"></i>
+                  </div>
+                  <p>Upload Icon</p>
+                  <button class="primary-button js-upload-button-icon">
+                    Choose File
+                  </button>
+                  <input
+                    type="file"
+                    name="product-icon-file"
+                    accept="image/*"
+                    style="display: none"
+                  />
+                </div>
+              </div>
+              <div class="card">
+                <h3>Mockup</h3>
+                <div class="icon">
+                  <div class="preview js-preview-mockup">
+                    <i class="bi bi-upload"></i>
+                  </div>
+                  <p>Upload Mockup</p>
+                  <button class="primary-button js-upload-button-mockup">
+                    Choose File
+                  </button>
+                  <input
+                    type="file"
+                    name="product-mockup-file"
+                    accept="image/*"
+                    style="display: none"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="secondary-button js-cancel-button">Cancel</button>
+          <button class="primary-button js-save-add-button">
+            Save Changes
+          </button>
+        </div>
+      </div>
+      <div class="pop-up js-view-pop-up">
+        <div class="header">
+          <h1>Product Details</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="product-data js-product-data">
+            <div class="data-column">
+              <div class="card">
+                <h3>Basic Information</h3>
+                <div class="arabic-row">
+                  <div class="row-view-cell">
+                    <i class="bi bi-cart"></i>
+                    <div class="content">
+                      <p>Product Name</p>
+                      <p class="js-product-name"></p>
+                    </div>
+                  </div>
+                  <div class="row-view-cell" style="direction: rtl">
+                    <i class="bi bi-translate"></i>
+                    <div class="content">
+                      <p class="arabic-label">اسم المنتج</p>
+                      <p class="js-product-name-ar arabic-content"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="row-view-cell">
+                    <i class="bi bi-currency-dollar"></i>
+                    <div class="content">
+                      <p>Price</p>
+                      <p class="js-product-price"></p>
+                    </div>
+                  </div>
+                  <div class="row-view-cell"></div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-title">
+                  <h3>Options</h3>
+                </div>
+                <div class="js-options"></div>
+              </div>
+              <div class="card">
+                <div class="card-title">
+                  <h3>Sizes</h3>
+                </div>
+                <div class="js-sizes"></div>
+              </div>
+              <div class="card">
+                <h3>Customizations</h3>
+                <div class="js-customs"></div>
+              </div>
+            </div>
+            <div class="overview-column">
+              <div class="card">
+                <h3>Icon</h3>
+                <div class="icon">
+                  <div class="preview js-preview-icon">
+                    <i class="bi bi-upload"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <h3>Mockup</h3>
+                <div class="icon">
+                  <div class="preview js-preview-mockup">
+                    <i class="bi bi-upload"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pop-up js-edit-pop-up">
+        <div class="header">
+          <h1>Edit Product</h1>
+          <button class="js-close-button">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="body">
+          <div class="product-data js-product-data">
+            <div class="data-column">
+              <div class="card">
+                <h3>Basic Information</h3>
+                <div class="arabic-row">
+                  <div class="row-cell">
+                    <label for="product-name">Name</label>
+                    <input
+                      type="text"
+                      name="product-name"
+                      placeholder="Enter product name"
+                    />
+                  </div>
+                  <div class="row-cell">
+                    <label for="product-name-ar" class="arabic-label"
+                      >اسم المنتج</label
+                    >
+                    <input
+                      type="text"
+                      name="product-name-ar"
+                      placeholder="أدخل اسم المنتج"
+                      dir="rtl"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="row-cell">
+                    <label for="product-price">Price</label>
+                    <input
+                      type="text"
+                      name="product-price"
+                      placeholder="Enter product price"
+                    />
+                  </div>
+                  <div class="row-cell">
+                    <!-- Price doesn't need translation -->
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-title">
+                  <h3>Options</h3>
+                  <div>
+                    <button class="secondary-button js-delete-option">
+                      Delete
+                    </button>
+                    <button class="primary-button js-add-option">Add</button>
+                  </div>
+                </div>
+                <div class="js-options"></div>
+              </div>
+              <div class="card">
+                <div class="card-title">
+                  <h3>Sizes</h3>
+                  <div>
+                    <button class="secondary-button js-delete-size">
+                      Delete
+                    </button>
+                    <button class="primary-button js-add-size">Add</button>
+                  </div>
+                </div>
+                <div class="js-sizes"></div>
+              </div>
+              <div class="card">
+                <div class="card-title">
+                  <h3>Customizations</h3>
+                  <div>
+                    <button class="secondary-button js-delete-custom">
+                      Delete
+                    </button>
+                    <button class="primary-button js-add-custom">Add</button>
+                  </div>
+                </div>
+                <div class="js-customs"></div>
+              </div>
+            </div>
+            <div class="overview-column">
+              <div class="card">
+                <h3>Icon</h3>
+                <div class="icon">
+                  <div class="preview js-preview-icon">
+                    <i class="bi bi-upload"></i>
+                  </div>
+                  <p>Upload Icon</p>
+                  <button class="primary-button js-upload-button-icon">
+                    Choose File
+                  </button>
+                  <input
+                    type="file"
+                    name="product-icon-file"
+                    accept="image/*"
+                    style="display: none"
+                  />
+                </div>
+              </div>
+              <div class="card">
+                <h3>Mockup</h3>
+                <div class="icon">
+                  <div class="preview js-preview-mockup">
+                    <i class="bi bi-upload"></i>
+                  </div>
+                  <p>Upload Mockup</p>
+                  <button class="primary-button js-upload-button-mockup">
+                    Choose File
+                  </button>
+                  <input
+                    type="file"
+                    name="product-mockup-file"
+                    accept="image/*"
+                    style="display: none"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="secondary-button js-cancel-button">Cancel</button>
+          <button class="primary-button js-save-edit-button">
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script src="../../scripts/utils/navbar.js"></script> -->
+    <script type="module" src="./scripts/auth.js"></script>
+    <script type="module" src="./scripts/products.js"></script>
+    <script src="./scripts/utilis/mobile-nav-inject.js"></script>
+    <script src="./scripts/utilis/mobile-nav.js"></script>
+    <script src="./scripts/utilis/navbar.js"></script>
+  </body>
+</html>

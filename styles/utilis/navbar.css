@@ -1,0 +1,142 @@
+/* a {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+
+button i {
+  margin-right: 0px;
+} */
+
+/* Role-based navbar visibility - prevents flash */
+/* Designer: hide dashboard, manage dropdown, portfolio, and first hr */
+.role-designer .navbar a[href="index.html"],
+.role-designer .navbar a[href="./index.html"],
+.role-designer .navbar .dropdown,
+.role-designer .navbar a[href="portfolio.html"],
+.role-designer .navbar a[href="./portfolio.html"] {
+  display: none !important;
+}
+
+.role-designer .navbar .navbar-links > hr:first-of-type {
+  display: none !important;
+}
+
+/* Admin: hide design page link */
+.role-admin .navbar a[href="design.html"],
+.role-admin .navbar a[href="./design.html"] {
+  display: none !important;
+}
+
+.navbar {
+  flex-shrink: 0;
+  width: 15%;
+  padding: var(--space-md-16px);
+  background-color: var(--primary-color);
+  transition: 0.1s;
+}
+
+/* .navbar span {
+  display: inline-block;
+  opacity: 1;
+  max-width: 200px;
+  overflow: clip;
+  white-space: nowrap;
+  transition: max-width 0.2s ease, opacity 0.2s ease;
+} */
+
+.navbar-header {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xl-32px);
+}
+
+.navbar-header button {
+  background-color: transparent;
+  border: none;
+  color: var(--secondary-color);
+  cursor: pointer;
+  font-size: var(--font-xl-24px);
+}
+
+.navbar-links hr {
+  margin: var(--space-lg-24px) 0;
+  border: 1px solid #ffffff3d;
+}
+
+.navbar-links i {
+  font-size: var(--font-lg-20px);
+  margin-right: var(--space-sm-12px);
+}
+
+.navbar-links .links-group ul li {
+  padding: var(--space-sm-12px) var(--space-lg-24px);
+  margin-bottom: var(--space-xs-8px);
+  border-radius: var(--radius-md-6px);
+  color: white;
+  font-size: var(--font-md-16px);
+  font-weight: 400;
+  transition: background-color 0.2s ease, color 0.3s ease;
+}
+
+.navbar-links .links-group ul li:hover {
+  background-color: var(--shadow-color);
+  cursor: pointer;
+}
+
+.navbar-links .links-group .active {
+  background-color: var(--shadow-color);
+  transition-duration: 0.1s;
+}
+
+.navbar-links .dropdown .dropdown-menu {
+  display: none;
+}
+
+.navbar-links .dropdown .dropdown-menu-active {
+  display: block;
+}
+
+.navbar .navbar-links .dropdown ul li {
+  font-size: calc(var(--font-md-16px) - 2px);
+  padding: var(--space-sm-12px) calc(var(--space-lg-24px) * 1.5);
+}
+
+.navbar .navbar-links .dropdown ul li i {
+  font-size: calc(var(--font-md-16px) - 2px);
+}
+
+.navbar-collapsed {
+  height: 100%;
+  width: 5%;
+  display: flex;
+  background-color: var(--primary-color);
+  flex-direction: column;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.navbar-collapsed .navbar-links .dropdown ul li {
+  padding: var(--space-sm-12px) var(--space-lg-24px);
+}
+
+.navbar-collapsed .navbar-links .dropdown ul li i {
+  font-size: var(--font-lg-20px);
+}
+
+.navbar-collapsed .navbar-header {
+  height: 50px;
+}
+
+.navbar-collapsed span {
+  display: none;
+  opacity: 0;
+  max-width: 0;
+  transition: max-width 0.2s ease, opacity 0.2s ease;
+}
+
+.navbar-collapsed .navbar-links i {
+  font-size: var(--font-lg-20px);
+  margin-right: 0px;
+}

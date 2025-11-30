@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit School Info</title>
+
+    <!-- STYLES -->
+    <link href="./styles/utilis/navbar.css" rel="stylesheet" />
+    <link href="./styles/utilis/mobile-header.css" rel="stylesheet" />
+    <link href="./styles/utilis/pop-ups.css" rel="stylesheet" />
+    <link href="./styles/utilis/toast.css" rel="stylesheet" />
+    <link href="./styles/utilis/loading.css" rel="stylesheet" />
+    <link href="./styles/main.css" rel="stylesheet" />
+    <link href="./styles/schools.css" rel="stylesheet" />
+    <link href="./styles/schools_edit.css" rel="stylesheet" />
+
+    <!-- FONT: Rubik (supports both English & Arabic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ICONS: Bootstrap Icons 1.13.1 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <h2 class="loading-title">Loading Dashboard</h2>
+        <p class="loading-message">Please wait...</p>
+      </div>
+    </div>
+
+    <div class="sub-page-header">
+      <div class="sub-page-header-title">
+        <div class="title">
+          <a href="./schools.html">
+            <i class="bi bi-arrow-left"></i> Back To Dashboard</a
+          >
+          <div class="title-content js-title-content"></div>
+        </div>
+        <div class="header-operations">
+          <button class="secondary-button js-cancel-button">Cancel</button>
+          <button class="primary-button js-save-changes-button">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-page-body js-page-body">
+      <div class="sub-page-main-data">
+        <div class="data-column">
+          <div class="card data-card js-card">
+            <h3><i class="bi bi-buildings"></i> Basic Information</h3>
+            <form class="js-school-form">
+              <div class="row">
+                <div class="row-cell">
+                  <label for="school-name">School Name *</label>
+                  <input
+                    type="text"
+                    name="school-name"
+                    placeholder="Enter school name"
+                    required
+                  />
+                </div>
+                <div class="row-cell">
+                  <label for="school-location">School Location *</label>
+                  <input
+                    type="text"
+                    name="school-location"
+                    placeholder="Enter school location"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="row-cell">
+                  <label for="total-number">Total Student Number *</label>
+                  <input
+                    type="number"
+                    name="total-number"
+                    placeholder="Enter students number"
+                  />
+                </div>
+                <div class="row-cell">
+                  <label for="status">Status *</label>
+                  <select>
+                    <option value="Pending">Pending</option>
+                    <option value="Processed">Processed</option>
+                    <option value="Designing">Designing</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Canceled">Canceled</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="row-cell">
+                  <label for="deposit-amount">Deposit Amount</label>
+                  <input
+                    type="number"
+                    name="deposit-amount"
+                    placeholder="Enter deposit amount"
+                  />
+                </div>
+                <div class="row-cell">
+                  <label for="delivered-at">Delivery Date</label>
+                  <input type="date" name="delivered-at" />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="card data-card js-card">
+            <h3><i class="bi bi-person"></i> Leader cardrmation</h3>
+            <form class="js-leader-form">
+              <div class="row">
+                <div class="row-cell">
+                  <label for="leader-name">Leader Name *</label>
+                  <input
+                    type="text"
+                    name="leader-name"
+                    placeholder="Enter leader name"
+                    required
+                  />
+                </div>
+                <div class="row-cell">
+                  <label for="leader-phone-number">Leader Phone Number *</label>
+                  <input
+                    type="tel"
+                    name="leader-phone-number"
+                    placeholder="Enter leader phone number"
+                    required
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="card packs-card data-card js-card">
+            <div class="card-title">
+              <h3><i class="bi bi-box-seam"></i> Pack Details</h3>
+              <div class="">
+                <button class="secondary-button js-edit-packs-button">
+                  Edit
+                </button>
+                <button class="primary-button js-add-pack-button">Add</button>
+              </div>
+            </div>
+            <div class="card-content js-packs-content"></div>
+          </div>
+          <div class="card extras-card data-card js-card">
+            <div class="card-title">
+              <h3><i class="bi bi-bag-plus"></i> Extras Details</h3>
+              <div class="">
+                <button class="secondary-button js-edit-extras-button">
+                  Edit
+                </button>
+                <button class="primary-button js-add-extra-button">Add</button>
+              </div>
+            </div>
+            <div class="card-content js-extras-content"></div>
+          </div>
+        </div>
+        <div class="overview-column">
+          <div class="card overview-card js-overview">
+            <h3>Overview</h3>
+            <div class="row status">
+              <p>Current Status</p>
+              <span class="js-status">Pending</span>
+            </div>
+            <div class="row">
+              <p>School Name</p>
+              <span class="js-school-name">Not Set</span>
+            </div>
+            <div class="row">
+              <p>School Location</p>
+              <span class="js-school-location">Not Set</span>
+            </div>
+            <div class="row">
+              <p>Total Students</p>
+              <span class="js-total-number">0</span>
+            </div>
+            <div class="row">
+              <p>Total Packs</p>
+              <span class="js-total-packs">0</span>
+            </div>
+            <div class="row">
+              <p>Total Extra Products</p>
+              <span class="js-total-extra-products">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pop-ups js-pop-ups">
+      <div class="pop-up js-add-pack-pop-up">
+        <div>
+          <div class="header">
+            <h1>Add New Pack</h1>
+            <button class="primary-button js-add-close-button">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+          <div class="body"></div>
+        </div>
+        <div class="footer">
+          <button class="primary-button js-add-submit-button">Submit</button>
+        </div>
+      </div>
+      <div class="pop-up js-edit-packs-pop-up">
+        <div>
+          <div class="header">
+            <h1>Edit Packs Info</h1>
+            <button class="primary-button js-edit-close-button">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+          <div class="body"></div>
+        </div>
+        <div class="footer">
+          <button class="primary-button js-edit-submit-button">Submit</button>
+        </div>
+      </div>
+      <div class="pop-up js-add-extra-pop-up">
+        <div>
+          <div class="header">
+            <h1>Add Extra Product</h1>
+            <button class="primary-button js-extra-close-button">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+          <div class="body"></div>
+        </div>
+        <div class="footer">
+          <button class="primary-button js-add-extra-submit-button">
+            Submit
+          </button>
+        </div>
+      </div>
+      <div class="pop-up js-edit-extras-pop-up">
+        <div>
+          <div class="header">
+            <h1>Edit Extras Info</h1>
+            <button class="primary-button js-extra-close-button">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+          <div class="body"></div>
+        </div>
+        <div class="footer">
+          <button class="primary-button js-edit-extra-submit-button">
+            Submit
+          </button>
+        </div>
+      </div>
+      <div class="pop-up js-product-pop-up" style="width: 35%; height: 35%">
+        <div>
+          <div class="header">
+            <h1>Allow Customizations</h1>
+            <button class="primary-button js-product-close-button">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+          <div class="body"></div>
+        </div>
+        <div class="footer"></div>
+      </div>
+      <div class="pop-up js-success-pop-up"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script type="module" src="./scripts/auth.js"></script>
+    <script type="module" src="./scripts/schools_edit.js"></script>
+    <script src="./scripts/utilis/mobile-nav-inject.js"></script>
+    <script src="./scripts/utilis/mobile-nav.js"></script>
+    <script src="./scripts/utilis/navbar.js"></script>
+  </body>
+</html>

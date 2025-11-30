@@ -1,0 +1,311 @@
+/* Mobile Header and Navigation */
+
+.mobile-header {
+  display: none;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: var(--space-md-16px);
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-header-left {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.mobile-header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+}
+
+.mobile-menu-toggle {
+  background: transparent;
+  border: none;
+  color: var(--secondary-color);
+  font-size: var(--font-xl-24px);
+  cursor: pointer;
+  padding: var(--space-xs-8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-logo {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm-12px);
+  flex: 0 0 auto;
+}
+
+.mobile-notification-btn {
+  background: transparent;
+  border: none;
+  color: var(--secondary-color);
+  font-size: var(--font-lg-20px);
+  cursor: pointer;
+  position: relative;
+  padding: var(--space-xs-8px);
+  display: flex;
+  align-items: center;
+}
+
+.mobile-notification-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background-color: #ff6b35;
+  border-radius: 50%;
+}
+
+.mobile-profile-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--secondary-color);
+}
+
+/* Mobile Sidebar Navigation */
+.mobile-sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-sidebar-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 280px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 300;
+  overflow-y: auto;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-sidebar.active {
+  transform: translateX(0);
+}
+
+.mobile-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md-16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile-sidebar-header h3 {
+  margin: 0;
+  font-size: var(--font-md-16px);
+  font-weight: 600;
+}
+
+.mobile-sidebar-close {
+  background: transparent;
+  border: none;
+  color: var(--secondary-color);
+  font-size: var(--font-lg-20px);
+  cursor: pointer;
+  padding: var(--space-xs-8px);
+  display: flex;
+  align-items: center;
+}
+
+.mobile-sidebar-content {
+  padding: var(--space-md-16px);
+}
+
+.mobile-nav-section {
+  margin-bottom: var(--space-lg-24px);
+}
+
+.mobile-nav-section-title {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: var(--space-sm-12px);
+  font-weight: 600;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav-links li {
+  margin-bottom: var(--space-xxs-4px);
+}
+
+.mobile-nav-links a {
+  display: flex;
+  align-items: center;
+  padding: var(--space-xs-8px) var(--space-sm-12px);
+  color: var(--secondary-color);
+  text-decoration: none;
+  border-radius: var(--radius-md-6px);
+  transition: background-color 0.2s ease;
+  font-size: var(--font-sm-14px);
+}
+
+.mobile-nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-links a.active {
+  background-color: var(--shadow-color);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.mobile-nav-links a i {
+  margin-right: var(--space-xs-8px);
+  font-size: var(--font-md-16px);
+}
+
+/* Mobile Dropdown */
+.mobile-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-xs-8px) var(--space-sm-12px);
+  background: transparent;
+  border: none;
+  color: var(--secondary-color);
+  cursor: pointer;
+  border-radius: var(--radius-md-6px);
+  transition: background-color 0.2s ease;
+  font-size: var(--font-sm-14px);
+  text-align: left;
+  font-family: "Poppins", sans-serif;
+}
+
+.mobile-dropdown-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-dropdown-toggle-left {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-dropdown-toggle i:first-child {
+  margin-right: var(--space-xs-8px);
+  font-size: var(--font-md-16px);
+}
+
+.mobile-dropdown-icon {
+  font-size: var(--font-sm-14px);
+  transition: transform 0.3s ease;
+}
+
+.mobile-dropdown-icon.rotated {
+  transform: rotate(180deg);
+}
+
+.mobile-dropdown-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.mobile-dropdown-menu.active {
+  max-height: 500px;
+}
+
+.mobile-dropdown-menu a {
+  padding-left: calc(var(--space-lg-24px) * 1.5);
+  font-size: 13px;
+}
+
+/* Divider */
+.mobile-nav-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: var(--space-lg-24px) 0;
+}
+
+/* Role-based mobile sidebar visibility - prevents flash */
+/* Designer: hide dashboard, manage dropdown, portfolio */
+.role-designer .mobile-sidebar a[href="index.html"],
+.role-designer .mobile-sidebar a[href="./index.html"],
+.role-designer .mobile-sidebar .mobile-dropdown-toggle,
+.role-designer .mobile-sidebar a[href="portfolio.html"],
+.role-designer .mobile-sidebar a[href="./portfolio.html"] {
+  display: none !important;
+}
+
+.role-designer .mobile-sidebar a[href="index.html"] ~ .mobile-dropdown-toggle,
+.role-designer .mobile-sidebar .mobile-nav-section:first-child {
+  display: none !important;
+}
+
+.role-designer
+  .mobile-sidebar
+  .mobile-nav-section:first-child
+  + .mobile-nav-divider {
+  display: none !important;
+}
+
+/* Admin: hide design page link */
+.role-admin .mobile-sidebar a[href="design.html"],
+.role-admin .mobile-sidebar a[href="./design.html"] {
+  display: none !important;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .mobile-header {
+    display: flex;
+  }
+
+  .navbar {
+    display: none !important;
+  }
+
+  .page-body {
+    width: 100%;
+  }
+
+  /* .page-header {
+    padding: var(--space-md-16px);
+  } */
+
+  .page-header-profile {
+    display: none !important;
+  }
+}
