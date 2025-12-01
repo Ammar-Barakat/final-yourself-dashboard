@@ -148,10 +148,10 @@ button i {
     display: flex !important;
     flex-direction: column;
     justify-content: center;
-    width: 60px !important;
-    min-width: 60px;
-    max-width: 60px;
-    padding: var(--space-xs-8px) var(--space-md-16px);
+    width: 70px !important;
+    min-width: 70px;
+    max-width: 70px;
+    padding: var(--space-sm-12px);
     height: 100%;
     position: sticky;
     top: 0;
@@ -161,12 +161,12 @@ button i {
 
   .navbar .navbar-header {
     height: unset;
-    margin-bottom: 0;
+    margin-bottom: var(--space-xs-8px);
     justify-content: center;
   }
 
   .navbar .navbar-header img {
-    width: 26px !important;
+    width: 22px !important;
   }
 
   .navbar .navbar-header button {

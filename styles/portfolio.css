@@ -397,8 +397,8 @@ input[type="file"] {
   /* Page operations */
   .page-main-operations {
     flex-direction: column;
-    gap: var(--space-md-16px);
-    padding: var(--space-md-16px);
+    gap: var(--space-sm-12px);
+    padding: 0 var(--space-lg-24px);
     align-items: stretch;
   }
 
@@ -415,6 +415,23 @@ input[type="file"] {
 
   .page-main-operations .main-operations button {
     width: 100%;
+  }
+
+  /* Main data section */
+  .page-main-data {
+    padding: 0 var(--space-lg-24px);
+    gap: var(--space-sm-12px);
+  }
+
+  /* Section card text buttons - smaller in mobile (excludes icon-button) */
+  .section-card-header .primary-button,
+  .section-card-header .secondary-button,
+  .section-sub-card-header .primary-button,
+  .section-sub-card-header .secondary-button,
+  .sub-section-sub-card .primary-button,
+  .sub-section-sub-card .secondary-button {
+    padding: var(--space-xxs-4px) var(--space-xs-8px) !important;
+    font-size: var(--font-xs-12px) !important;
   }
 
   /* Section cards */
@@ -600,8 +617,8 @@ input[type="radio"] {
   .page-main-operations {
     flex-direction: row;
     justify-content: space-between;
-    padding: var(--space-xs-8px) var(--space-sm-12px);
-    gap: var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
+    gap: var(--space-xs-8px);
     align-items: center;
   }
 
@@ -628,7 +645,8 @@ input[type="radio"] {
 
   /* Page data */
   .page-main-data {
-    padding: var(--space-xs-8px) var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
+    gap: var(--space-xs-8px);
     overflow: auto;
   }
 
@@ -799,7 +817,7 @@ input[type="radio"] {
   }
 
   .pop-up .header {
-    padding: var(--space-xs-8px) var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
     margin-bottom: 0;
   }
 
@@ -808,7 +826,7 @@ input[type="radio"] {
   }
 
   .pop-up .body {
-    padding: var(--space-xs-8px) var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
     overflow-y: auto;
     max-height: calc(85vh - 100px);
   }
@@ -836,7 +854,7 @@ input[type="radio"] {
 
   .pop-up .footer {
     flex-direction: row;
-    padding: var(--space-xs-8px) var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
     gap: var(--space-xs-8px);
   }
 

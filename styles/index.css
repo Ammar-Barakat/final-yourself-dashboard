@@ -25,7 +25,7 @@
   padding: var(--space-md-16px) var(--space-lg-24px);
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg-24px);
+  gap: var(--space-md-16px);
   height: auto;
 }
 
@@ -33,7 +33,7 @@
 .stats-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-lg-24px);
+  gap: var(--space-md-16px);
 }
 
 .stat-label {
@@ -63,12 +63,12 @@
 .charts-row {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: var(--space-lg-24px);
+  gap: var(--space-md-16px);
 }
 
 .chart-card {
   background-color: var(--secondary-color);
-  padding: var(--space-lg-24px);
+  padding: var(--space-md-16px);
   border-radius: var(--radius-lg-12px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
@@ -77,7 +77,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: var(--space-md-16px);
+  margin-bottom: var(--space-sm-12px);
 }
 
 .chart-header h3 {
@@ -104,7 +104,7 @@
 }
 
 .revenue-value {
-  font-size: calc(var(--font-xl-24px) + var(--space-xs-8px));
+  font-size: var(--font-xl-24px);
   font-weight: 700;
   color: var(--primary-color);
   margin: 0;
@@ -155,6 +155,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  margin-top: var(--space-md-16px);
 }
 
 .pack-chart-container canvas {
@@ -165,7 +166,7 @@
 /* Calendar Card */
 .calendar-card {
   background-color: var(--secondary-color);
-  padding: var(--space-lg-24px);
+  padding: var(--space-md-16px);
   border-radius: var(--radius-lg-12px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
@@ -174,7 +175,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--space-lg-24px);
+  margin-bottom: var(--space-md-16px);
 }
 
 .calendar-header h3 {
@@ -264,19 +265,23 @@
 .half-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-lg-24px);
+  gap: var(--space-md-16px);
 }
 
-.schools-table {
+.schools-table,
+.top-schools-table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: var(--space-md-16px);
 }
 
-.schools-table thead {
+.schools-table thead,
+.top-schools-table thead {
   background-color: var(--darker-secondary-color);
 }
 
-.schools-table th {
+.schools-table th,
+.top-schools-table th {
   padding: var(--space-sm-12px);
   text-align: left;
   font-size: var(--font-sm-14px);
@@ -284,20 +289,22 @@
   font-weight: 500;
 }
 
-.schools-table td {
+.schools-table td,
+.top-schools-table td {
   padding: var(--space-sm-12px);
   font-size: var(--font-sm-14px);
   color: var(--primary-color);
   border-bottom: 1px solid var(--darker-secondary-color);
 }
 
-.schools-table tr:last-child td {
+.schools-table tr:last-child td,
+.top-schools-table tr:last-child td {
   border-bottom: none;
 }
 
 /* Performance Card */
 .performance-card .chart-header {
-  margin-bottom: var(--space-md-16px);
+  margin-bottom: var(--space-sm-12px);
 }
 
 .performance-card .chart-header h3 {
@@ -322,14 +329,14 @@
   /* Stats cards - 2 columns grid */
   .stats-cards {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-sm-12px);
+    gap: var(--space-xs-8px);
   }
 
   .calendar-header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--space-sm-12px);
+    gap: var(--space-xs-8px);
   }
 
   /* Calendar optimizations - 4 column grid */
@@ -339,35 +346,35 @@
 
   .calendar-grid {
     grid-template-columns: repeat(4, 1fr);
-    gap: 2px;
+    gap: var(--space-xxs-4px);
     justify-items: center;
   }
 
   .calendar-weekdays {
     grid-template-columns: repeat(4, 1fr);
-    gap: 2px;
-    margin-bottom: 4px;
-    padding-bottom: 4px;
+    gap: var(--space-xxs-4px);
+    margin-bottom: var(--space-xxs-4px);
+    padding-bottom: var(--space-xxs-4px);
   }
 
   .calendar-day {
     aspect-ratio: 0.8;
-    font-size: 11px;
-    padding: 2px;
+    font-size: var(--font-xs-12px);
+    padding: var(--space-xxs-4px);
     min-height: 30px;
     height: 30px;
   }
 
   .calendar-weekday {
-    font-size: 9px;
-    padding: 2px 0;
+    font-size: var(--font-xs-12px);
+    padding: var(--space-xxs-4px) 0;
   }
 
   .calendar-day .pickup-badge {
-    font-size: 8px;
-    padding: 1px 2px;
-    top: 1px;
-    right: 1px;
+    font-size: var(--font-xs-12px);
+    padding: 2px var(--space-xxs-4px);
+    top: 2px;
+    right: 2px;
   }
 
   /* Revenue chart header - column layout */
@@ -375,7 +382,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--space-sm-12px);
+    gap: var(--space-xs-8px);
   }
 
   .date-filters {
@@ -395,9 +402,14 @@
     overflow: hidden;
   }
 
+  .top-schools-table {
+    margin-top: var(--space-xs-8px);
+  }
+
   .pack-chart-container {
     height: 200px;
     overflow: hidden;
+    margin-top: var(--space-xs-8px);
   }
 
   .chart-card {
@@ -413,20 +425,13 @@
     overflow: hidden;
   }
 
-  /* Dashboard specific grid system */
-  /* Stats cards - 2 column grid on mobile */
-  .stats-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-sm-12px);
-  }
-
   /* All other rows - single column */
   .row,
   .revenue-row,
   .half-row {
     display: flex;
     flex-direction: column;
-    gap: var(--space-md-16px);
+    gap: var(--space-sm-12px);
   }
 }
 
@@ -443,7 +448,7 @@
   .page-main-data {
     padding: var(--space-xs-8px) var(--space-md-16px);
     margin-top: 0;
-    gap: var(--space-sm-12px);
+    gap: var(--space-xs-8px);
     height: auto;
     flex-direction: column;
   }
@@ -451,7 +456,7 @@
   /* Stats cards - 4 columns like desktop */
   .stats-cards {
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-sm-12px);
+    gap: var(--space-xs-8px);
   }
 
   .stat-label {
@@ -467,7 +472,7 @@
   .charts-row {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: var(--space-sm-12px);
+    gap: var(--space-xs-8px);
   }
 
   .chart-card {
@@ -505,7 +510,7 @@
   }
 
   .chart-subtitle {
-    font-size: 10px;
+    font-size: var(--font-xs-12px);
   }
 
   .view-report-btn {
@@ -519,6 +524,7 @@
 
   .pack-chart-container {
     height: 180px;
+    margin-top: var(--space-xs-8px);
   }
 
   .pack-chart-container canvas {
@@ -534,7 +540,7 @@
   .calendar-header {
     flex-direction: row;
     align-items: center;
-    margin-bottom: var(--space-sm-12px);
+    margin-bottom: var(--space-xs-8px);
   }
 
   .calendar-header h3 {
@@ -549,7 +555,7 @@
   }
 
   .calendar-weekday {
-    font-size: 10px;
+    font-size: var(--font-xs-12px);
     padding: var(--space-xxs-4px) 0;
   }
 
@@ -560,25 +566,31 @@
 
   .calendar-day {
     aspect-ratio: 1.5;
-    font-size: 11px;
+    font-size: var(--font-xs-12px);
     min-height: 24px;
   }
 
   .calendar-day .pickup-badge {
-    font-size: 8px;
-    padding: 1px 2px;
+    font-size: var(--font-xs-12px);
+    padding: 2px var(--space-xxs-4px);
   }
 
   /* Half row - 2 columns like desktop */
   .half-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-sm-12px);
+    gap: var(--space-xs-8px);
+  }
+
+  .top-schools-table {
+    margin-top: var(--space-xs-8px);
   }
 
   /* Schools table */
   .schools-table th,
-  .schools-table td {
+  .schools-table td,
+  .top-schools-table th,
+  .top-schools-table td {
     padding: var(--space-xxs-4px) var(--space-xs-8px);
     font-size: var(--font-xs-12px);
   }
@@ -596,7 +608,7 @@
   /* Row layouts */
   .row {
     flex-direction: row;
-    gap: var(--space-sm-12px);
+    gap: var(--space-xs-8px);
   }
 
   .revenue-row,

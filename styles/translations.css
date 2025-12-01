@@ -325,7 +325,8 @@
   .page-main-operations {
     flex-direction: column;
     align-items: stretch;
-    padding: var(--space-md-16px);
+    padding: 0 var(--space-lg-24px);
+    padding-top: var(--space-sm-12px);
   }
 
   .main-info .filter-options {
@@ -349,7 +350,8 @@
   }
 
   .page-main-data {
-    padding: var(--space-md-16px);
+    padding: 0 var(--space-lg-24px);
+    gap: var(--space-sm-12px);
   }
 
   .translation-stats {
@@ -358,12 +360,12 @@
   }
 
   .stat-card {
-    padding: var(--space-md-16px);
+    padding: var(--space-sm-12px);
   }
 
   .translation-grid {
     grid-template-columns: 1fr;
-    gap: var(--space-md-16px);
+    gap: var(--space-sm-12px);
   }
 
   .translation-header {
@@ -373,7 +375,7 @@
   }
 
   .translation-content {
-    padding: var(--space-md-16px);
+    padding: var(--space-sm-12px);
   }
 
   .translation-actions {
@@ -393,7 +395,7 @@
   .page-main-operations {
     flex-direction: row;
     justify-content: space-between;
-    padding: var(--space-xs-8px) var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
     gap: var(--space-sm-12px);
   }
 
@@ -428,8 +430,8 @@
 
   /* Page data */
   .page-main-data {
-    padding: var(--space-xs-8px) var(--space-sm-12px);
-    gap: var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
+    gap: var(--space-xs-8px);
     overflow: auto;
   }
 
@@ -464,7 +466,7 @@
   /* Translation item */
   .translation-header {
     flex-direction: row;
-    padding: var(--space-xs-8px) var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
     gap: var(--space-xs-8px);
   }
 
@@ -533,7 +535,7 @@
 
   .translation-actions {
     flex-direction: row;
-    padding: var(--space-xs-8px) var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
     gap: var(--space-xs-8px);
   }
 

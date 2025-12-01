@@ -23,13 +23,13 @@
 
 .card-title div {
   display: flex;
-  gap: var(--space-md-16px);
+  gap: var(--space-sm-12px);
 }
 
 .pop-up .option {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md-16px);
+  gap: var(--space-sm-12px);
 }
 
 .pop-up .option .option-title {
@@ -66,7 +66,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-md-16px);
+  gap: var(--space-sm-12px);
 }
 
 .pop-up .icon i:before {
@@ -93,7 +93,7 @@
   /* Product data layout - stack columns */
   .pop-up .product-data {
     flex-direction: column !important;
-    gap: var(--space-md-16px);
+    gap: var(--space-sm-12px);
   }
 
   .data-column,
@@ -105,7 +105,7 @@
   .card-title {
     display: flex !important;
     flex-direction: column !important;
-    gap: var(--space-sm-12px);
+    gap: var(--space-xs-8px);
   }
 
   .card-title h3 {
@@ -128,13 +128,13 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: start;
-    gap: var(--space-sm-12px);
+    gap: var(--space-xs-8px);
   }
 
   .pop-up .option .values-title div {
     width: 100%;
     display: flex;
-    gap: var(--space-sm-12px);
+    gap: var(--space-xs-8px);
   }
 
   .pop-up .option .values-title button {
@@ -170,7 +170,7 @@
   /* Reset mobile overrides - use desktop layout */
   .page-main-operations {
     flex-direction: row;
-    padding: var(--space-xs-8px) var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
   }
 
   .page-main-operations .main-info h2 {
@@ -191,17 +191,18 @@
 
   /* Page data */
   .page-main-data {
-    padding: var(--space-xs-8px) var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
+    gap: var(--space-xs-8px);
     /* overflow: auto; */
   }
 
   .product-data {
     flex-direction: row;
-    gap: var(--space-sm-12px);
+    gap: var(--space-xs-8px);
   }
 
   .card {
-    padding: var(--space-sm-12px);
+    padding: var(--space-xs-8px);
   }
 
   .card-title {
@@ -241,7 +242,7 @@
   }
 
   .pop-up .header {
-    padding: var(--space-xs-8px) var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
   }
 
   .pop-up .header h2 {
@@ -249,7 +250,7 @@
   }
 
   .pop-up .body {
-    padding: var(--space-xs-8px) var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
   }
 
   .pop-up .body .row {
@@ -270,7 +271,7 @@
 
   .pop-up .footer {
     flex-direction: row;
-    padding: var(--space-xs-8px) var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
     gap: var(--space-xs-8px);
   }
 

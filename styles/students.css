@@ -1,6 +1,6 @@
 .page-main-operations .main-info .filter-options {
   display: flex;
-  gap: var(--space-sm-12px);
+  gap: var(--space-xs-8px);
 }
 
 .page-main-operations .main-info .filter-options select {
@@ -18,8 +18,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--space-md-16px);
-  padding: var(--space-xl-32px);
+  gap: var(--space-sm-12px);
+  padding: var(--space-lg-24px);
   border: 1px solid var(--secondary-shadow-color);
   border-radius: var(--radius-md-6px);
   box-shadow: 0px 2px 10px 0px var(--secondary-shadow-color);
@@ -69,9 +69,9 @@
   display: flex;
   /* justify-content: center; */
   /* align-items: center; */
-  gap: var(--space-md-16px);
-  padding: var(--space-xl-32px);
-  margin-bottom: var(--space-xl-32px);
+  gap: var(--space-sm-12px);
+  padding: var(--space-lg-24px);
+  margin-bottom: var(--space-lg-24px);
   border: 1px solid var(--secondary-shadow-color);
   border-radius: var(--radius-md-6px);
   box-shadow: 0px 2px 10px 0px var(--secondary-shadow-color);
@@ -162,8 +162,8 @@
   /* Page operations */
   .page-main-operations {
     flex-direction: column;
-    gap: var(--space-md-16px);
-    padding: var(--space-md-16px);
+    gap: var(--space-sm-12px);
+    padding: 0 var(--space-lg-24px);
   }
 
   .page-main-operations .main-info,
@@ -193,14 +193,21 @@
 
   /* Main data section */
   .page-main-data {
-    padding: var(--space-md-16px);
+    padding: 0 var(--space-lg-24px);
+    gap: var(--space-sm-12px);
     overflow-x: auto;
+  }
+
+  /* Table span styling */
+  .page-main-data span {
+    font-size: var(--font-xs-12px);
+    padding: var(--space-xxs-4px) var(--space-sm-12px);
   }
 
   /* Pack products grid - 2 columns */
   .pop-up .packs-card .card-content .pack-products {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: var(--space-sm-12px) !important;
+    gap: var(--space-xs-8px) !important;
   }
 
   /* Pop-ups */
@@ -210,7 +217,7 @@
   }
 
   .pop-up .body {
-    padding: var(--space-sm-12px);
+    padding: var(--space-sm-12px) var(--space-md-16px);
   }
 
   .pop-up .footer {
@@ -225,7 +232,7 @@
   /* Card title with buttons */
   .card-title {
     flex-direction: column !important;
-    gap: var(--space-sm-12px);
+    gap: var(--space-xs-8px);
   }
 
   .card-title div {
@@ -256,8 +263,12 @@
   .page-main-operations {
     flex-direction: row;
     justify-content: space-between;
-    padding: var(--space-xs-8px) var(--space-sm-12px);
-    gap: var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
+    gap: var(--space-xs-8px);
+  }
+
+  .page-main-operations .main-info {
+    width: 90%;
   }
 
   .page-main-operations .main-info h2 {
@@ -303,8 +314,15 @@
 
   /* Page data */
   .page-main-data {
-    padding: var(--space-xs-8px) var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
+    gap: var(--space-xs-8px);
     /* overflow: auto; */
+  }
+
+  /* Table span styling */
+  .page-main-data span {
+    font-size: var(--font-xs-12px);
+    padding: var(--space-xxs-4px) var(--space-sm-12px);
   }
 
   /* Table container */
@@ -325,19 +343,19 @@
 
   /* Cards */
   .card {
-    padding: var(--space-sm-12px);
+    padding: var(--space-xs-8px);
     margin-bottom: var(--space-xs-8px);
   }
 
   .card-title {
     flex-direction: row !important;
-    font-size: var(--font-sm-14px);
+    font-size: var(--font-xs-12px);
     padding: var(--space-xs-8px);
     margin-bottom: var(--space-xs-8px);
   }
 
   .card-title p {
-    font-size: var(--font-sm-14px);
+    font-size: var(--font-xs-12px);
     margin: 0;
   }
 
@@ -364,7 +382,7 @@
 
   /* Overview card */
   .overview-card {
-    padding: var(--space-sm-12px);
+    padding: var(--space-xs-8px);
     gap: var(--space-xs-8px);
   }
 
@@ -380,7 +398,7 @@
   }
 
   .pop-up .header {
-    padding: var(--space-xs-8px) var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
   }
 
   .pop-up .header h2 {
@@ -388,7 +406,7 @@
   }
 
   .pop-up .body {
-    padding: var(--space-xs-8px) var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
     overflow-y: auto;
     max-height: calc(85vh - 100px);
   }
@@ -416,7 +434,7 @@
 
   .pop-up .footer {
     flex-direction: row;
-    padding: var(--space-xs-8px) var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
     gap: var(--space-xs-8px);
   }
 

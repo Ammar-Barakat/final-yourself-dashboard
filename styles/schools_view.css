@@ -6,7 +6,7 @@ body {
 .card .row .row-view-cell {
   width: 50%;
   display: flex;
-  gap: var(--space-md-16px);
+  gap: var(--space-sm-12px);
 }
 
 .card .row .row-view-cell i {
@@ -148,6 +148,12 @@ body {
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
+  /* Page main data - unified padding */
+  .sub-page-main-data {
+    padding: 0 var(--space-lg-24px);
+    gap: var(--space-sm-12px);
+  }
+
   .sub-page-header {
     padding: var(--space-md-16px);
   }
@@ -164,6 +170,10 @@ body {
 
   .sub-page-header .sub-page-header-title button {
     width: 100%;
+  }
+
+  .sub-page-main-data .overview-column {
+    order: -1;
   }
 
   .card .row .row-view-cell {
@@ -248,7 +258,7 @@ body {
 @media (max-height: 500px) and (orientation: landscape) {
   /* Sub-page header */
   .sub-page-header {
-    padding: var(--space-xs-8px) var(--space-sm-12px);
+    padding: var(--space-sm-12px) var(--space-md-16px);
   }
 
   .sub-page-header .sub-page-header-title {
@@ -275,8 +285,8 @@ body {
   /* Sub-page main data - desktop side-by-side */
   .sub-page-main-data {
     flex-direction: row;
-    padding: var(--space-xs-8px) var(--space-sm-12px);
-    gap: var(--space-sm-12px);
+    padding: var(--space-sm-12px) var(--space-md-16px);
+    gap: var(--space-xs-8px);
   }
 
   .sub-page-main-data .left-data {
@@ -287,10 +297,28 @@ body {
     width: 65%;
   }
 
+  .sub-page-main-data .data-column {
+    width: 60%;
+  }
+
+  .sub-page-main-data .overview-column {
+    width: 35%;
+  }
+
   /* Cards */
   .card {
     padding: var(--space-sm-12px);
     margin-bottom: var(--space-xs-8px);
+    gap: var(--space-xs-8px);
+  }
+
+  .card h3 {
+    font-size: var(--font-xs-12px);
+    margin: 0;
+  }
+
+  .card h3 i {
+    margin-right: var(--space-xxs-4px);
   }
 
   .card .row {
@@ -322,13 +350,13 @@ body {
   }
 
   .card-title {
-    font-size: var(--font-sm-14px);
+    font-size: var(--font-xs-12px);
     padding: var(--space-xs-8px);
     margin-bottom: var(--space-xs-8px);
   }
 
   .card-title p {
-    font-size: var(--font-sm-14px);
+    font-size: var(--font-xs-12px);
     margin: 0;
   }
 
@@ -338,6 +366,10 @@ body {
   }
 
   .overview-card p {
+    font-size: var(--font-xs-12px);
+  }
+
+  .overview-card span {
     font-size: var(--font-xs-12px);
   }
 

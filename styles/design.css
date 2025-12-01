@@ -239,8 +239,8 @@ input[type="file"] {
 @media (max-width: 768px) {
   /* Page operations */
   .page-main-operations {
-    gap: var(--space-md-16px);
-    padding: var(--space-md-16px);
+    gap: var(--space-sm-12px);
+    padding: 0 var(--space-lg-24px);
   }
 
   /* Filter options - stack vertically */
@@ -254,7 +254,8 @@ input[type="file"] {
 
   /* Main data section */
   .page-main-data {
-    padding: var(--space-md-16px);
+    padding: 0 var(--space-lg-24px);
+    gap: var(--space-sm-12px);
     overflow: unset;
   }
 
@@ -344,7 +345,8 @@ input[type="file"] {
 
   /* Page data */
   .page-main-data {
-    padding: var(--space-xs-8px) var(--space-sm-12px);
+    padding: var(--space-xs-8px) var(--space-md-16px);
+    gap: var(--space-xs-8px);
     /* overflow: auto; */
   }
 
