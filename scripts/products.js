@@ -1,4 +1,9 @@
-import { togglePopUpOff, togglePopUpOn, showToast } from "./utilis/pop-ups.js";
+import {
+  togglePopUpOff,
+  togglePopUpOn,
+  showToast,
+  showLandscapeRecommendation,
+} from "./utilis/pop-ups.js";
 import { Product, ProductDetails } from "./data/product.js";
 
 const API_BASE_URL = "https://yourself-demo.runasp.net";
@@ -571,9 +576,13 @@ const ProductUI = {
                   const valueEn = valueParts[0] || value;
                   const valueAr = valueParts[1] || "";
                   return `
-                <div class="value-row">
-                  <input type="text" name="value-name" value="${valueEn}" disabled/>
-                  <input type="text" name="value-name-ar" value="${valueAr}" disabled dir="rtl"/>
+                <div class="row">
+                  <div class="row-cell">
+                    <input type="text" name="value-name" value="${valueEn}" disabled/>
+                  </div>
+                  <div class="row-cell">
+                    <input type="text" name="value-name-ar" value="${valueAr}" disabled dir="rtl"/>
+                  </div>
                 </div>
               `;
                 })
@@ -597,11 +606,11 @@ const ProductUI = {
               <input type="text" name="size-label" value="${size.label}" disabled/>
             </div>
             <div class="row">
-              <div>
+              <div class="row-cell">
                 <label for="size-width">Width</label>
                 <input type="text" name="size-width" value="${size.width}" disabled/>
               </div>
-              <div>
+              <div class="row-cell">
                 <label for="size-height">Height</label>
                 <input type="text" name="size-height" value="${size.height}" disabled/>
               </div>
@@ -624,21 +633,13 @@ const ProductUI = {
       customsContainer.innerHTML += `
         <div class="custom">
           <div class="card">
-            <div class="row">
-              <div>
-                <label for="custom-key">Custom Key</label>
-                <input type="text" name="custom-key" value="${customNameEn}" disabled/>
-              </div>
-              <div>
-                <label for="custom-key-ar" class="arabic-label">مفتاح التخصيص</label>
-                <input type="text" name="custom-key-ar" value="${customNameAr}" disabled dir="rtl"/>
-              </div>
-            </div>
-            <div class="row">
-              <div>
-                <label for="custom-type">Custom Type</label>
-                <input type="text" name="custom-type" value="${custom.type}" disabled/>
-              </div>
+            <div class="custom-title">
+              <label for="custom-key">Custom Key</label>
+              <input type="text" name="custom-key" value="${customNameEn}" disabled/>
+              <label for="custom-key-ar" class="arabic-label">مفتاح التخصيص</label>
+              <input type="text" name="custom-key-ar" value="${customNameAr}" disabled dir="rtl"/>
+              <label for="custom-type">Custom Type</label>
+              <input type="text" name="custom-type" value="${custom.type}" disabled/>
             </div>
           </div>
         </div>
@@ -685,14 +686,18 @@ const ProductUI = {
       optionsContainer.innerHTML += `
         <div class="option js-option">
           <div class="card">
-            <div class="option-title">
-              <label for="option-name">Option Key</label>
-              <input type="text" name="option-name" value="${optionNameEn}" />
-              <label for="option-name-ar" class="arabic-label">مفتاح الخيار</label>
-              <input type="text" name="option-name-ar" value="${optionNameAr}" dir="rtl" />
+            <div class="row">
+              <div class="row-cell">
+                <label for="option-name">Option Key</label>
+                <input type="text" name="option-name" value="${optionNameEn}" />
+              </div>
+              <div class="row-cell">
+                <label for="option-name-ar" class="arabic-label">مفتاح الخيار</label>
+                <input type="text" name="option-name-ar" value="${optionNameAr}" dir="rtl" />
+              </div>
             </div>
             <div class="values-title">
-              <label style="margin-bottom: 0;">Values</label>
+              <label>Values</label>
               <div>
                 <button class="secondary-button js-delete-value">
                   Delete 
@@ -712,9 +717,13 @@ const ProductUI = {
                   const valueEn = valueParts[0] || value;
                   const valueAr = valueParts[1] || "";
                   return `
-                <div class="value-row">
-                  <input type="text" name="value-name" value="${valueEn}" />
-                  <input type="text" name="value-name-ar" value="${valueAr}" dir="rtl" placeholder="القيمة بالعربي" />
+                <div class="row">
+                  <div class="row-cell">
+                    <input type="text" name="value-name" value="${valueEn}" />
+                  </div>
+                  <div class="row-cell">
+                    <input type="text" name="value-name-ar" value="${valueAr}" dir="rtl" placeholder="القيمة بالعربي" />
+                  </div>
                 </div>
               `;
                 })
@@ -755,11 +764,11 @@ const ProductUI = {
               </select>
             </div>
             <div class="row">
-              <div>
+              <div class="row-cell">
                 <label for="size-width">Width</label>
                 <input type="text" name="size-width" value="${size.width}" />
               </div>
-              <div>
+              <div class="row-cell">
                 <label for="size-height">Height</label>
                 <input type="text" name="size-height" value="${size.height}" />
               </div>
@@ -783,11 +792,11 @@ const ProductUI = {
         <div class="custom js-custom">
           <div class="card">
             <div class="row">
-              <div>
+              <div class="row-cell">
                 <label for="custom-key">Custom Key</label>
                 <input type="text" name="custom-key" value="${customNameEn}" />
               </div>
-              <div>
+              <div class="row-cell">
                 <label for="custom-key-ar" class="arabic-label">مفتاح التخصيص</label>
                 <input type="text" name="custom-key-ar" value="${customNameAr}" dir="rtl" placeholder="أدخل مفتاح التخصيص" />
               </div>
@@ -949,23 +958,27 @@ const ProductUI = {
         optionsContainer.innerHTML += `
           <div class="option js-option">
             <div class="card">
-              <div class="option-title">
-                <label for="option-name">Option Key</label>
-                <input
-                  type="text"
-                  name="option-name"
-                  placeholder="Enter option key"
-                />
-                <label for="option-name-ar" class="arabic-label">مفتاح الخيار</label>
-                <input
-                  type="text"
-                  name="option-name-ar"
-                  placeholder="أدخل مفتاح الخيار"
-                  dir="rtl"
-                />
+              <div class="row">
+                <div class="row-cell">
+                  <label for="option-name">Option Key</label>
+                  <input
+                    type="text"
+                    name="option-name"
+                    placeholder="Enter option key"
+                  />
+                </div>
+                <div class="row-cell">
+                  <label for="option-name-ar" class="arabic-label">مفتاح الخيار</label>
+                  <input
+                    type="text"
+                    name="option-name-ar"
+                    placeholder="أدخل مفتاح الخيار"
+                    dir="rtl"
+                  />
+                </div>
               </div>
               <div class="values-title">
-                <label for="values" style="margin-bottom: 0;">Values</label>
+                <label>Values</label>
                 <div>
                   <button class="secondary-button js-delete-value">
                     Delete 
@@ -976,18 +989,22 @@ const ProductUI = {
                 </div>
               </div>
               <div class="values-container js-values">
-                <div class="value-row">
-                  <input
-                    type="text"
-                    name="value-name"
-                    placeholder="Enter value"
-                  />
-                  <input
-                    type="text"
-                    name="value-name-ar"
-                    placeholder="القيمة بالعربي"
-                    dir="rtl"
-                  />
+                <div class="row">
+                  <div class="row-cell">
+                    <input
+                      type="text"
+                      name="value-name"
+                      placeholder="Enter value"
+                    />
+                  </div>
+                  <div class="row-cell">
+                    <input
+                      type="text"
+                      name="value-name-ar"
+                      placeholder="القيمة بالعربي"
+                      dir="rtl"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -1014,19 +1031,23 @@ const ProductUI = {
             .querySelector(".js-values");
 
           const valueRow = document.createElement("div");
-          valueRow.className = "value-row";
+          valueRow.className = "row";
           valueRow.innerHTML = `
-            <input
-              type="text"
-              name="value-name"
-              placeholder="Enter value"
-            />
-            <input
-              type="text"
-              name="value-name-ar"
-              placeholder="القيمة بالعربي"
-              dir="rtl"
-            />
+            <div class="row-cell">
+              <input
+                type="text"
+                name="value-name"
+                placeholder="Enter value"
+              />
+            </div>
+            <div class="row-cell">
+              <input
+                type="text"
+                name="value-name-ar"
+                placeholder="القيمة بالعربي"
+                dir="rtl"
+              />
+            </div>
           `;
 
           valuesContainer.appendChild(valueRow);
@@ -1063,7 +1084,7 @@ const ProductUI = {
                 </select>
               </div>
               <div class="row">
-                <div>
+                <div class="row-cell">
                   <label for="size-width">Width</label>
                   <input
                     type="text"
@@ -1071,7 +1092,7 @@ const ProductUI = {
                     placeholder="Enter size width"
                   />
                 </div>
-                <div>
+                <div class="row-cell">
                   <label for="size-height">Height</label>
                   <input
                     type="text"
@@ -1106,7 +1127,7 @@ const ProductUI = {
           <div class="custom js-custom">
             <div class="card">
               <div class="row">
-                <div>
+                <div class="row-cell">
                   <label for="custom-key">Custom Key</label>
                   <input
                     type="text"
@@ -1114,7 +1135,7 @@ const ProductUI = {
                     placeholder="Enter custom key"
                   />
                 </div>
-                <div>
+                <div class="row-cell">
                   <label for="custom-key-ar" class="arabic-label">مفتاح التخصيص</label>
                   <input
                     type="text"
@@ -1210,7 +1231,7 @@ const ProductUI = {
             : optionName;
 
           const valuesContainer = optionEl.querySelector(".js-values");
-          const valueRows = valuesContainer?.querySelectorAll(".value-row");
+          const valueRows = valuesContainer?.querySelectorAll(".row");
 
           if (formattedOptionName && valueRows) {
             const values = [];
@@ -1375,6 +1396,7 @@ async function main() {
   try {
     await ProductUI.Events.setupProductUI();
     hideLoadingScreen();
+    showLandscapeRecommendation();
   } catch (error) {
     if (isServerError(error)) {
       showServerDownPage();

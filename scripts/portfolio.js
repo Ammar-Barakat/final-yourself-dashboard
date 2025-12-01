@@ -4,6 +4,7 @@ import {
   showServerDownPage,
   isServerError,
   showToast,
+  showLandscapeRecommendation,
 } from "./utilis/pop-ups.js";
 import { Collection } from "./data/collection.js";
 import { Category } from "./data/category.js";
@@ -3217,6 +3218,7 @@ async function main() {
     await InfoUI.Events.setupContactUsUI();
     NotificationUI.Events.setupNotificationUI();
     hideLoadingScreen();
+    showLandscapeRecommendation();
   } catch (error) {
     if (isServerError(error)) {
       showServerDownPage();

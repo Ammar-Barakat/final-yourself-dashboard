@@ -734,3 +734,254 @@
 .pop-up .card {
   margin-bottom: 0;
 } */
+
+/* ============================================
+   LANDSCAPE ORIENTATION STYLES (Mini Desktop)
+   ============================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Page main data */
+  .page-main-data {
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+    gap: var(--space-xs-8px);
+    /* overflow: auto; */
+  }
+
+  /* Tabs navigation - horizontal */
+  .settings-tabs {
+    flex-direction: row;
+    gap: var(--space-xs-8px);
+    flex-wrap: nowrap;
+    /* overflow-x: auto; */
+  }
+
+  .tab-btn {
+    font-size: var(--font-xs-12px);
+    padding: var(--space-xxs-4px) var(--space-sm-12px);
+    white-space: nowrap;
+  }
+
+  /* Tab content */
+  .tab-content {
+    padding: var(--space-xs-8px);
+  }
+
+  /* Section cards */
+  .section-card {
+    margin-bottom: var(--space-xs-8px);
+  }
+
+  .section-card-header {
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+    gap: var(--space-xs-8px);
+  }
+
+  .section-card-icon {
+    font-size: var(--font-md-16px);
+  }
+
+  .section-card-title {
+    font-size: var(--font-sm-14px);
+  }
+
+  .section-card-subtitle {
+    font-size: 10px;
+  }
+
+  .section-card-content {
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+  }
+
+  /* Profile section */
+  .profile-section {
+    gap: var(--space-sm-12px);
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .profile-image-container {
+    flex-shrink: 0;
+  }
+
+  .profile-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .btn-upload-photo {
+    bottom: 2px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    font-size: var(--font-xs-12px);
+  }
+
+  .profile-info {
+    flex: 1;
+  }
+
+  /* Form rows - desktop side by side */
+  .form-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xs-8px);
+  }
+
+  .form-group {
+    margin-bottom: var(--space-xs-8px);
+  }
+
+  .form-group label {
+    font-size: var(--font-xs-12px);
+    margin-bottom: var(--space-xxs-4px);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+  }
+
+  /* Button group */
+  .button-group {
+    gap: var(--space-xs-8px);
+    margin-top: var(--space-xs-8px);
+  }
+
+  .button-group button {
+    padding: var(--space-xxs-4px) var(--space-sm-12px);
+    font-size: var(--font-xs-12px);
+  }
+
+  /* Admin/System user items */
+  .admin-item,
+  .system-user-item {
+    flex-direction: row;
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+    gap: var(--space-xs-8px);
+  }
+
+  .admin-info,
+  .system-user-info {
+    flex: 1;
+    gap: var(--space-xs-8px);
+  }
+
+  .admin-icon,
+  .system-user-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .admin-icon i,
+  .system-user-icon i {
+    font-size: var(--font-sm-14px);
+  }
+
+  .admin-details h4,
+  .system-user-details h4 {
+    font-size: var(--font-sm-14px);
+  }
+
+  .admin-details p,
+  .system-user-details p {
+    font-size: var(--font-xs-12px);
+  }
+
+  .admin-actions,
+  .system-user-actions {
+    gap: var(--space-xs-8px);
+  }
+
+  .admin-role-select,
+  .system-user-role-select {
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+    min-width: 90px;
+  }
+
+  .btn-icon {
+    padding: var(--space-xxs-4px);
+    font-size: var(--font-sm-14px);
+  }
+
+  /* Role select wrapper */
+  .role-select-wrapper {
+    flex-direction: row;
+    gap: var(--space-xs-8px);
+  }
+
+  .btn-add-role {
+    width: 40px;
+    padding: var(--space-xxs-4px);
+    font-size: var(--font-sm-14px);
+  }
+
+  /* Password input */
+  .password-input-wrapper {
+    position: relative;
+  }
+
+  .add-admin-section-card .password-input-wrapper .form-input,
+  .add-system-user-section-card .password-input-wrapper .form-input {
+    padding-right: 100px;
+  }
+
+  .toggle-password-btn {
+    padding: 0 var(--space-xxs-4px);
+  }
+
+  .btn-generate {
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: 9px;
+  }
+
+  /* Pop-ups */
+  .pop-up-container .pop-up {
+    width: 50% !important;
+    max-height: 85vh !important;
+    height: auto !important;
+  }
+
+  .pop-up .header {
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+  }
+
+  .pop-up .header h2 {
+    font-size: var(--font-md-16px);
+  }
+
+  .pop-up .body {
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+    overflow-y: auto;
+    max-height: calc(85vh - 100px);
+  }
+
+  .pop-up .body .row {
+    flex-direction: row;
+    gap: var(--space-xs-8px);
+    margin-bottom: var(--space-xs-8px);
+  }
+
+  .pop-up .body label {
+    font-size: var(--font-xs-12px);
+  }
+
+  .pop-up .body input,
+  .pop-up .body select,
+  .pop-up .body textarea {
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+  }
+
+  .pop-up .footer {
+    flex-direction: row;
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+    gap: var(--space-xs-8px);
+  }
+
+  .pop-up .footer button {
+    width: auto;
+    padding: var(--space-xxs-4px) var(--space-sm-12px);
+    font-size: var(--font-xs-12px);
+  }
+}

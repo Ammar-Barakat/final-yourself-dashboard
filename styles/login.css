@@ -10,8 +10,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("../media/imgs/background.png") center/cover no-repeat;
+  /* Fallback solid color for instant paint */
+  background-color: #305d62;
+  /* WebP with PNG fallback */
+  background-image: url("../media/imgs/background.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   position: relative;
+}
+
+/* Fallback for browsers that don't support WebP */
+@supports not (background-image: url("../media/imgs/background.webp")) {
+  body {
+    background-image: url("../media/imgs/background.png");
+  }
 }
 
 body::before {

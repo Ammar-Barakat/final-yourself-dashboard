@@ -226,7 +226,11 @@ const SchoolViewUI = {
 };
 
 // ==================== MAIN FUNCTION ====================
-import { showServerDownPage, isServerError } from "./utilis/pop-ups.js";
+import {
+  showServerDownPage,
+  isServerError,
+  showLandscapeRecommendation,
+} from "./utilis/pop-ups.js";
 
 function hideLoadingScreen() {
   const loadingScreen = document.getElementById("loadingScreen");
@@ -249,6 +253,7 @@ async function main() {
     PacksUI.renderPacksData(school.packs);
     ExtrasUI.renderExtrasData(school.extraProducts);
     hideLoadingScreen();
+    showLandscapeRecommendation();
   } catch (error) {
     if (isServerError(error)) {
       showServerDownPage();

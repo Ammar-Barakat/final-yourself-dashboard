@@ -28,7 +28,7 @@
 
 .section-card {
   width: 100%;
-  margin-bottom: var(--space-md-16px);
+  /* margin-bottom: var(--space-md-16px); */
 }
 
 .section-sub-card {
@@ -590,4 +590,285 @@ input[type="radio"] {
   height: 18px;
   cursor: pointer;
   accent-color: var(--primary-color);
+}
+
+/* ============================================
+   LANDSCAPE ORIENTATION STYLES (Mini Desktop)
+   ============================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Page operations - desktop layout */
+  .page-main-operations {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+    gap: var(--space-sm-12px);
+    align-items: center;
+  }
+
+  .page-main-operations .main-info,
+  .page-main-operations .main-operations {
+    width: auto;
+  }
+
+  .page-main-operations .main-info h2 {
+    font-size: var(--font-md-16px);
+    margin: 0;
+  }
+
+  .page-main-operations .main-operations {
+    flex-direction: row;
+    gap: var(--space-xs-8px);
+  }
+
+  .page-main-operations .main-operations button {
+    width: auto;
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+  }
+
+  /* Page data */
+  .page-main-data {
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+    overflow: auto;
+  }
+
+  /* Section cards - compact */
+  /* .section-card,
+  .section-sub-card {
+    margin-bottom: var(--space-xs-8px);
+  } */
+
+  .section-sub-card {
+    margin: 0 var(--space-xs-8px) var(--space-xs-8px);
+  }
+
+  .section-card-header,
+  .section-sub-card-header {
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+  }
+
+  .section-card-toggle,
+  .section-sub-card-toggle {
+    font-size: var(--font-md-16px);
+    margin-right: var(--space-xs-8px);
+  }
+
+  .section-card-icon,
+  .section-sub-card-icon {
+    width: 32px;
+    height: 32px;
+    font-size: var(--font-sm-14px);
+    margin-right: var(--space-xs-8px);
+  }
+
+  .section-card-title,
+  .section-sub-card-title {
+    font-size: var(--font-sm-14px);
+  }
+
+  .section-card-description,
+  .section-sub-card-description {
+    font-size: 10px;
+  }
+
+  .section-card-subtitle,
+  .section-sub-card-subtitle {
+    font-size: 10px;
+  }
+
+  /* Sub-section cards */
+  .sub-section-sub-card {
+    margin: 0 var(--space-xs-8px) var(--space-xs-8px);
+    padding: var(--space-sm-12px);
+  }
+
+  .sub-section-sub-card-icon {
+    width: 28px;
+    height: 28px;
+    font-size: var(--font-sm-14px);
+  }
+
+  .sub-section-sub-card-title {
+    font-size: var(--font-sm-14px);
+  }
+
+  .sub-section-sub-card-type {
+    font-size: 9px;
+    padding: 1px var(--space-xxs-4px);
+  }
+
+  .sub-section-sub-card-description {
+    font-size: var(--font-xs-12px);
+  }
+
+  .sub-section-sub-card-current {
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+  }
+
+  /* Category grid */
+  .category-container {
+    padding: var(--space-xs-8px);
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: var(--space-xs-8px);
+  }
+
+  .category-item {
+    padding: var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+  }
+
+  /* Filter controls */
+  .filter-controls {
+    flex-direction: row;
+    gap: var(--space-xs-8px);
+    flex-wrap: wrap;
+  }
+
+  .filter-controls button,
+  .filter-controls select {
+    width: auto;
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+  }
+
+  /* Preview grid */
+  .preview-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: var(--space-xs-8px);
+  }
+
+  /* Upload area */
+  .upload-area {
+    padding: var(--space-sm-12px);
+  }
+
+  .upload-icon {
+    width: 40px;
+    height: 40px;
+    font-size: var(--font-md-16px);
+    margin-bottom: var(--space-xs-8px);
+  }
+
+  .upload-title {
+    font-size: var(--font-sm-14px);
+    margin-bottom: var(--space-xxs-4px);
+  }
+
+  .upload-subtitle {
+    font-size: var(--font-xs-12px);
+    margin-bottom: var(--space-xs-8px);
+  }
+
+  .choose-file-btn {
+    padding: var(--space-xxs-4px) var(--space-sm-12px);
+    font-size: var(--font-xs-12px);
+  }
+
+  /* Preview items */
+  .images-preview-grid {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: var(--space-xs-8px);
+    margin-top: var(--space-xs-8px);
+  }
+
+  .images-count {
+    margin-top: var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+  }
+
+  .preview-item .remove-image {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+  }
+
+  .preview-item .image-name {
+    font-size: 8px;
+    padding: var(--space-xxs-4px) 2px;
+  }
+
+  /* Pop-ups */
+  .pop-up {
+    width: 60% !important;
+    max-height: 85vh !important;
+    height: auto !important;
+  }
+
+  .pop-up .header {
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+    margin-bottom: 0;
+  }
+
+  .pop-up .header h2 {
+    font-size: var(--font-md-16px);
+  }
+
+  .pop-up .body {
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+    overflow-y: auto;
+    max-height: calc(85vh - 100px);
+  }
+
+  .pop-up .body .row {
+    flex-direction: row;
+    gap: var(--space-xs-8px);
+    margin-bottom: var(--space-xs-8px);
+  }
+
+  .pop-up .body label {
+    font-size: var(--font-xs-12px);
+  }
+
+  .pop-up .body input,
+  .pop-up .body select,
+  .pop-up .body textarea {
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+  }
+
+  .pop-up textarea {
+    min-height: 60px;
+  }
+
+  .pop-up .footer {
+    flex-direction: row;
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+    gap: var(--space-xs-8px);
+  }
+
+  .pop-up .footer button {
+    width: auto;
+    padding: var(--space-xxs-4px) var(--space-sm-12px);
+    font-size: var(--font-xs-12px);
+  }
+
+  /* Notification preview */
+  .notification-preview {
+    padding: var(--space-xs-8px);
+    margin: var(--space-xs-8px);
+  }
+
+  .notification-preview-body h4 {
+    font-size: var(--font-sm-14px);
+  }
+
+  .notification-preview-body p {
+    font-size: var(--font-xs-12px);
+  }
+
+  /* School dropdown */
+  .js-school-dropdown {
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+  }
+
+  /* Radio buttons */
+  input[type="radio"] {
+    width: 14px;
+    height: 14px;
+  }
 }

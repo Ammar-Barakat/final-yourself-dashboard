@@ -1,4 +1,9 @@
-import { togglePopUpOff, togglePopUpOn, showToast } from "./utilis/pop-ups.js";
+import {
+  togglePopUpOff,
+  togglePopUpOn,
+  showToast,
+  showLandscapeRecommendation,
+} from "./utilis/pop-ups.js";
 import { SchoolDetails } from "./data/school.js";
 import { Product } from "./data/product.js";
 
@@ -404,10 +409,16 @@ const ProductsUI = {
 
     const checkedCustoms = ProductsUI.selectedCustomsTemp[schoolProductId];
 
-    const customOptions = Object.entries(productCustoms).map(([id, name]) => ({
-      id,
-      name,
-    }));
+    // Handle both array format (from data model) and object format
+    let customOptions;
+    if (Array.isArray(productCustoms)) {
+      customOptions = productCustoms;
+    } else {
+      customOptions = Object.entries(productCustoms).map(([id, name]) => ({
+        id,
+        name,
+      }));
+    }
 
     if (customOptions.length !== 0) {
       productPopUp.querySelector(".body").innerHTML = `
@@ -1560,6 +1571,7 @@ async function main() {
     ExtrasUI.renderExtrasData();
     SchoolEditUI.applyStatusPermissions(school.status);
     hideLoadingScreen();
+    showLandscapeRecommendation();
   } catch (error) {
     if (isServerError(error)) {
       showServerDownPage();

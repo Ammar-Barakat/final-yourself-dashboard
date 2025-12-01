@@ -384,3 +384,211 @@
     width: 100%;
   }
 }
+
+/* ============================================
+   LANDSCAPE ORIENTATION STYLES (Mini Desktop)
+   ============================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Page operations - desktop layout */
+  .page-main-operations {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+    gap: var(--space-sm-12px);
+  }
+
+  .main-info .filter-options {
+    flex-direction: row;
+    gap: var(--space-xs-8px);
+    align-items: center;
+  }
+
+  .filter-options > div {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-xxs-4px);
+  }
+
+  .filter-options label {
+    font-size: var(--font-xs-12px);
+    white-space: nowrap;
+  }
+
+  .filter-options select {
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+    min-width: 100px;
+  }
+
+  .main-operations .search-input {
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+    min-width: 200px;
+  }
+
+  /* Page data */
+  .page-main-data {
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+    gap: var(--space-sm-12px);
+    overflow: auto;
+  }
+
+  /* Translation stats - 3 columns */
+  .translation-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-sm-12px);
+  }
+
+  .stat-card {
+    padding: var(--space-sm-12px);
+    gap: var(--space-xs-8px);
+  }
+
+  .stat-card i {
+    font-size: 24px;
+  }
+
+  .stat-card h3 {
+    font-size: var(--font-lg-20px);
+  }
+
+  .stat-card p {
+    font-size: var(--font-xs-12px);
+  }
+
+  /* Translations list */
+  .translations-list {
+    gap: var(--space-sm-12px);
+  }
+
+  /* Translation item */
+  .translation-header {
+    flex-direction: row;
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+    gap: var(--space-xs-8px);
+  }
+
+  .translation-header-info {
+    gap: var(--space-xs-8px);
+  }
+
+  .translation-category {
+    padding: 2px var(--space-xs-8px);
+    font-size: 10px;
+  }
+
+  .translation-category i {
+    font-size: var(--font-xs-12px);
+  }
+
+  .translation-title {
+    font-size: var(--font-sm-14px);
+  }
+
+  .translation-status {
+    font-size: var(--font-xs-12px);
+  }
+
+  .translation-content {
+    padding: var(--space-sm-12px);
+  }
+
+  /* Translation grid - 2 columns */
+  .translation-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm-12px);
+  }
+
+  .translation-column {
+    gap: var(--space-xs-8px);
+  }
+
+  .translation-column h4 {
+    font-size: var(--font-xs-12px);
+    gap: var(--space-xxs-4px);
+  }
+
+  .translation-field {
+    gap: var(--space-xxs-4px);
+  }
+
+  .translation-field label {
+    font-size: var(--font-xs-12px);
+  }
+
+  .translation-field .read-only {
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+  }
+
+  .translation-field input,
+  .translation-field textarea {
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+  }
+
+  .translation-field textarea {
+    min-height: 50px;
+  }
+
+  .translation-actions {
+    flex-direction: row;
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+    gap: var(--space-xs-8px);
+  }
+
+  .translation-actions button {
+    width: auto;
+    padding: var(--space-xxs-4px) var(--space-sm-12px);
+    font-size: var(--font-xs-12px);
+  }
+
+  /* Translation sections */
+  .translation-section {
+    margin-top: var(--space-sm-12px);
+    padding-top: var(--space-sm-12px);
+  }
+
+  .section-title {
+    margin-bottom: var(--space-xs-8px);
+    font-size: var(--font-sm-14px);
+    gap: var(--space-xxs-4px);
+  }
+
+  .section-title i {
+    font-size: var(--font-sm-14px);
+  }
+
+  .translation-subsection {
+    padding: var(--space-xs-8px);
+    margin-bottom: var(--space-xs-8px);
+  }
+
+  .subsection-header {
+    font-size: var(--font-xs-12px);
+    margin-bottom: var(--space-xs-8px);
+    padding-bottom: var(--space-xxs-4px);
+  }
+
+  .translation-subsection .translation-grid {
+    gap: var(--space-xs-8px);
+  }
+
+  .translation-subsection .translation-field + .translation-field {
+    margin-top: var(--space-xs-8px);
+  }
+
+  /* Empty state */
+  .empty-state {
+    padding: var(--space-md-16px);
+  }
+
+  .empty-state i {
+    font-size: 40px;
+    margin-bottom: var(--space-xs-8px);
+  }
+
+  .empty-state p {
+    font-size: var(--font-sm-14px);
+  }
+}

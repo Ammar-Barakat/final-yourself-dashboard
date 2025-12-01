@@ -304,3 +304,133 @@ input[type="file"] {
     font-size: var(--font-xs-12px);
   }
 }
+
+/* ============================================
+   LANDSCAPE ORIENTATION STYLES (Mini Desktop)
+   ============================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Page operations - desktop layout */
+  .page-main-operations {
+    /* flex-direction: row;
+    justify-content: space-between;
+    padding: var(--space-xs-8px) var(--space-sm-12px); */
+    gap: var(--space-sm-12px);
+  }
+
+  .page-main-operations .main-info h2 {
+    font-size: var(--font-md-16px);
+    margin: 0;
+  }
+
+  /* Filter options - horizontal */
+  /* .page-main-operations .filter-options {
+    flex-direction: row;
+    gap: var(--space-xs-8px);
+  } */
+
+  /* .page-main-operations .filter-options div {
+    width: auto;
+    gap: var(--space-xxs-4px);
+  } */
+
+  .page-main-operations .filter-options label {
+    font-size: var(--font-xs-12px);
+  }
+
+  .page-main-operations .filter-options select {
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+  }
+
+  /* Page data */
+  .page-main-data {
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+    /* overflow: auto; */
+  }
+
+  /* Card */
+  .card {
+    padding: var(--space-sm-12px);
+  }
+
+  .card.choose {
+    padding: var(--space-md-16px);
+  }
+
+  .choose i {
+    font-size: calc(var(--font-lg-20px) * 3);
+  }
+
+  .choose p {
+    font-size: var(--font-sm-14px);
+  }
+
+  /* Designs header */
+  .designs-header {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: var(--space-xs-8px);
+  }
+
+  .designs-header h2 {
+    font-size: var(--font-md-16px);
+  }
+
+  .designs-header button {
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+  }
+
+  /* Product category */
+  .product-category {
+    margin-bottom: var(--space-sm-12px);
+  }
+
+  .category-title {
+    font-size: var(--font-sm-14px) !important;
+    margin-bottom: var(--space-xs-8px);
+  }
+
+  /* Upload grid - 3 columns */
+  .upload-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: var(--space-xs-8px) !important;
+  }
+
+  .upload-slot {
+    gap: var(--space-xxs-4px);
+  }
+
+  .slot-label {
+    font-size: var(--font-xs-12px);
+  }
+
+  /* Upload box */
+  .upload-box {
+    aspect-ratio: 1;
+  }
+
+  .upload-box-icon {
+    font-size: var(--font-md-16px);
+    margin-bottom: var(--space-xxs-4px);
+  }
+
+  .upload-box-text {
+    font-size: 10px;
+  }
+
+  /* Remove button */
+  .remove-button {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    top: var(--space-xxs-4px);
+    right: var(--space-xxs-4px);
+  }
+
+  /* Upload counter */
+  .upload-counter {
+    font-size: var(--font-xs-12px);
+    margin-top: var(--space-xxs-4px);
+  }
+}

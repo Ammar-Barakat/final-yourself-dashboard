@@ -140,3 +140,103 @@ button i {
   font-size: var(--font-lg-20px);
   margin-right: 0px;
 }
+
+/* ==================== LANDSCAPE ORIENTATION ==================== */
+/* Force collapsed navbar appearance in landscape mode */
+@media (max-height: 500px) and (orientation: landscape) {
+  .navbar {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    width: 60px !important;
+    min-width: 60px;
+    max-width: 60px;
+    padding: var(--space-xs-8px) var(--space-md-16px);
+    height: 100%;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    overflow-x: visible;
+  }
+
+  .navbar .navbar-header {
+    height: unset;
+    margin-bottom: 0;
+    justify-content: center;
+  }
+
+  .navbar .navbar-header img {
+    width: 26px !important;
+  }
+
+  .navbar .navbar-header button {
+    display: none !important;
+  }
+
+  /* Hide all text spans in navbar links */
+  .navbar .navbar-links span {
+    display: none !important;
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+  }
+
+  .navbar .navbar-links i {
+    font-size: var(--font-md-16px);
+    margin-right: 0 !important;
+  }
+
+  .navbar .navbar-links hr {
+    margin: var(--space-xs-8px) 0;
+  }
+
+  /* All navbar link items including dropdown toggle */
+  .navbar .navbar-links .links-group ul li {
+    padding: var(--space-xs-8px);
+    margin-bottom: var(--space-xxs-4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Dropdown toggle (Manage) - same style as other links */
+  .navbar .navbar-links .dropdown > li.js-dropdown {
+    padding: var(--space-xs-8px);
+    margin-bottom: var(--space-xxs-4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Hide the dropdown arrow icon */
+  .navbar .navbar-links .dropdown .js-manage-icon {
+    display: none !important;
+  }
+
+  /* Dropdown menu - keep normal flow, not absolute */
+  .navbar .navbar-links .dropdown .js-dropdown-menu {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  /* Dropdown menu items */
+  .navbar .navbar-links .dropdown .js-dropdown-menu li {
+    padding: var(--space-xs-8px) !important;
+    font-size: var(--font-md-16px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar .navbar-links .dropdown .js-dropdown-menu li i {
+    font-size: var(--font-md-16px);
+    margin-right: 0 !important;
+  }
+
+  /* Hide text in dropdown items too */
+  .navbar .navbar-links .dropdown .js-dropdown-menu li span {
+    display: none !important;
+    opacity: 0;
+    max-width: 0;
+  }
+}

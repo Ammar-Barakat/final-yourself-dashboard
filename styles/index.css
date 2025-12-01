@@ -22,7 +22,7 @@
 }
 
 .page-main-data {
-  padding: var(--space-md-16px) var(--space-xl-32px);
+  padding: var(--space-md-16px) var(--space-lg-24px);
   display: flex;
   flex-direction: column;
   gap: var(--space-lg-24px);
@@ -436,3 +436,171 @@
     grid-template-columns: 1fr;
   }
 } */
+
+/* ==================== LANDSCAPE ORIENTATION (Mobile Horizontal) ==================== */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Reset dashboard layout to desktop-like */
+  .page-main-data {
+    padding: var(--space-xs-8px) var(--space-md-16px);
+    margin-top: 0;
+    gap: var(--space-sm-12px);
+    height: auto;
+    flex-direction: column;
+  }
+
+  /* Stats cards - 4 columns like desktop */
+  .stats-cards {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-sm-12px);
+  }
+
+  .stat-label {
+    font-size: var(--font-xs-12px);
+    margin-bottom: var(--space-xxs-4px);
+  }
+
+  .stat-value {
+    font-size: var(--font-md-16px);
+  }
+
+  /* Charts row - 2 column layout like desktop */
+  .charts-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-sm-12px);
+  }
+
+  .chart-card {
+    padding: var(--space-sm-12px);
+  }
+
+  .chart-header {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: var(--space-xs-8px);
+  }
+
+  .chart-header h3 {
+    font-size: var(--font-sm-14px);
+    margin: 0;
+  }
+
+  .date-filters {
+    flex-direction: row;
+    gap: var(--space-xxs-4px);
+  }
+
+  .date-filters select {
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+    width: auto;
+  }
+
+  .revenue-value {
+    font-size: var(--font-lg-20px);
+  }
+
+  .revenue-change {
+    font-size: var(--font-xs-12px);
+  }
+
+  .chart-subtitle {
+    font-size: 10px;
+  }
+
+  .view-report-btn {
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+  }
+
+  .chart-container {
+    height: 180px;
+  }
+
+  .pack-chart-container {
+    height: 180px;
+  }
+
+  .pack-chart-container canvas {
+    max-width: 180px;
+    max-height: 180px;
+  }
+
+  /* Calendar - full 7 column grid */
+  .calendar-card {
+    padding: var(--space-sm-12px);
+  }
+
+  .calendar-header {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: var(--space-sm-12px);
+  }
+
+  .calendar-header h3 {
+    font-size: var(--font-sm-14px);
+  }
+
+  .calendar-weekdays {
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--space-xxs-4px);
+    margin-bottom: var(--space-xs-8px);
+    padding-bottom: var(--space-xs-8px);
+  }
+
+  .calendar-weekday {
+    font-size: 10px;
+    padding: var(--space-xxs-4px) 0;
+  }
+
+  .calendar-grid {
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--space-xxs-4px);
+  }
+
+  .calendar-day {
+    aspect-ratio: 1.5;
+    font-size: 11px;
+    min-height: 24px;
+  }
+
+  .calendar-day .pickup-badge {
+    font-size: 8px;
+    padding: 1px 2px;
+  }
+
+  /* Half row - 2 columns like desktop */
+  .half-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm-12px);
+  }
+
+  /* Schools table */
+  .schools-table th,
+  .schools-table td {
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+  }
+
+  /* Performance card */
+  .performance-card .chart-header h3 {
+    font-size: var(--font-sm-14px);
+  }
+
+  .performance-card .chart-header select {
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+  }
+
+  /* Row layouts */
+  .row {
+    flex-direction: row;
+    gap: var(--space-sm-12px);
+  }
+
+  .revenue-row,
+  .calendar-row {
+    width: 100%;
+  }
+}

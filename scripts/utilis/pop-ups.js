@@ -122,7 +122,13 @@ export function showToast(message, type = "error") {
   const toast = document.createElement("div");
   toast.className = `toast toast-${type}`;
 
-  const icon = type === "success" ? "✓" : type === "warning" ? "⚠" : "✕";
+  const icons = {
+    success: "✓",
+    warning: "⚠",
+    info: "ℹ",
+    error: "✕",
+  };
+  const icon = icons[type] || icons.error;
 
   toast.innerHTML = `
     <span class="toast-icon">${icon}</span>
@@ -139,4 +145,30 @@ export function showToast(message, type = "error") {
     toast.classList.remove("toast-show");
     setTimeout(() => toast.remove(), 300);
   }, 5000);
+}
+
+// Show landscape rotation recommendation for mobile portrait users
+export function showLandscapeRecommendation() {
+  // Only show on mobile devices in portrait mode
+  const isMobile = window.innerWidth <= 768;
+  const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+
+  // Get current page name for per-page tracking
+  const pageName = window.location.pathname.split("/").pop() || "index";
+  const storageKey = `landscapeShown_${pageName}`;
+
+  // Check if already shown on this page in this session
+  const hasShown = sessionStorage.getItem(storageKey);
+
+  if (isMobile && isPortrait && !hasShown) {
+    // Delay slightly so page content loads first
+    setTimeout(() => {
+      showToast(
+        "📱 Rotate your phone to landscape for the best experience with data tables!",
+        "info"
+      );
+      // Mark as shown for this page
+      sessionStorage.setItem(storageKey, "true");
+    }, 1000);
+  }
 }

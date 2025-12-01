@@ -1,6 +1,11 @@
 import { School, SchoolDetails } from "./data/school.js";
 import { StudentPack, StudentPackDetails } from "./data/student.js";
-import { togglePopUpOn, togglePopUpOff, showToast } from "./utilis/pop-ups.js";
+import {
+  togglePopUpOn,
+  togglePopUpOff,
+  showToast,
+  showLandscapeRecommendation,
+} from "./utilis/pop-ups.js";
 
 const API_BASE_URL = "https://yourself-demo.runasp.net";
 // const API_BASE_URL = "https://localhost:44372";
@@ -1542,6 +1547,7 @@ async function main() {
   try {
     await StudentsUI.Events.setupStudentsUI();
     hideLoadingScreen();
+    showLandscapeRecommendation();
   } catch (error) {
     if (isServerError(error)) {
       showServerDownPage();

@@ -1,18 +1,92 @@
 /* Mobile Header and Navigation */
 
-.mobile-header {
-  display: none;
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-  padding: var(--space-md-16px);
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+/* ==================== DESKTOP: Hide all mobile elements ==================== */
+.mobile-header,
+.mobile-sidebar,
+.mobile-sidebar-overlay {
+  display: none !important;
 }
 
+/* ==================== LANDSCAPE: Hide mobile elements, show desktop navbar ==================== */
+@media (max-height: 500px) and (orientation: landscape) {
+  .mobile-header,
+  .mobile-sidebar,
+  .mobile-sidebar-overlay {
+    display: none !important;
+  }
+}
+
+/* ==================== MOBILE: Show and style mobile elements ==================== */
+@media (max-width: 768px) {
+  /* Show mobile header */
+  .mobile-header {
+    display: flex !important;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: var(--space-md-16px);
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Show mobile sidebar overlay */
+  .mobile-sidebar-overlay {
+    display: block !important;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+  }
+
+  .mobile-sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* Show mobile sidebar */
+  .mobile-sidebar {
+    display: block !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 280px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 300;
+    overflow-y: auto;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .mobile-sidebar.active {
+    transform: translateX(0);
+  }
+
+  /* Hide desktop elements */
+  .navbar {
+    display: none !important;
+  }
+
+  .page-body {
+    width: 100%;
+  }
+
+  .page-header-profile {
+    display: none !important;
+  }
+}
+
+/* ==================== Mobile Header Components ==================== */
 .mobile-header-left {
   display: flex;
   align-items: center;
@@ -80,52 +154,20 @@
   border: 2px solid var(--secondary-color);
 }
 
-/* Mobile Sidebar Navigation */
-.mobile-sidebar-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 200;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.mobile-sidebar-overlay.active {
-  display: block;
-  opacity: 1;
-}
-
-.mobile-sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 280px;
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
-  z-index: 300;
-  overflow-y: auto;
-  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.2);
-}
-
-.mobile-sidebar.active {
-  transform: translateX(0);
-}
-
+/* ==================== Mobile Sidebar Components ==================== */
 .mobile-sidebar-header {
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-md-16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0 var(--space-md-16px);
+  margin-bottom: var(--space-xl-32px);
+  margin-top: var(--space-sm-12px);
 }
 
 .mobile-sidebar-header h3 {
   margin: 0;
-  font-size: var(--font-md-16px);
+  font-size: var(--font-lg-20px);
   font-weight: 600;
 }
 
@@ -135,98 +177,100 @@
   color: var(--secondary-color);
   font-size: var(--font-lg-20px);
   cursor: pointer;
-  padding: var(--space-xs-8px);
+  padding: 0;
   display: flex;
   align-items: center;
 }
 
 .mobile-sidebar-content {
-  padding: var(--space-md-16px);
+  padding: 0 var(--space-md-16px);
 }
 
-.mobile-nav-section {
-  margin-bottom: var(--space-lg-24px);
-}
-
-.mobile-nav-section-title {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: var(--space-sm-12px);
-  font-weight: 600;
-}
-
+/* Mobile nav links - matches desktop structure */
 .mobile-nav-links {
+  margin-bottom: 0;
+}
+
+.mobile-nav-links ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.mobile-nav-links li {
-  margin-bottom: var(--space-xxs-4px);
-}
-
-.mobile-nav-links a {
-  display: flex;
-  align-items: center;
-  padding: var(--space-xs-8px) var(--space-sm-12px);
-  color: var(--secondary-color);
+.mobile-nav-links ul > a {
   text-decoration: none;
-  border-radius: var(--radius-md-6px);
-  transition: background-color 0.2s ease;
-  font-size: var(--font-sm-14px);
 }
 
-.mobile-nav-links a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.mobile-nav-links a.active {
-  background-color: var(--shadow-color);
-  color: var(--primary-color);
-  font-weight: 600;
-}
-
-.mobile-nav-links a i {
-  margin-right: var(--space-xs-8px);
-  font-size: var(--font-md-16px);
-}
-
-/* Mobile Dropdown */
-.mobile-dropdown-toggle {
+.mobile-nav-links ul > a > li {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: var(--space-xs-8px) var(--space-sm-12px);
-  background: transparent;
-  border: none;
+  padding: var(--space-sm-12px) var(--space-lg-24px);
+  margin-bottom: var(--space-xs-8px);
+  border-radius: var(--radius-md-6px);
   color: var(--secondary-color);
+  font-size: var(--font-md-16px);
+  font-weight: 400;
   cursor: pointer;
-  border-radius: var(--radius-md-6px);
-  transition: background-color 0.2s ease;
-  font-size: var(--font-sm-14px);
-  text-align: left;
-  font-family: "Poppins", sans-serif;
+  transition: background-color 0.2s ease, color 0.3s ease;
 }
 
-.mobile-dropdown-toggle:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+.mobile-nav-links ul > a > li:hover {
+  background-color: var(--shadow-color);
 }
 
-.mobile-dropdown-toggle-left {
+.mobile-nav-links ul > a > li.active {
+  background-color: var(--shadow-color);
+}
+
+.mobile-nav-links ul > a > li i,
+.mobile-nav-links li i:first-child {
+  font-size: var(--font-lg-20px);
+  margin-right: var(--space-sm-12px);
+}
+
+/* HR divider style - matches desktop */
+.mobile-sidebar-content hr {
+  border: none;
+  height: 0;
+  border-top: 1px solid #ffffff3d;
+  margin: var(--space-lg-24px) 0;
+}
+
+/* ==================== Mobile Dropdown - matches desktop structure ==================== */
+.mobile-dropdown {
+  position: relative;
+}
+
+.mobile-dropdown > li.mobile-dropdown-toggle {
   display: flex;
   align-items: center;
+  padding: var(--space-sm-12px) var(--space-lg-24px);
+  margin-bottom: var(--space-xs-8px);
+  border-radius: var(--radius-md-6px);
+  color: var(--secondary-color);
+  font-size: var(--font-md-16px);
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.3s ease;
 }
 
-.mobile-dropdown-toggle i:first-child {
-  margin-right: var(--space-xs-8px);
-  font-size: var(--font-md-16px);
+.mobile-dropdown > li.mobile-dropdown-toggle:hover {
+  background-color: var(--shadow-color);
+}
+
+.mobile-dropdown > li.mobile-dropdown-toggle i:first-child {
+  font-size: var(--font-lg-20px);
+  margin-right: var(--space-sm-12px);
+}
+
+.mobile-dropdown > li.mobile-dropdown-toggle > span {
+  display: flex;
+  align-items: center;
 }
 
 .mobile-dropdown-icon {
-  font-size: var(--font-sm-14px);
+  margin-left: 5px;
+  font-size: var(--font-md-16px);
   transition: transform 0.3s ease;
 }
 
@@ -247,65 +291,159 @@
   max-height: 500px;
 }
 
-.mobile-dropdown-menu a {
-  padding-left: calc(var(--space-lg-24px) * 1.5);
+.mobile-dropdown-menu > a {
+  text-decoration: none;
+}
+
+.mobile-dropdown-menu > a > li {
+  display: flex;
+  align-items: center;
+  padding: var(--space-sm-12px) var(--space-lg-24px);
+  padding-left: calc(var(--space-lg-24px) * 2);
+  margin-bottom: var(--space-xs-8px);
+  border-radius: var(--radius-md-6px);
+  color: var(--secondary-color);
+  font-size: calc(var(--font-md-16px) - 2px);
+  font-weight: 400;
+  transition: background-color 0.2s ease, color 0.3s ease;
+}
+
+.mobile-dropdown-menu > a > li:hover {
+  background-color: var(--shadow-color);
+}
+
+.mobile-dropdown-menu > a > li.active {
+  background-color: var(--shadow-color);
+}
+
+.mobile-dropdown-menu > a > li i {
+  font-size: calc(var(--font-md-16px) - 2px);
+  margin-right: var(--space-sm-12px);
+}
+
+/* ==================== Role-based visibility ==================== */
+/* Designer: hide dashboard, manage dropdown, portfolio */
+@media (max-width: 768px) {
+  .role-designer .mobile-sidebar a[href="index.html"],
+  .role-designer .mobile-sidebar a[href="./index.html"],
+  .role-designer .mobile-sidebar .mobile-dropdown,
+  .role-designer .mobile-sidebar a[href="portfolio.html"],
+  .role-designer .mobile-sidebar a[href="./portfolio.html"] {
+    display: none !important;
+  }
+
+  /* Admin: hide design page link */
+  .role-admin .mobile-sidebar a[href="design.html"],
+  .role-admin .mobile-sidebar a[href="./design.html"] {
+    display: none !important;
+  }
+}
+
+/* ==================== Mobile Admin Badge ==================== */
+.mobile-admin-badge {
+  position: relative;
+}
+
+.mobile-admin-badge-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.mobile-admin-badge-button .mobile-profile-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--secondary-color);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-admin-badge-button:hover .mobile-profile-img,
+.mobile-admin-badge-button:focus .mobile-profile-img {
+  border-color: var(--shadow-color);
+  transform: scale(1.05);
+}
+
+.mobile-admin-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  min-width: 280px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.mobile-admin-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Reuse desktop dropdown styles but adjust for mobile */
+.mobile-admin-dropdown .admin-dropdown-header {
+  padding: 16px;
+}
+
+.mobile-admin-dropdown .admin-dropdown-avatar {
+  width: 48px;
+  height: 48px;
+}
+
+.mobile-admin-dropdown .admin-dropdown-name {
+  font-size: 16px;
+}
+
+.mobile-admin-dropdown .admin-dropdown-role {
+  font-size: 12px;
+}
+
+.mobile-admin-dropdown .admin-dropdown-email {
+  padding: 12px 16px;
   font-size: 13px;
 }
 
-/* Divider */
-.mobile-nav-divider {
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.2);
-  margin: var(--space-lg-24px) 0;
+.mobile-admin-dropdown .admin-dropdown-item {
+  padding: 14px 16px;
+  font-size: 15px;
 }
 
-/* Role-based mobile sidebar visibility - prevents flash */
-/* Designer: hide dashboard, manage dropdown, portfolio */
-.role-designer .mobile-sidebar a[href="index.html"],
-.role-designer .mobile-sidebar a[href="./index.html"],
-.role-designer .mobile-sidebar .mobile-dropdown-toggle,
-.role-designer .mobile-sidebar a[href="portfolio.html"],
-.role-designer .mobile-sidebar a[href="./portfolio.html"] {
-  display: none !important;
+.mobile-admin-dropdown .admin-dropdown-item i {
+  font-size: 18px;
 }
 
-.role-designer .mobile-sidebar a[href="index.html"] ~ .mobile-dropdown-toggle,
-.role-designer .mobile-sidebar .mobile-nav-section:first-child {
-  display: none !important;
+.mobile-admin-dropdown .admin-dropdown-logout {
+  border-radius: 0 0 12px 12px;
 }
 
-.role-designer
-  .mobile-sidebar
-  .mobile-nav-section:first-child
-  + .mobile-nav-divider {
-  display: none !important;
-}
-
-/* Admin: hide design page link */
-.role-admin .mobile-sidebar a[href="design.html"],
-.role-admin .mobile-sidebar a[href="./design.html"] {
-  display: none !important;
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-  .mobile-header {
-    display: flex;
+/* ==================== LANDSCAPE OVERRIDE ==================== */
+/* Override mobile styles when in landscape orientation */
+@media (max-width: 768px) and (max-height: 500px) and (orientation: landscape) {
+  .mobile-header,
+  .mobile-sidebar,
+  .mobile-sidebar-overlay {
+    display: none !important;
   }
 
   .navbar {
-    display: none !important;
+    display: flex !important;
+  }
+
+  .page-header-profile {
+    display: flex !important;
   }
 
   .page-body {
-    width: 100%;
-  }
-
-  /* .page-header {
-    padding: var(--space-md-16px);
-  } */
-
-  .page-header-profile {
-    display: none !important;
+    width: calc(100% - 60px) !important;
   }
 }

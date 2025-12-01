@@ -241,3 +241,145 @@ body {
     gap: var(--space-sm-12px);
   } */
 }
+
+/* ============================================
+   LANDSCAPE ORIENTATION STYLES (Mini Desktop)
+   ============================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Sub-page header */
+  .sub-page-header {
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+  }
+
+  .sub-page-header .sub-page-header-title {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .sub-page-header .sub-page-header-title h2 {
+    font-size: var(--font-md-16px);
+  }
+
+  .sub-page-header .sub-page-header-title .header-operations {
+    width: auto;
+    flex-direction: row;
+    gap: var(--space-xs-8px);
+  }
+
+  .sub-page-header .sub-page-header-title button {
+    width: auto;
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+  }
+
+  /* Sub-page main data - desktop side-by-side */
+  .sub-page-main-data {
+    flex-direction: row;
+    padding: var(--space-xs-8px) var(--space-sm-12px);
+    gap: var(--space-sm-12px);
+  }
+
+  .sub-page-main-data .left-data {
+    width: 35%;
+  }
+
+  .sub-page-main-data .right-data {
+    width: 65%;
+  }
+
+  /* Cards */
+  .card {
+    padding: var(--space-sm-12px);
+    margin-bottom: var(--space-xs-8px);
+  }
+
+  .card .row {
+    flex-direction: row;
+    margin-bottom: var(--space-xs-8px);
+  }
+
+  .card .row .row-view-cell {
+    width: 50%;
+    gap: var(--space-xs-8px);
+  }
+
+  .card .row .row-view-cell i {
+    font-size: var(--font-md-16px);
+  }
+
+  .card .row .row-view-cell i:before {
+    padding: var(--space-xxs-4px);
+  }
+
+  .card .row .row-view-cell .content p:first-child {
+    font-size: var(--font-xs-12px);
+    margin-bottom: var(--space-xxs-4px);
+  }
+
+  .card .row .row-view-cell .content .status {
+    padding: 2px var(--space-xxs-4px);
+    font-size: 10px;
+  }
+
+  .card-title {
+    font-size: var(--font-sm-14px);
+    padding: var(--space-xs-8px);
+    margin-bottom: var(--space-xs-8px);
+  }
+
+  .card-title p {
+    font-size: var(--font-sm-14px);
+    margin: 0;
+  }
+
+  /* Overview card - compact */
+  .overview-card {
+    gap: var(--space-xs-8px);
+  }
+
+  .overview-card p {
+    font-size: var(--font-xs-12px);
+  }
+
+  .overview-card .status span {
+    padding: var(--space-xxs-4px) var(--space-xs-8px);
+    font-size: var(--font-xs-12px);
+  }
+
+  .overview-card .overview-card {
+    padding: var(--space-xs-8px);
+  }
+
+  .overview-card .total-info .overview-card:first-child,
+  .overview-card .total-info .overview-card:last-child {
+    width: 45%;
+  }
+
+  .overview-card .total-info .overview-card p:first-child {
+    font-size: var(--font-md-16px);
+  }
+
+  .overview-card .total-money .overview-card p:first-child {
+    font-size: var(--font-lg-20px);
+  }
+
+  /* Packs and Extras */
+  .packs-card .card-content p,
+  .extras-card .card-content p {
+    font-size: var(--font-xs-12px);
+    margin-bottom: var(--space-xs-8px);
+  }
+
+  .packs-card .card-content span,
+  .extras-card .card-content span {
+    padding: var(--space-xxs-4px) var(--space-sm-12px);
+    font-size: var(--font-xs-12px);
+  }
+
+  .packs-card .card-content div:last-child,
+  .extras-card .card-content div:last-child {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-xs-8px);
+  }
+}

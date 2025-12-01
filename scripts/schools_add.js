@@ -1,4 +1,9 @@
-import { togglePopUpOff, togglePopUpOn, showToast } from "./utilis/pop-ups.js";
+import {
+  togglePopUpOff,
+  togglePopUpOn,
+  showToast,
+  showLandscapeRecommendation,
+} from "./utilis/pop-ups.js";
 import { Product } from "./data/product.js";
 
 const API_BASE_URL = "https://yourself-demo.runasp.net";
@@ -719,6 +724,7 @@ async function main() {
     SchoolAddUI.renderOverviewSection();
     SchoolAddUI.renderRequiredFieldsSection();
     hideLoadingScreen();
+    showLandscapeRecommendation();
   } catch (error) {
     if (isServerError(error)) {
       showServerDownPage();

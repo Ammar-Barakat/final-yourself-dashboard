@@ -14,126 +14,118 @@
       </div>
       <div class="mobile-header-center">
         <div class="mobile-logo">
-          <img src="/media/imgs/logo-short.png" width="32" alt="yourself-logo">
+          <img src="./media/imgs/logo-short.png" width="32" alt="yourself-logo">
         </div>
       </div>
       <div class="mobile-header-right">
-        <!-- <button class="mobile-notification-btn" aria-label="Notifications">
-          <i class="bi bi-bell"></i>
-          <span class="mobile-notification-badge"></span>
-        </button> -->
-        <img src="/media/imgs/profile-icon.png" class="mobile-profile-img" alt="Profile" />
+        <div class="mobile-admin-badge">
+          <button class="mobile-admin-badge-button" type="button">
+            <img src="./media/imgs/profile-icon.png" class="mobile-profile-img" alt="Profile" />
+          </button>
+          <div class="mobile-admin-dropdown">
+            <div class="admin-dropdown-header">
+              <img src="./media/imgs/profile-icon.png" alt="Profile" class="admin-dropdown-avatar mobile-dropdown-avatar">
+              <div class="admin-dropdown-info">
+                <div class="admin-dropdown-name mobile-dropdown-name">Loading...</div>
+                <div class="admin-dropdown-role mobile-dropdown-role">-</div>
+              </div>
+            </div>
+            <div class="admin-dropdown-divider"></div>
+            <div class="admin-dropdown-email mobile-dropdown-email">
+              <i class="bi bi-envelope"></i>
+              <span>-</span>
+            </div>
+            <div class="admin-dropdown-divider"></div>
+            <a href="settings.html" class="admin-dropdown-item">
+              <i class="bi bi-gear"></i>
+              <span>Settings</span>
+            </a>
+            <button class="admin-dropdown-item admin-dropdown-logout mobile-dropdown-logout" type="button">
+              <i class="bi bi-box-arrow-right"></i>
+              <span>Logout</span>
+            </button>
+          </div>
+        </div>
       </div>
     </header>
   `;
 
-  // Mobile Sidebar HTML
+  // Mobile Sidebar HTML - matches desktop navbar structure
   const mobileSidebarHTML = `
     <div class="mobile-sidebar-overlay"></div>
     <nav class="mobile-sidebar">
       <div class="mobile-sidebar-header">
         <h3>Menu</h3>
         <button class="mobile-sidebar-close" aria-label="Close menu">
-          <i class="bi bi-x"></i>
+          <i class="bi bi-box-arrow-left"></i>
         </button>
       </div>
       <div class="mobile-sidebar-content">
-        <div class="mobile-nav-section">
-          <ul class="mobile-nav-links">
-            <li>
-              <a href="index.html">
+        <div class="mobile-nav-links">
+          <ul>
+            <a href="index.html">
+              <li>
                 <i class="bi bi-house"></i>
                 <span>Dashboard</span>
-              </a>
-            </li>
-            <li>
-              <button class="mobile-dropdown-toggle">
-                <div class="mobile-dropdown-toggle-left">
-                  <i class="bi bi-pencil-square"></i>
-                  <span>Manage</span>
-                </div>
-                <i class="bi bi-chevron-down mobile-dropdown-icon"></i>
-              </button>
+              </li>
+            </a>
+            <div class="mobile-dropdown">
+              <li class="mobile-dropdown-toggle">
+                <i class="bi bi-pencil-square"></i>
+                <span>
+                  Manage
+                  <i class="bi bi-caret-down mobile-dropdown-icon"></i>
+                </span>
+              </li>
               <ul class="mobile-dropdown-menu">
-                <li>
-                  <a href="products.html">
+                <a href="products.html">
+                  <li>
                     <i class="bi bi-bag"></i>
                     <span>Manage Products</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="schools.html">
+                  </li>
+                </a>
+                <a href="schools.html">
+                  <li>
                     <i class="bi bi-buildings"></i>
                     <span>Manage Schools</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="students.html">
+                  </li>
+                </a>
+                <a href="students.html">
+                  <li>
                     <i class="bi bi-person"></i>
                     <span>Manage Students</span>
-                  </a>
-                </li>
+                  </li>
+                </a>
               </ul>
-            </li>
+            </div>
           </ul>
         </div>
-
-        <div class="mobile-nav-divider"></div>
-
-        <div class="mobile-nav-section">
-          <div class="mobile-nav-section-title">App</div>
-          <ul class="mobile-nav-links">
-            <li>
-              <a href="portfolio.html">
+        <hr />
+        <div class="mobile-nav-links">
+          <ul>
+            <a href="portfolio.html">
+              <li>
                 <i class="bi bi-card-heading"></i>
                 <span>Portfolio</span>
-              </a>
-            </li>
-            <li>
-              <a href="design.html">
+              </li>
+            </a>
+            <a href="design.html">
+              <li>
                 <i class="bi bi-vector-pen"></i>
                 <span>Design</span>
-              </a>
-            </li>
+              </li>
+            </a>
           </ul>
         </div>
-
-        <div class="mobile-nav-divider"></div>
-
-        <div class="mobile-nav-section">
-          <div class="mobile-nav-section-title">Other</div>
-          <ul class="mobile-nav-links">
-            <li>
-              <a href="settings.html">
+        <hr />
+        <div class="mobile-nav-links">
+          <ul>
+            <a href="settings.html">
+              <li>
                 <i class="bi bi-gear"></i>
                 <span>Settings</span>
-              </a>
-            </li>
-            <!-- <li>
-              <a href="account.html">
-                <i class="bi bi-person-gear"></i>
-                <span>Account</span>
-              </a>
-            </li>
-            <li>
-              <a href="help.html">
-                <i class="bi bi-info-circle"></i>
-                <span>Help</span>
-              </a>
-            </li> -->
-          </ul>
-        </div>
-
-        <div class="mobile-nav-divider"></div>
-
-        <div class="mobile-nav-section">
-          <ul class="mobile-nav-links">
-            <li>
-              <a href="#" onclick="alert('Logout functionality')">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Logout</span>
-              </a>
-            </li>
+              </li>
+            </a>
           </ul>
         </div>
       </div>

@@ -366,6 +366,8 @@ const Utilis = {
   logout() {
     this.removeAuthToken();
     this.removeAdminData();
+    // Clear session storage (landscape recommendation, etc.)
+    sessionStorage.clear();
     // Use replace to prevent back navigation, but don't immediately redirect
     // as the caller should handle any additional cleanup
     window.location.replace("./login.html");
@@ -625,17 +627,13 @@ const UI = {
             }
           });
 
-          // Update mobile header profile image
-          const mobileProfileImg = document.querySelector(
-            ".mobile-profile-img"
+          // Update mobile admin badge
+          this.updateMobileAdminBadge(
+            profilePicUrl,
+            fullName,
+            profileData.role,
+            profileData.email
           );
-          if (mobileProfileImg) {
-            mobileProfileImg.src = profilePicUrl;
-            mobileProfileImg.alt = fullName;
-            mobileProfileImg.onerror = function () {
-              this.src = "./media/imgs/profile-icon.png";
-            };
-          }
         }
       } catch (error) {
         console.error("Error rendering admin badge:", error);
@@ -719,13 +717,105 @@ const UI = {
           });
         }
 
-        const mobileProfileImg = document.querySelector(".mobile-profile-img");
-        if (mobileProfileImg) {
-          mobileProfileImg.src = profilePicUrl;
-          mobileProfileImg.alt = fullName;
-          mobileProfileImg.onerror = function () {
-            this.src = "./media/imgs/profile-icon.png";
-          };
+        // Update mobile admin badge with fallback data
+        this.updateMobileAdminBadge(
+          profilePicUrl,
+          fullName,
+          adminData.role,
+          adminData.email
+        );
+      }
+    },
+
+    // Update mobile admin badge with user data
+    updateMobileAdminBadge(profilePicUrl, fullName, role, email) {
+      const mobileAdminBadge = document.querySelector(".mobile-admin-badge");
+      if (!mobileAdminBadge) return;
+
+      // Update profile image
+      const mobileProfileImg = mobileAdminBadge.querySelector(
+        ".mobile-profile-img"
+      );
+      if (mobileProfileImg) {
+        mobileProfileImg.src = profilePicUrl;
+        mobileProfileImg.alt = fullName;
+        mobileProfileImg.onerror = function () {
+          this.src = "./media/imgs/profile-icon.png";
+        };
+      }
+
+      // Update dropdown content
+      const dropdownAvatar = mobileAdminBadge.querySelector(
+        ".mobile-dropdown-avatar"
+      );
+      if (dropdownAvatar) {
+        dropdownAvatar.src = profilePicUrl;
+        dropdownAvatar.alt = fullName;
+        dropdownAvatar.onerror = function () {
+          this.src = "./media/imgs/profile-icon.png";
+        };
+      }
+
+      const dropdownName = mobileAdminBadge.querySelector(
+        ".mobile-dropdown-name"
+      );
+      if (dropdownName) {
+        dropdownName.textContent = fullName;
+      }
+
+      const dropdownRole = mobileAdminBadge.querySelector(
+        ".mobile-dropdown-role"
+      );
+      if (dropdownRole) {
+        dropdownRole.textContent = role;
+      }
+
+      const dropdownEmail = mobileAdminBadge.querySelector(
+        ".mobile-dropdown-email span"
+      );
+      if (dropdownEmail) {
+        dropdownEmail.textContent = email;
+      }
+
+      // Setup dropdown toggle
+      const badgeButton = mobileAdminBadge.querySelector(
+        ".mobile-admin-badge-button"
+      );
+      const dropdown = mobileAdminBadge.querySelector(".mobile-admin-dropdown");
+
+      if (badgeButton && dropdown) {
+        // Remove existing listeners by cloning
+        const newBadgeButton = badgeButton.cloneNode(true);
+        badgeButton.parentNode.replaceChild(newBadgeButton, badgeButton);
+
+        newBadgeButton.addEventListener("click", (e) => {
+          e.stopPropagation();
+          dropdown.classList.toggle("show");
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", () => {
+          dropdown.classList.remove("show");
+        });
+
+        // Prevent dropdown from closing when clicking inside it
+        dropdown.addEventListener("click", (e) => {
+          e.stopPropagation();
+        });
+
+        // Setup logout button
+        const logoutButton = mobileAdminBadge.querySelector(
+          ".mobile-dropdown-logout"
+        );
+        if (logoutButton) {
+          const newLogoutButton = logoutButton.cloneNode(true);
+          logoutButton.parentNode.replaceChild(newLogoutButton, logoutButton);
+
+          newLogoutButton.addEventListener("click", () => {
+            if (confirm("Are you sure you want to logout?")) {
+              Utilis.logout();
+            }
+          });
         }
       }
     },
@@ -936,16 +1026,16 @@ const Events = {
       // Apply role-based UI restrictions
       self.applyRoleBasedUI();
 
-      // Setup logout button
-      const logoutButton = document.querySelector(".js-logout-button");
-      if (logoutButton) {
+      // Setup logout buttons (desktop and mobile)
+      const logoutButtons = document.querySelectorAll(".js-logout-button");
+      logoutButtons.forEach((logoutButton) => {
         logoutButton.addEventListener("click", (e) => {
           e.preventDefault();
           if (confirm("Are you sure you want to logout?")) {
             Utilis.logout();
           }
         });
-      }
+      });
     });
   },
 

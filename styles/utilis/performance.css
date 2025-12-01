@@ -1,0 +1,102 @@
+/**
+ * Performance Optimization CSS
+ * Contains optimizations for faster rendering and better Core Web Vitals
+ */
+
+/* ==================== CONTENT VISIBILITY ==================== */
+/* Defer rendering of off-screen content */
+.defer-render {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
+/* ==================== IMAGE OPTIMIZATION ==================== */
+/* Prevent layout shifts with aspect ratio */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Lazy loaded images fade in */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+img[loading="lazy"].loaded,
+img[loading="lazy"][src]:not([src=""]) {
+  opacity: 1;
+}
+
+/* ==================== FONT DISPLAY ==================== */
+/* Ensure text remains visible during font loading */
+@font-face {
+  font-display: swap;
+}
+
+/* ==================== REDUCE MOTION ==================== */
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==================== WILL-CHANGE OPTIMIZATION ==================== */
+/* Only apply will-change on hover/focus to avoid memory overhead */
+.card:hover,
+.primary-button:hover,
+.secondary-button:hover {
+  will-change: transform, box-shadow;
+}
+
+/* Reset after interaction */
+.card,
+.primary-button,
+.secondary-button {
+  will-change: auto;
+}
+
+/* ==================== GPU ACCELERATION ==================== */
+/* Force GPU acceleration for smooth animations */
+.loading-screen,
+.loading-spinner,
+.mobile-sidebar,
+.admin-dropdown {
+  /* transform: translateZ(0); */
+  backface-visibility: hidden;
+}
+
+/* ==================== SCROLLING OPTIMIZATION ==================== */
+/* Smooth scrolling with performance consideration */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Optimize scroll containers */
+.page-main-data,
+.table-container,
+[style*="overflow"] {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* ==================== PAINT CONTAINMENT ==================== */
+/* Isolate paint for complex components */
+/* Note: Avoid using contain on flex containers like navbar as it can cause layout issues */
+/* .card,
+.page-header,
+.admin-dropdown {
+  contain: layout style paint;
+} */

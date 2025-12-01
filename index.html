@@ -4,7 +4,70 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
-    <!-- <link href="../../styles/pages/menu/index.css" rel="stylesheet" />  -->
+
+    <!-- PRECONNECT TO EXTERNAL ORIGINS -->
+    <link rel="dns-prefetch" href="https://yourself-demo.runasp.net" />
+    <link
+      rel="preconnect"
+      href="https://yourself-demo.runasp.net"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+
+    <!-- CRITICAL CSS - Inline for faster FCP -->
+    <style>
+      /* *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; } */
+      html,
+      body {
+        height: 100%;
+        font-family: "Rubik", -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #305d62 0%, #ffffff 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        transition: opacity 0.3s ease-out;
+      }
+      .loading-screen.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .loading-spinner {
+        width: 60px;
+        height: 60px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .loading-content {
+        text-align: center;
+        color: white;
+      }
+      .loading-title {
+        font-size: 24px;
+        font-weight: 600;
+        margin: 20px 0 10px;
+      }
+      .loading-message {
+        font-size: 16px;
+        opacity: 0.9;
+      }
+    </style>
 
     <!-- STYLES -->
     <link href="./styles/utilis/loading.css" rel="stylesheet" />
@@ -13,23 +76,33 @@
     <link href="./styles/utilis/server-status.css" rel="stylesheet" />
     <link href="./styles/main.css" rel="stylesheet" />
     <link href="./styles/index.css" rel="stylesheet" />
+    <link href="./styles/utilis/performance.css" rel="stylesheet" />
 
-    <!-- FONT: Rubik (supports both English & Arabic) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- FONT: Rubik - optimized weights only -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- ICONS: Bootstrap Icons 1.13.1 -->
+    <!-- ICONS: Bootstrap Icons - deferred loading -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      />
+    </noscript>
 
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Chart.js - defer loading -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"
+    ></script>
   </head>
   <body>
     <!-- Loading Screen -->
@@ -58,15 +131,47 @@
         </div>
       </div>
       <div class="mobile-header-right">
-        <!-- <button class="mobile-notification-btn" aria-label="Notifications">
-          <i class="bi bi-bell"></i>
-          <span class="mobile-notification-badge"></span>
-        </button> -->
-        <img
-          src="./media/imgs/profile-icon.png"
-          class="mobile-profile-img"
-          alt="Profile"
-        />
+        <div class="mobile-admin-badge">
+          <button class="mobile-admin-badge-button" type="button">
+            <img
+              src="./media/imgs/profile-icon.png"
+              class="mobile-profile-img"
+              alt="Profile"
+            />
+          </button>
+          <div class="mobile-admin-dropdown">
+            <div class="admin-dropdown-header">
+              <img
+                src="./media/imgs/profile-icon.png"
+                alt="Profile"
+                class="admin-dropdown-avatar mobile-dropdown-avatar"
+              />
+              <div class="admin-dropdown-info">
+                <div class="admin-dropdown-name mobile-dropdown-name">
+                  Loading...
+                </div>
+                <div class="admin-dropdown-role mobile-dropdown-role">-</div>
+              </div>
+            </div>
+            <div class="admin-dropdown-divider"></div>
+            <div class="admin-dropdown-email mobile-dropdown-email">
+              <i class="bi bi-envelope"></i>
+              <span>-</span>
+            </div>
+            <div class="admin-dropdown-divider"></div>
+            <a href="settings.html" class="admin-dropdown-item">
+              <i class="bi bi-gear"></i>
+              <span>Settings</span>
+            </a>
+            <button
+              class="admin-dropdown-item admin-dropdown-logout mobile-dropdown-logout"
+              type="button"
+            >
+              <i class="bi bi-box-arrow-right"></i>
+              <span>Logout</span>
+            </button>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -76,110 +181,87 @@
       <div class="mobile-sidebar-header">
         <h3>Menu</h3>
         <button class="mobile-sidebar-close" aria-label="Close menu">
-          <i class="bi bi-x"></i>
+          <i class="bi bi-box-arrow-left"></i>
         </button>
       </div>
       <div class="mobile-sidebar-content">
-        <!-- Main Navigation -->
-        <div class="mobile-nav-section">
-          <ul class="mobile-nav-links">
-            <li>
-              <a href="index.html">
+        <div class="mobile-nav-links">
+          <ul>
+            <a href="index.html">
+              <li class="active">
                 <i class="bi bi-house"></i>
                 <span>Dashboard</span>
-              </a>
-            </li>
-            <li>
-              <button class="mobile-dropdown-toggle">
-                <div class="mobile-dropdown-toggle-left">
-                  <i class="bi bi-pencil-square"></i>
-                  <span>Manage</span>
-                </div>
-                <i class="bi bi-chevron-down mobile-dropdown-icon"></i>
-              </button>
+              </li>
+            </a>
+            <div class="mobile-dropdown">
+              <li class="mobile-dropdown-toggle">
+                <i class="bi bi-pencil-square"></i>
+                <span>
+                  Manage
+                  <i class="bi bi-caret-down mobile-dropdown-icon"></i>
+                </span>
+              </li>
               <ul class="mobile-dropdown-menu">
-                <li>
-                  <a href="products.html">
+                <a href="products.html">
+                  <li>
                     <i class="bi bi-bag"></i>
                     <span>Manage Products</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="schools.html">
+                  </li>
+                </a>
+                <a href="schools.html">
+                  <li>
                     <i class="bi bi-buildings"></i>
                     <span>Manage Schools</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="students.html">
+                  </li>
+                </a>
+                <a href="students.html">
+                  <li>
                     <i class="bi bi-person"></i>
                     <span>Manage Students</span>
-                  </a>
-                </li>
+                  </li>
+                </a>
               </ul>
-            </li>
+            </div>
           </ul>
         </div>
-
-        <div class="mobile-nav-divider"></div>
-
-        <!-- App Section -->
-        <div class="mobile-nav-section">
-          <div class="mobile-nav-section-title">App</div>
-          <ul class="mobile-nav-links">
-            <li>
-              <a href="portfolio.html">
+        <hr />
+        <div class="mobile-nav-links">
+          <ul>
+            <a href="portfolio.html">
+              <li>
                 <i class="bi bi-card-heading"></i>
                 <span>Portfolio</span>
-              </a>
-            </li>
-            <li>
-              <a href="design.html">
+              </li>
+            </a>
+            <a href="design.html">
+              <li>
                 <i class="bi bi-vector-pen"></i>
                 <span>Design</span>
-              </a>
-            </li>
+              </li>
+            </a>
           </ul>
         </div>
-
-        <div class="mobile-nav-divider"></div>
-
-        <!-- Other Section -->
-        <div class="mobile-nav-section">
-          <div class="mobile-nav-section-title">Other</div>
-          <ul class="mobile-nav-links">
-            <li>
-              <a href="settings.html">
+        <hr />
+        <div class="mobile-nav-links">
+          <ul>
+            <a href="settings.html">
+              <li>
                 <i class="bi bi-gear"></i>
                 <span>Settings</span>
-              </a>
-            </li>
-            <!-- <li>
-              <a href="account.html">
+              </li>
+            </a>
+            <!-- <a href="account.html">
+              <li>
                 <i class="bi bi-person-gear"></i>
                 <span>Account</span>
-              </a>
-            </li>
-            <li>
-              <a href="help.html">
+              </li>
+            </a>
+            <a href="help.html">
+              <li>
                 <i class="bi bi-info-circle"></i>
                 <span>Help</span>
-              </a>
-            </li> -->
-          </ul>
-        </div>
-
-        <div class="mobile-nav-divider"></div>
-
-        <!-- Logout -->
-        <div class="mobile-nav-section">
-          <ul class="mobile-nav-links">
-            <li>
-              <a href="#" class="js-logout-button">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Logout</span>
-              </a>
-            </li>
+              </li>
+            </a> -->
           </ul>
         </div>
       </div>
@@ -464,7 +546,6 @@
 
     <script type="module" src="./scripts/auth.js"></script>
     <script type="module" src="./scripts/index.js"></script>
-    <script src="./scripts/utilis/mobile-nav.js"></script>
     <script src="./scripts/utilis/navbar.js"></script>
   </body>
 </html>

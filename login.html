@@ -3,30 +3,127 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#305d62" />
+    <meta
+      name="description"
+      content="Yourself Dashboard - Login to manage your school uniforms platform"
+    />
     <title>Login - Yourself Dashboard</title>
 
     <!-- FAVICON -->
     <link rel="icon" type="image/x-icon" href="./media/imgs/logo-short.png" />
 
-    <!-- FONT: Rubik (supports both English & Arabic) -->
+    <!-- DNS PREFETCH & PRECONNECT -->
+    <link rel="dns-prefetch" href="https://yourself-demo.runasp.net" />
+    <link
+      rel="preconnect"
+      href="https://yourself-demo.runasp.net"
+      crossorigin
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+
+    <!-- PRELOAD CRITICAL RESOURCES -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
+      rel="preload"
+      href="./media/imgs/background.webp"
+      as="image"
+      type="image/webp"
+    />
+    <link rel="preload" href="./media/imgs/logo.png" as="image" />
+
+    <!-- FONT: Rubik - optimized weights with display swap -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- BOOTSTRAP ICONS -->
+    <!-- BOOTSTRAP ICONS - deferred loading -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      />
+    </noscript>
 
-    <!-- STYLES -->
+    <!-- CRITICAL CSS - Inline for faster FCP -->
+    <style>
+      /* Critical CSS for immediate render */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+        font-family: "Rubik", -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #305d62; /* Fallback color while image loads */
+      }
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #305d62 0%, #ffffff 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        transition: opacity 0.3s ease-out;
+      }
+      .loading-screen.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      /* Hide content until CSS loads to prevent FOUC */
+      .login-container {
+        opacity: 0;
+      }
+    </style>
+
+    <!-- STYLES - Non-critical CSS -->
     <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="./styles/login.css" />
     <link rel="stylesheet" href="./styles/utilis/toast.css" />
     <link rel="stylesheet" href="./styles/utilis/loading.css" />
+    <link rel="stylesheet" href="./styles/utilis/performance.css" />
+
+    <!-- Reveal content after CSS loads -->
+    <style>
+      .login-container {
+        opacity: 1;
+        transition: opacity 0.2s;
+      }
+    </style>
   </head>
   <body>
     <!-- Loading Screen -->
@@ -38,7 +135,14 @@
     <div class="login-container">
       <div class="login-card">
         <div class="logo-container">
-          <img src="./media/imgs/logo.png" alt="Yourself Logo" class="logo" />
+          <img
+            src="./media/imgs/logo.png"
+            alt="Yourself Logo"
+            class="logo"
+            width="180"
+            height="auto"
+            fetchpriority="high"
+          />
         </div>
 
         <form class="login-form js-login-form">
