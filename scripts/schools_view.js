@@ -166,7 +166,7 @@ const SchoolViewUI = {
       const editButton = document.querySelector(".js-edit-school");
 
       editButton.addEventListener("click", () => {
-        window.location.href = `/schools_edit.html?id=${schoolId}`;
+        window.location.href = `./schools_edit.html?id=${schoolId}`;
       });
     },
   },

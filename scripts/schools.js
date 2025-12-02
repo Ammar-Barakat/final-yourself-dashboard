@@ -79,10 +79,10 @@ const SchoolUI = {
           <td>${school.totalPacks ?? 0}</td>
           <td><span>${school.status}</span></td>
           <td>
-            <a href="/schools_view.html?id=${
+            <a href="./schools_view.html?id=${
               school.id
             }" class="icon-button js-view-button" style="color: gray"><i class="bi bi-eye"></i></a>
-            <a href="/schools_edit.html?id=${
+            <a href="./schools_edit.html?id=${
               school.id
             }" class="icon-button js-edit-button" style="color: var(--primary-color)"><i class="bi bi-pencil"></i></a>
             <a class="icon-button js-delete-button" style="color: #dd0000ff" data-id="${

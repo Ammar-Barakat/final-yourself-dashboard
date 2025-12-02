@@ -1545,6 +1545,12 @@ const SchoolEditUI = {
         }
       });
     },
+
+    setupBackButton(button) {
+      button.addEventListener("click", () => {
+        window.location.href = "../schools.html";
+      });
+    },
   },
 };
 
@@ -1615,6 +1621,9 @@ async function main() {
 
   const saveChangesButton = document.querySelector(".js-save-changes-button");
   SchoolEditUI.Events.setupSaveChangesButton(saveChangesButton);
+
+  const backButton = document.querySelector(".js-cancel-button");
+  SchoolEditUI.Events.setupBackButton(backButton);
 }
 
 await main();
