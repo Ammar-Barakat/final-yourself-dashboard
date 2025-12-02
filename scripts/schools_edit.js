@@ -1548,7 +1548,7 @@ const SchoolEditUI = {
 
     setupBackButton(button) {
       button.addEventListener("click", () => {
-        window.location.href = "../schools.html";
+        window.location.href = "schools.html";
       });
     },
   },
