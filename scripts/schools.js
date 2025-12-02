@@ -97,7 +97,7 @@ const SchoolUI = {
   setupAddButton() {
     const addButton = document.querySelector(".js-add-button");
     addButton.addEventListener("click", () => {
-      window.location.href = "/schools_add.html";
+      window.location.href = "/schoolsAdd.html";
     });
   },
 
